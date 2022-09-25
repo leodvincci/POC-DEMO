@@ -1,0 +1,42 @@
+server:
+  error:
+    include-message: always
+    include-binding-errors: always
+
+spring:
+  datasource:
+    password: grouptwo
+    url: jdbc:postgresql://poc-demo-db-2.cwsxhucdbiki.us-east-1.rds.amazonaws.com:5432/postgres
+    username: postgres
+    driver-class-name: org.postgresql.Driver
+
+  h2:
+    console.enabled: true
+
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        format_sql: true
+    show-sql: true
+
+#  mail:
+#    host: localhost
+#    port: 1025
+#    username: hello
+#    password: hello
+#
+#    properties:
+#      mail:
+#        smtp:
+#          ssl:
+#            trust: "*"
+#          auth: true
+#          starttls:
+#            enable: true
+#          connectiontimeout: 5000
+#          timeout: 3000
+#          writetimeout: 5000
+
