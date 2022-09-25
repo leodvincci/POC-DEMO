@@ -33,6 +33,20 @@ public class AppUserService implements UserDetailsService {
                                 String.format(USER_NOT_FOUND_MSG, email)));
     }
 
+
+    public String generateNewPassword(String newPassword){
+        String encodedPassword = bCryptPasswordEncoder
+                .encode(newPassword);
+
+        System.out.println("New Generated Password : " + newPassword);
+        System.out.println("Generated Password Crypted : " + encodedPassword);
+        return encodedPassword;
+    }
+
+    public void saveTheUser(AppUser appUser){
+        appUserRepository.save(appUser);
+    }
+
     public String signUpUser(AppUser appUser) {
         boolean userExists = appUserRepository
                 .findByEmail(appUser.getEmail())
@@ -47,6 +61,7 @@ public class AppUserService implements UserDetailsService {
 
         String encodedPassword = bCryptPasswordEncoder
                 .encode(appUser.getPassword());
+
 
         appUser.setPassword(encodedPassword);
 
