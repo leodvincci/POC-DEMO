@@ -2,6 +2,7 @@ package com.csc363.group2.poc_demo.Controllers;
 
 import com.csc363.group2.poc_demo.Services.UserService;
 import com.csc363.group2.poc_demo.appuser.AppUser;
+import com.csc363.group2.poc_demo.appuser.AppUserModelBody;
 import com.csc363.group2.poc_demo.appuser.AppUserService;
 import com.csc363.group2.poc_demo.security.UpdatePasswordBody;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -45,5 +46,11 @@ public class UserController {
 
     }
 
+
+    @PostMapping("api/v1/updateuserinfo")
+    @ResponseBody
+    public void updateUserInfo(@RequestBody AppUserModelBody appUserModelBody){
+        userService.updateUser(appUserModelBody.getFirstName(),appUserModelBody.getLastName(),appUserModelBody.getEmail(),appUserModelBody.getPassword(),appUserModelBody.getRole());
+    }
 
 }

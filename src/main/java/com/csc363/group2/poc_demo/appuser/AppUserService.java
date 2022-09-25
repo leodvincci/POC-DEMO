@@ -11,6 +11,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
+import java.util.Optional;
 import java.util.UUID;
 
 @Service
@@ -46,6 +47,7 @@ public class AppUserService implements UserDetailsService {
     public void saveTheUser(AppUser appUser){
         appUserRepository.save(appUser);
     }
+
 
     public String signUpUser(AppUser appUser) {
         boolean userExists = appUserRepository
