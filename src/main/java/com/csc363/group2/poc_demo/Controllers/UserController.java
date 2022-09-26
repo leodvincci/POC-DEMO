@@ -6,14 +6,22 @@ import com.csc363.group2.poc_demo.appuser.AppUserModelBody;
 import com.csc363.group2.poc_demo.appuser.AppUserService;
 import com.csc363.group2.poc_demo.security.UpdatePasswordBody;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.servlet.config.annotation.CorsRegistry;
+import org.springframework.web.servlet.config.annotation.EnableWebMvc;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 import java.util.List;
 
 @CrossOrigin(origins = "*")
 @RestController
 public class UserController {
+
+
+
 
     @Autowired
     public UserService userService;
@@ -22,8 +30,7 @@ public class UserController {
     public AppUserService appUserService;
 
 
-
-@CrossOrigin(origins ="*")
+    @CrossOrigin(origins = "*")
     @GetMapping("/allusers")
     public List<AppUser> getAllUsers(){
         return userService.getListofUsers();

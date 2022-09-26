@@ -19,13 +19,27 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     private final AppUserService appUserService;
     private final BCryptPasswordEncoder bCryptPasswordEncoder;
 
+    private static final String[] WHITE_LIST_URLS = {
+            "/register",
+            "/login",
+            "/api/v*/registration/**",
+            "/api/v*/resetpassword/**",
+            "/api/v*/updateuserinfo/**",
+            "/allusers"
+
+    };
+
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http
+                .cors().and()
                 .csrf().disable()
                 .authorizeRequests()
-                    .antMatchers("/api/v*/registration/**","/api/v*/resetpassword/**","/api/v*/updateuserinfo/**")
-                    .permitAll()
+                .antMatchers(WHITE_LIST_URLS).permitAll()
+
+//                    .antMatchers("/login*").permitAll()
+//                    .antMatchers("/api/v*/registration/**","/api/v*/resetpassword/**","/api/v*/updateuserinfo/**")
+//                    .permitAll()
                 .anyRequest()
                 .authenticated().and()
                 .formLogin();
