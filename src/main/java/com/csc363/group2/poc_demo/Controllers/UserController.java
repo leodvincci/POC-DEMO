@@ -17,8 +17,6 @@ public class UserController {
     public AppUserService appUserService;
 
 
-
-
     @CrossOrigin(origins ="*")
     @GetMapping("/allusers")
     public List<AppUser> getAllUsers(){
@@ -31,7 +29,9 @@ public class UserController {
     public void deleteAllUsers(@RequestParam Long id){
         userService.deleteUser(id);
     }
-    @PostMapping("api/v1/resetpassword")
+
+    @CrossOrigin(origins ="*")
+    @PostMapping(value = "api/v1/resetpassword")
     @ResponseBody
     public void resetUserPassword(@RequestBody UpdatePasswordBody updatePasswordBody){
         System.out.println("Password has been reset for " + updatePasswordBody.getEmail());
