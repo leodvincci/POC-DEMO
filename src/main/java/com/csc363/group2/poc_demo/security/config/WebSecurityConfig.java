@@ -25,7 +25,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
             "/api/v*/registration/**",
             "/api/v*/resetpassword/**",
             "/api/v*/updateuserinfo/**",
-            "/allusers"
+            "/allusers",
+            "/removeuser/**"
 
     };
 
