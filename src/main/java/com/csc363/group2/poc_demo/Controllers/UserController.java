@@ -24,7 +24,9 @@ public class UserController {
     public List<AppUser> getAllUsers(){
         return userService.getListofUsers();
     }
-    @GetMapping("/removeuser")
+
+    @CrossOrigin(origins ="*")
+    @DeleteMapping("/removeuser")
     @ResponseBody
     public void deleteAllUsers(@RequestParam Long id){
         userService.deleteUser(id);
