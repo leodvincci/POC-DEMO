@@ -23,8 +23,7 @@ public class UserController {
 
 
 
-
-
+@CrossOrigin(origins ="*")
     @GetMapping("/allusers")
     public List<AppUser> getAllUsers(){
         return userService.getListofUsers();
