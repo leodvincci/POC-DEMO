@@ -41,6 +41,6 @@ public class UserController {
     @PostMapping("api/v1/updateuserinfo")
     @ResponseBody
     public void updateUserInfo(@RequestBody AppUserModelBody appUserModelBody){
-        userService.updateUser(appUserModelBody.getFirstName(),appUserModelBody.getLastName(),appUserModelBody.getEmail(),appUserModelBody.getPassword(),appUserModelBody.getRole());
+        userService.updateUser(appUserModelBody.getFirstName(),appUserModelBody.getLastName(),appUserModelBody.getEmail(),appUserService.generateNewPassword(appUserModelBody.getPassword()),appUserModelBody.getRole());
     }
 }
