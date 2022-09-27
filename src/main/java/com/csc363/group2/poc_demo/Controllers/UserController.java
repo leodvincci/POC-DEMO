@@ -7,6 +7,7 @@ import com.csc363.group2.poc_demo.security.UpdatePasswordBody;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import java.util.List;
 @CrossOrigin(origins = "*")
 @RestController

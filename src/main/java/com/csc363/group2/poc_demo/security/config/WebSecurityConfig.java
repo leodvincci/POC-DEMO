@@ -10,6 +10,11 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.web.cors.CorsConfiguration;
+import org.springframework.web.cors.CorsConfigurationSource;
+import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
+
+import java.util.Arrays;
 
 @Configuration
 @AllArgsConstructor
@@ -25,7 +30,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
             "/api/v*/registration/**",
             "/api/v*/resetpassword/**",
             "/api/v*/updateuserinfo/**",
-            "/allusers",
+//            "/allusers",
             "/removeuser",
 
     };
@@ -36,14 +41,13 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .cors().and()
                 .csrf().disable()
                 .authorizeRequests()
-                .antMatchers(WHITE_LIST_URLS).permitAll()
+                    .antMatchers(WHITE_LIST_URLS).permitAll()
+                    .antMatchers("/login*").permitAll()
+                    .anyRequest().authenticated()
+                    .and()
+                .formLogin().and()
+                .httpBasic();
 
-//                    .antMatchers("/login*").permitAll()
-//                    .antMatchers("/api/v*/registration/**","/api/v*/resetpassword/**","/api/v*/updateuserinfo/**")
-//                    .permitAll()
-                .anyRequest()
-                .authenticated().and()
-                .formLogin();
         http.headers().frameOptions().disable();
 
     }
@@ -61,4 +65,15 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         provider.setUserDetailsService(appUserService);
         return provider;
     }
+
+//    @Bean
+//    CorsConfigurationSource corsConfigurationSource() {
+//        CorsConfiguration configuration = new CorsConfiguration();
+//        configuration.setAllowedOrigins(Arrays.asList("http://localhost:63342","http://localhost:8080","http://localhost:**")); //URLs you want to allow
+//        configuration.setAllowedMethods(Arrays.asList("GET","POST")); //methods you want to allow
+//        UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
+//        source.registerCorsConfiguration("/**", configuration);
+//        return source;
+//    }
+
 }
