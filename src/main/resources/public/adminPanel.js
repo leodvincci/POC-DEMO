@@ -3,7 +3,7 @@ let theUserSection = document.querySelector("section");
 let theUserTable = document.getElementById("tableBody");
 
 
-    axios.get('http://localhost:8080/allusers').then((res) => {
+    axios.get('http://3.88.60.54:8080/allusers').then((res) => {
     for (let i = 0; i < res.data.length; i++) {
 
         const theId = document.createElement('h2');
