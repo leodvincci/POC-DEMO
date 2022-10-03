@@ -5,7 +5,7 @@ server:
 
 spring:
   datasource:
-    password: grouptwo
+    password: Penrose123
     url: jdbc:postgresql://poc-demo-db-2.cwsxhucdbiki.us-east-1.rds.amazonaws.com:5432/postgres
     username: postgres
     driver-class-name: org.postgresql.Driver
