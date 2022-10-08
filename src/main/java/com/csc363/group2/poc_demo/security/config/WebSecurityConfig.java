@@ -27,9 +27,11 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     private static final String[] WHITE_LIST_URLS = {
             "/register",
             "/login",
+            "/h2-console",
             "/api/v*/registration/**",
             "/api/v*/resetpassword/**",
             "/api/v*/updateuserinfo/**",
+            "/api/v*/**",
 //            "/allusers",
             "/removeuser",
 
@@ -43,10 +45,11 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .authorizeRequests()
                     .antMatchers(WHITE_LIST_URLS).permitAll()
                     .antMatchers("/login*").permitAll()
-                    .anyRequest().authenticated()
-                    .and()
-                .formLogin().and()
-                .httpBasic();
+//                    .anyRequest().authenticated()
+//                    .and()
+//                .formLogin().and()
+//                .httpBasic();
+        ;
 
         http.headers().frameOptions().disable();
 

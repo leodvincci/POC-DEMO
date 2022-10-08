@@ -5,22 +5,39 @@ server:
 
 spring:
   datasource:
-    password: Penrose123
-    url: jdbc:postgresql://poc-demo-db-2.cwsxhucdbiki.us-east-1.rds.amazonaws.com:5432/postgres
-    username: postgres
-    driver-class-name: org.postgresql.Driver
+#    password: Penrose123
+#    url: jdbc:postgresql://poc-demo-db-2.cwsxhucdbiki.us-east-1.rds.amazonaws.com:5432/postgres
+#    username: postgres
+#    driver-class-name: org.postgresql.Driver    password: Penrose123
+    url: jdbc:h2:mem:testdb
+    username: sa
+    driver-class-name: org.h2.Driver
+    password: password
+
 
   h2:
     console.enabled: true
+
 
   jpa:
     hibernate:
       ddl-auto: create-drop
     properties:
       hibernate:
-        dialect: org.hibernate.dialect.PostgreSQLDialect
+        dialect: org.hibernate.dialect.H2Dialect
         format_sql: true
     show-sql: true
+
+
+#
+#  jpa:
+#    hibernate:
+#      ddl-auto: create-drop
+#    properties:
+#      hibernate:
+#        dialect: org.hibernate.dialect.PostgreSQLDialect
+#        format_sql: true
+#    show-sql: true
 
 #  mail:
 #    host: localhost
