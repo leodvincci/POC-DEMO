@@ -24,7 +24,7 @@ public class ClassController {
 
     }
 
-
+    @CrossOrigin(origins ="*")
     @PostMapping("api/v1/addClass")
     @ResponseBody
     public void addNewClass(@RequestBody ClassModelBody classModelBody){

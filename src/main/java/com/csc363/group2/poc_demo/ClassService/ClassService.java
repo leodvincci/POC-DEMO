@@ -20,6 +20,7 @@ public class ClassService {
         return classList;
     }
 
+
     public void addClass(String className, String classDes, String department, int classNumber, double cumGPA, double cumDif,int likes, int dislikes){
 
         ClassEntity classEntity = new ClassEntity();

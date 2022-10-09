@@ -24,6 +24,7 @@ public class ClassEntity {
     )
     Long id;
     String className;
+    @Column(length=1000)
     String classDescription;
     String department;
     int classNumber;
