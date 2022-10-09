@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Add a Class</title>
+    <meta charset="utf-8">
+    <link href="style.css" rel="stylesheet" type="text/css" />
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Comfortaa&family=Montserrat&display=swap');
+    </style>
+</head>
+<body>
+<container class = "titleRow">
+    <h1 class = "title">Add a Class!</h1>
+</container>
+<nav class="nav bar">
+    <li class="nav-links">
+        <a href="UserPanel.html">Home</a>
+    </li>
+    <li class="nav-links">
+        <a href="SearchAClass.html">Search a Class</a>
+    </li>
+    <li class="nav-links">
+        <a href="AddClass.html">Add a Class</a>
+    </li>
+    <li class="nav-links">
+        <a href="AddReview.html">Add a Review</a>
+    </li>
+    <li class="nav-links">
+        <a href="ViewAllClasses.html">View All Classes @ DePaul</a>
+    </li>
+</nav>
+<main class="main-section">
+    <h2>Enter Class Details</h2>
+    <form id="addAClassForm">
+        <p><label for="txtClassDepartment">Class Department (i.e. CSC, DSC, SE...): </label>
+            <input type="text" id="txtClassDepartment">
+        </p>
+        <p><label for="txtClassNumber">Class Number (i.e. 101, 102, 394...): </label>
+            <input type="text" id="txtClassDepartment">
+        </p>
+
+        <p> <button type="button" id="btnAddClass" onclick="addClassToDataBase();">Add Class!</button> </p>
+
+    </form>
+    <div id="results" class="results-output"></div><!-- end of results div  -->
+</main>
+<script>
+    function addClassToDataBase(){
+        var classDepartmentInput = document.getElementById('txtClassDepartment');
+        var classNumberInput = parseInt(document.getElementById('txtClassNumber'));
+        var fullClassName = classDepartmentInput + " " + classNumberInput;
+
+        /*
+        if(classInDatabase API?){
+            alert("This class is already in the database");
+        }
+        else{
+            addClass API
+            alert("Class has been added");
+        }*/
+    }
+</script>
+</body>
+</html>
