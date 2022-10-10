@@ -3,112 +3,123 @@
 <head>
     <title>Add a Review</title>
     <meta charset="utf-8">
-    <link href="style.css" rel="stylesheet" type="text/css" />
-  <style>  
-    @import url('https://fonts.googleapis.com/css2?family=Comfortaa&family=Montserrat&display=swap');
-  </style>
+    <link href="style.css" rel="stylesheet" type="text/css"/>
+    <style>
+            @import url('https://fonts.googleapis.com/css2?family=Comfortaa&family=Montserrat&display=swap');
+
+            input[type=text], select {
+              width: 100%;
+              padding: 12px 20px;
+              margin: 8px 0;
+              display: inline-block;
+              border: 1px solid #ccc;
+              border-radius: 4px;
+              box-sizing: border-box;
+            }
+
+            input[type=submit] {
+              width: 100%;
+              background-color: #8f50aa;
+              color: white;
+              padding: 14px 20px;
+              margin: 8px 0;
+              border: none;
+              border-radius: 4px;
+              cursor: pointer;
+              font-family: 'Comfortaa', cursive;
+            }
+
+            input[type=submit]:hover {
+              color: #e9b526;
+
+            }
+
+            div {
+              border-radius: 5px;
+              background-color: #f2f2f2;
+              padding: 20px;
+            }
+
+        /* #hello:active{
+            border-color: blue;
+        } */
+
+
+
+        </style>
 </head>
 <body>
-    <container class = "titleRow">
-        <h1 class = "title">Add a Review!</h1>
-       </container>
-    <nav class="nav bar">
-		<li class="nav-links">   
-			<a href="UserPanel.html">Home</a>
-		</li>
+<container class="titleRow">
+    <h1 class="title">Add a Review!</h1>
+</container>
+<nav class="nav bar">
     <li class="nav-links">
-      <a href="SearchAClass.html">Search a Class</a>
+        <a href="UserPanel.html">Home</a>
     </li>
     <li class="nav-links">
-      <a href="AddClass.html">Add a Class</a> 
+        <a href="SearchAClass.html">Search a Class</a>
     </li>
     <li class="nav-links">
-      <a href="AddReview.html">Add a Review</a>
+        <a href="AddClass.html">Add a Class</a>
+    </li>
+    <li class="nav-links">
+        <a href="AddReview.html">Add a Review</a>
     </li>
     <li class="nav-links">
         <a href="ViewAllClasses.html">View All Classes @ DePaul</a>
     </li>
-	</nav>
-    <main class="main-section">
-        <h2>Make me a Sandwich</h2>
-        <form id="orderSandwichForm">
-            <p> <label for="selSandwichType">Select your sandwich:</label>
-                <select id="selSandwichType">
-                    <option value="vegetarian">Vegetarian ($7)</option>
-                    <option value="roast beef">Roast Beef ($8)</option>
-                    <option value="shrimp">Shrimp ($9)</option>
-                </select> 
-            </p>
+</nav>
+<main class="main-section">
+    <h2>Enter Class Details</h2>
+    <div id="myForm">
+        <form id="formElem">
+            <div class="mb-3">
+                <label for="email" class="form-label">Email </label>
+                <input type="text" name="email" class="form-control" id="email">
+            </div>
+            <div class="mb-3">
+                <label for="course" class="form-label">Course (ex. CSC 301)</label>
+                <input type="text" name="course" class="form-control" id="course" aria-describedby="course">
+            </div>
+            <div class="mb-3">
+                <label for="gpa" class="form-label">GPA</label>
+                <input type="text" name="gpa" class="form-control" id="gpa" aria-describedby="gpa">
+            </div>
+            <div class="mb-3">
+                <label for="difficultyRating" class="form-label">Difficulty Rating (1: too easy --> 10: extremely hard)</label>
+                <input type="text" name="difficultyRating" class="form-control" id="difficultyRating" aria-describedby="difficultyRating">
+            </div>
+            <div class="mb-3">
+                <p>Did you like or dislike this course?
+                    <br>
+                    <br>
+<!--                    <label for="like" id="like" class="form-label">-->
+<!--                        <input type="radio" name="likeordislike" value="like">-->
+<!--                        <img style="height:3%; width:3%" src="https://emojipedia-us.s3.amazonaws.com/source/microsoft-teams/337/smiling-face-with-smiling-eyes_1f60a.png" alt="Option 1">-->
+<!--                    </label>-->
+<!--                    <label for="dislike" id="dislike" class="form-label">-->
+<!--                        <input type="radio" name="likeordislike" value="dislike">-->
+<!--                        <img style="height:3%; width:3%" src="https://emojipedia-us.s3.amazonaws.com/source/microsoft-teams/337/pensive-face_1f614.png" alt="Option 2">-->
+<!--                    </label>-->
+                    <a onclick="updateLikes()">
+                        <img id="hello" style="height:3%; width:3%" src="https://emojipedia-us.s3.amazonaws.com/source/microsoft-teams/337/smiling-face-with-smiling-eyes_1f60a.png" alt="Option 1">
+                    </a> 
+                    <a onclick="updateDislikes()">
+                        <img style="height:3%; width:3%" src="https://emojipedia-us.s3.amazonaws.com/source/microsoft-teams/337/pensive-face_1f614.png" alt="Option 2">
+                    </a>
 
-            <h3>Options:</h3> 
-
-            <p> <label for="chkAddAvocado">Avocado (Add $1.00)</label>
-                <input type="checkbox" id="chkAddAvocado"> <!-- checked="checked" ???-->
-            </p>
-
-            <p> <label for="chkAddArtisanalBun">Fancy Shmancy Artisanal Bun (Add $1.25)</label>
-                <input type="checkbox" id="chkAddArtisanalBun"> <!-- checked="checked" ???-->
-            </p>
-
-            <h3>Discount for DePaul Community</h3> 
-
-            <p> <label for="radStudent">Student (20% off)</label>
-                <input type="radio" name="discountPossibility" id="radStudent">
-            </p>
-
-            <p> <label for="radStaff">Staff (10% off)</label>
-                <input type="radio" name="discountPossibility" id="radStaff">
-            </p>
-
-            <p> <label for="radFaculty">Faculty (10% off)</label>
-                <input type="radio" name="discountPossibility" id="radFaculty">
-            </p>
-
-            <p> <button type="button" id="btnOrderSandwich" onclick="orderSandwich();">Order my Sandwich</button> </p>
-
+                </p>
+            </div>
+            <div class="mb-3">
+                <label for="classDescription" class="form-label">Please Describe Your Experience: </label>
+                <input type="text" name="classDescription" class="form-control" id="classDescription">
+            </div>
+            <input type="submit" value="Submit">
         </form>
-        <div id="results" class="results-output"></div><!-- end of results div  -->
-    </main>
-<script>
-    function orderSandwich(){ 
-        var cost;
+    </div>
+</main>
 
-        var sandwichType = document.getElementById("selSandwichType").value;
-        if (sandwichType == "vegetarian"){
-            cost = 7;
-        }
-        else if (sandwichType == "roast beef"){
-            cost = 8;
-        }
-        else if (sandwichType == "shrimp"){
-            cost = 9;
-        }
+<script src="searchAClass.js"></script>
 
-        var chkAddAvocado = document.getElementById('chkAddAvocado').checked;
-        if (chkAddAvocado)
-        {
-            cost += 1;
-        }
-
-        var chkAddArtisanalBun = document.getElementById('chkAddArtisanalBun').checked;
-        if (chkAddArtisanalBun)
-        {
-            cost += 1.25;
-        }
-        
-        var student = document.getElementById('radStudent').checked;
-        var staff = document.getElementById('radStaff').checked;
-        var faculty = document.getElementById('radFaculty').checked;
-        if(student){
-            cost -= (cost*0.20);
-        }
-        else if(staff || faculty){
-            cost -= (cost*0.10);
-        }
-
-        var output = "You ordered a " + sandwichType + " sandwich. Your cost is: $" + cost.toFixed(2) + ".";
-        document.getElementById("results").innerHTML = output;
-    }
-</script>
 </body>
 </html>

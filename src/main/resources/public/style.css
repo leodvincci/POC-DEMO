@@ -1,8 +1,11 @@
 
 .html {
     background-color: #FCF5E2;
+          @import url('https://fonts.googleapis.com/css2?family=Comfortaa&family=Montserrat&display=swap');
   }
-  
+  html{
+  font-family: 'Comfortaa', cursive;
+  }
   nav{
   display:flex;
   justify-content: center;
