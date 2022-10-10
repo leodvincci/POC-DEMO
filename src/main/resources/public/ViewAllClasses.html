@@ -30,85 +30,18 @@
     </li>
 	</nav>
     <main class="main-section">
-        <h2>Make me a Sandwich</h2>
-        <form id="orderSandwichForm">
-            <p> <label for="selSandwichType">Select your sandwich:</label>
-                <select id="selSandwichType">
-                    <option value="vegetarian">Vegetarian ($7)</option>
-                    <option value="roast beef">Roast Beef ($8)</option>
-                    <option value="shrimp">Shrimp ($9)</option>
-                </select> 
-            </p>
+        <h2>All Classes</h2>   
+        <section id="getAllClasses">
 
-            <h3>Options:</h3> 
+        </section>
 
-            <p> <label for="chkAddAvocado">Avocado (Add $1.00)</label>
-                <input type="checkbox" id="chkAddAvocado"> <!-- checked="checked" ???-->
-            </p>
 
-            <p> <label for="chkAddArtisanalBun">Fancy Shmancy Artisanal Bun (Add $1.25)</label>
-                <input type="checkbox" id="chkAddArtisanalBun"> <!-- checked="checked" ???-->
-            </p>
 
-            <h3>Discount for DePaul Community</h3> 
+    
+         
+    </main> 
+    <script type= "module" src="ViewAllClasses.js"></script> 
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 
-            <p> <label for="radStudent">Student (20% off)</label>
-                <input type="radio" name="discountPossibility" id="radStudent">
-            </p>
-
-            <p> <label for="radStaff">Staff (10% off)</label>
-                <input type="radio" name="discountPossibility" id="radStaff">
-            </p>
-
-            <p> <label for="radFaculty">Faculty (10% off)</label>
-                <input type="radio" name="discountPossibility" id="radFaculty">
-            </p>
-
-            <p> <button type="button" id="btnOrderSandwich" onclick="orderSandwich();">Order my Sandwich</button> </p>
-
-        </form>
-        <div id="results" class="results-output"></div><!-- end of results div  -->
-    </main>
-<script>
-    function orderSandwich(){ 
-        var cost;
-
-        var sandwichType = document.getElementById("selSandwichType").value;
-        if (sandwichType == "vegetarian"){
-            cost = 7;
-        }
-        else if (sandwichType == "roast beef"){
-            cost = 8;
-        }
-        else if (sandwichType == "shrimp"){
-            cost = 9;
-        }
-
-        var chkAddAvocado = document.getElementById('chkAddAvocado').checked;
-        if (chkAddAvocado)
-        {
-            cost += 1;
-        }
-
-        var chkAddArtisanalBun = document.getElementById('chkAddArtisanalBun').checked;
-        if (chkAddArtisanalBun)
-        {
-            cost += 1.25;
-        }
-        
-        var student = document.getElementById('radStudent').checked;
-        var staff = document.getElementById('radStaff').checked;
-        var faculty = document.getElementById('radFaculty').checked;
-        if(student){
-            cost -= (cost*0.20);
-        }
-        else if(staff || faculty){
-            cost -= (cost*0.10);
-        }
-
-        var output = "You ordered a " + sandwichType + " sandwich. Your cost is: $" + cost.toFixed(2) + ".";
-        document.getElementById("results").innerHTML = output;
-    }
-</script>
 </body>
 </html>
