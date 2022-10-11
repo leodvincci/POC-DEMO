@@ -1,128 +1,94 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <title>Add a Class</title>
-        <meta charset="utf-8">
-        <link href="style.css" rel="stylesheet" type="text/css"/>
-        <style>
-            @import url('https://fonts.googleapis.com/css2?family=Comfortaa&family=Montserrat&display=swap');
+<head>
+    <title>Add a Class</title>
+    <meta charset="utf-8">
+    <link href="style.css" rel="stylesheet" type="text/css"/>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Comfortaa&family=Montserrat&display=swap');
 
-            input[type=text], select {
-              width: 100%;
-              padding: 12px 20px;
-              margin: 8px 0;
-              display: inline-block;
-              border: 1px solid #ccc;
-              border-radius: 4px;
-              box-sizing: border-box;
-            }
+        input[type=text], select {
+            width: 100%;
+            padding: 12px 20px;
+            margin: 8px 0;
+            display: inline-block;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
 
-            input[type=submit] {
-              width: 100%;
-              background-color: #8f50aa;
-              color: white;
-              padding: 14px 20px;
-              margin: 8px 0;
-              border: none;
-              border-radius: 4px;
-              cursor: pointer;
-              font-family: 'Comfortaa', cursive;
-            }
+        input[type=submit] {
+            width: 100%;
+            background-color: #8f50aa;
+            color: white;
+            padding: 14px 20px;
+            margin: 8px 0;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-family: 'Comfortaa', cursive;
+        }
 
-            input[type=submit]:hover {
-              color: #e9b526;
+        input[type=submit]:hover {
+            color: #e9b526;
 
-            }
+        }
 
-            div {
-              border-radius: 5px;
-              background-color: #f2f2f2;
-              padding: 20px;
-            }
-        </style>
-    </head>
-    <body>
-    <container class="titleRow">
-        <h1 class="title">Add a Class!</h1>
-    </container>
-    <nav class="nav bar">
+        div {
+            border-radius: 5px;
+            background-color: #f2f2f2;
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+<container class="titleRow">
+    <h1 class="title">Add a Class!</h1>
+</container>
+<nav class="nav bar">
+    <li class="nav-links">
+        <a href="index.html">Home</a>
+    </li>
+    <li class="nav-links">
+        <a href="SearchAClass.html">Search a Class</a>
+    </li>
+    <li class="nav-links">
+        <a href="AddClass.html">Add a Class</a>
+    </li>
+    <li class="nav-links">
+        <a href="AddReview.html">Add a Review</a>
+    </li>
+    <li class="nav-links">
+        <a href="ViewAllClasses.html">View All Classes @ DePaul</a>
+    </li>
+</nav>
+<main class="main-section">
+    <h2>Enter Class Details</h2>
+    <div id="myForm">
+        <form id="formElem">
+            <div class="mb-3">
+                <label for="className" class="form-label">Class Name (ex. Data Structures): </label>
+                <input type="text" name="className" class="form-control" id="className">
+            </div>
+            <div class="mb-3">
+                <label for="department" class="form-label">Department (ex. CSC):</label>
+                <input type="text" name="department" class="form-control" id="department" aria-describedby="department">
+            </div>
+            <div class="mb-3">
+                <label for="classNumber" class="form-label">Class Number (ex. 301):</label>
+                <input type="text" name="classNumber" class="form-control" id="classNumber">
+            </div>
+            <div class="mb-3">
+                <label for="classDescription" class="form-label">Class Description:</label>
+                <input type="text" name="classDescription" class="form-control" id="classDescription">
+            </div>
+            <!--                    <button type="submit" class="btn btn-primary">Submit</button>-->
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+</main>
 
-        <li class="nav-links">
-            <a href="UserPanel.html">Home</a>
-        </li>
-        <li class="nav-links">
-            <a href="SearchAClass.html">Search a Class</a>
-        </li>
-        <li class="nav-links">
-            <a href="AddClass.html">Add a Class</a>
-        </li>
-        <li class="nav-links">
-            <a href="AddReview.html">Add a Review</a>
-        </li>
-        <li class="nav-links">
-            <a href="ViewAllClasses.html">View All Classes @ DePaul</a>
-        </li>
-    </nav>
+<script src="addNewClass.js"></script>
 
-    <main class="main-section">
-
-        <h2>Enter Class Details</h2>
-
-        <div id="myForm" >
-
-            <form id="formElem" >
-                <div class="mb-3">
-                    <label for="classDescription" class="form-label">Class Description</label>
-                    <input type="text" name="classDescription" class="form-control" id="classDescription">
-                </div>
-
-                <div class="mb-3">
-                    <label for="className" class="form-label">Class Name</label>
-                    <input type="text" name="className" class="form-control" id="className">
-                </div>
-
-                <div class="mb-3">
-                    <label for="department" class="form-label">Department</label>
-                    <input type="text" name="department" class="form-control" id="department" aria-describedby="department">
-                </div>
-
-
-                <div class="mb-3">
-                    <label for="classNumber" class="form-label">Class Number</label>
-                    <input type="text" name="classNumber" class="form-control" id="classNumber">
-                </div>
-
-
-                <!--        <div class="mb-3">-->
-                <!--            <label for="cumGPA" class="form-label">Cumulative GPA</label>-->
-                <!--            <input type="text" name="cumGPA" class="form-control" id="cumGPA">-->
-                <!--        </div>-->
-
-                <!--        <div class="mb-3">-->
-                <!--            <label for="ClassNumber" class="form-label">Class Number</label>-->
-                <!--            <input type="text" name="ClassNumber" class="form-control" id="ClassNumber">-->
-                <!--        </div>-->
-
-                <button style="margin-top: 2rem" type="submit" class="btn btn-primary">Submit</button>
-            </form>
-
-<!--        <form id="addAClassForm">-->
-<!--            <p><label for="txtClassDepartment">Class Department (i.e. CSC, DSC, SE...): </label>-->
-<!--                <input type="text" id="txtClassDepartment">-->
-<!--            </p>-->
-<!--            <p><label for="txtClassNumber">Class Number (i.e. 101, 102, 394...): </label>-->
-<!--                <input type="text" id="txtClassDepartment">-->
-<!--            </p>-->
-
-<!--            <p> <button type="button" id="btnAddClass" onclick="addClassToDataBase();">Add Class!</button> </p>-->
-
-<!--        </form>-->
-<!--        <div id="results" class="results-output"></div>&lt;!&ndash; end of results div  &ndash;&gt;-->
-
-        </div>
-    </main>
-
-    <script src="addNewClass.js"></script>
-
-    </body>
+</body>
 </html>
