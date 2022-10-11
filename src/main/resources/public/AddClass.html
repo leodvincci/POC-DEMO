@@ -46,6 +46,7 @@
         <h1 class="title">Add a Class!</h1>
     </container>
     <nav class="nav bar">
+
         <li class="nav-links">
             <a href="UserPanel.html">Home</a>
         </li>
@@ -62,31 +63,64 @@
             <a href="ViewAllClasses.html">View All Classes @ DePaul</a>
         </li>
     </nav>
-        <main class="main-section">
-            <h2>Enter Class Details</h2>
-            <div id="myForm">
-                <form id="formElem">
-                    <div class="mb-3">
-                        <label for="className" class="form-label">Class Name (ex. Data Structures): </label>
-                        <input type="text" name="className" class="form-control" id="className">
-                    </div>
-                    <div class="mb-3">
-                        <label for="department" class="form-label">Department (ex. CSC):</label>
-                        <input type="text" name="department" class="form-control" id="department" aria-describedby="department">
-                    </div>
-                    <div class="mb-3">
-                        <label for="classNumber" class="form-label">Class Number (ex. 301):</label>
-                        <input type="text" name="classNumber" class="form-control" id="classNumber">
-                    </div>
-                    <div class="mb-3">
-                        <label for="classDescription" class="form-label">Class Description:</label>
-                        <input type="text" name="classDescription" class="form-control" id="classDescription">
-                    </div>
-<!--                    <button type="submit" class="btn btn-primary">Submit</button>-->
-                    <input type="submit" value="Submit">
-                </form>
-            </div>
-        </main>
+
+    <main class="main-section">
+
+        <h2>Enter Class Details</h2>
+
+        <div id="myForm" >
+
+            <form id="formElem" >
+                <div class="mb-3">
+                    <label for="classDescription" class="form-label">Class Description</label>
+                    <input type="text" name="classDescription" class="form-control" id="classDescription">
+                </div>
+
+                <div class="mb-3">
+                    <label for="className" class="form-label">Class Name</label>
+                    <input type="text" name="className" class="form-control" id="className">
+                </div>
+
+                <div class="mb-3">
+                    <label for="department" class="form-label">Department</label>
+                    <input type="text" name="department" class="form-control" id="department" aria-describedby="department">
+                </div>
+
+
+                <div class="mb-3">
+                    <label for="classNumber" class="form-label">Class Number</label>
+                    <input type="text" name="classNumber" class="form-control" id="classNumber">
+                </div>
+
+
+                <!--        <div class="mb-3">-->
+                <!--            <label for="cumGPA" class="form-label">Cumulative GPA</label>-->
+                <!--            <input type="text" name="cumGPA" class="form-control" id="cumGPA">-->
+                <!--        </div>-->
+
+                <!--        <div class="mb-3">-->
+                <!--            <label for="ClassNumber" class="form-label">Class Number</label>-->
+                <!--            <input type="text" name="ClassNumber" class="form-control" id="ClassNumber">-->
+                <!--        </div>-->
+
+                <button style="margin-top: 2rem" type="submit" class="btn btn-primary">Submit</button>
+            </form>
+
+<!--        <form id="addAClassForm">-->
+<!--            <p><label for="txtClassDepartment">Class Department (i.e. CSC, DSC, SE...): </label>-->
+<!--                <input type="text" id="txtClassDepartment">-->
+<!--            </p>-->
+<!--            <p><label for="txtClassNumber">Class Number (i.e. 101, 102, 394...): </label>-->
+<!--                <input type="text" id="txtClassDepartment">-->
+<!--            </p>-->
+
+<!--            <p> <button type="button" id="btnAddClass" onclick="addClassToDataBase();">Add Class!</button> </p>-->
+
+<!--        </form>-->
+<!--        <div id="results" class="results-output"></div>&lt;!&ndash; end of results div  &ndash;&gt;-->
+
+        </div>
+    </main>
 
     <script src="addNewClass.js"></script>
 
