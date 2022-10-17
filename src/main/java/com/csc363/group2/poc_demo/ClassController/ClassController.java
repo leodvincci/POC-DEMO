@@ -33,4 +33,14 @@ public class ClassController {
         System.out.println("New Course Has Been Added");
     }
 
+
+    @CrossOrigin(origins ="*")
+    @GetMapping("api/v1/getClassByNameAndNumber")
+    @ResponseBody
+    public ClassEntity findClassByNameAndNumber(@RequestBody ClassModelBody classModelBody){
+        ClassEntity foundClass = classService.getByDepartmentAndClassNumber(classModelBody.department,classModelBody.classNumber);
+        System.out.println("Searching!");
+        return foundClass;
+    }
+
 }

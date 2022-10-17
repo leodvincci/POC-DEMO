@@ -20,6 +20,12 @@ public class ClassService {
         return classList;
     }
 
+    public ClassEntity getByDepartmentAndClassNumber(String department, int classNumber){
+        System.out.println("Searching for Class By Name and Number!");
+        ClassEntity classEntity = classRepository.findByDepartmentAndClassNumber(department,classNumber);
+        return classEntity;
+    }
+
 
     public void addClass(String className, String classDes, String department, int classNumber, double cumGPA, double cumDif,int likes, int dislikes){
 
