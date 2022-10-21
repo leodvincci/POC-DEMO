@@ -21,7 +21,17 @@ public class UserReviewEntity {
     Long userReviewID;
 
     String userReviewEmail;
-    String userReviewCourse;
+    String userReviewDepartment;
+
+    public int getUserReviewCourseNumber() {
+        return userReviewCourseNumber;
+    }
+
+    public void setUserReviewCourseNumber(int userReviewCourseNumber) {
+        this.userReviewCourseNumber = userReviewCourseNumber;
+    }
+
+    int userReviewCourseNumber;
     Double userReviewGPA;
     Integer userReviewDifficulty;
     Boolean userReviewLike;
@@ -36,12 +46,12 @@ public class UserReviewEntity {
         this.userReviewEmail = userReviewEmail;
     }
 
-    public String getUserReviewCourse() {
-        return userReviewCourse;
+    public String getUserReviewDepartment() {
+        return userReviewDepartment;
     }
 
-    public void setUserReviewCourse(String userReviewCourse) {
-        this.userReviewCourse = userReviewCourse;
+    public void setUserReviewDepartment(String userReviewCourse) {
+        this.userReviewDepartment = userReviewCourse;
     }
 
     public Double getUserReviewGPA() {
@@ -88,7 +98,7 @@ public class UserReviewEntity {
     public String toString() {
         return "UserReviewEntity{" +
                 "userReviewEmail='" + userReviewEmail + '\'' +
-                ", userReviewCourse='" + userReviewCourse + '\'' +
+                ", userReviewCourse='" + userReviewDepartment + '\'' +
                 ", userReviewGPA=" + userReviewGPA +
                 ", userReviewDifficulty=" + userReviewDifficulty +
                 ", userReviewLike=" + userReviewLike +
@@ -108,9 +118,10 @@ public class UserReviewEntity {
         this.userReviewID = userReviewID;
     }
 
-    public UserReviewEntity(String userReviewEmail, String userReviewCourse, Double userReviewGPA, Integer userReviewDifficulty, Boolean userReviewLike, Boolean userReviewDislike, String userReviewFeedback) {
+    public UserReviewEntity(String userReviewEmail, String userReviewDepartment, int userReviewCourseNumber, Double userReviewGPA, Integer userReviewDifficulty, Boolean userReviewLike, Boolean userReviewDislike, String userReviewFeedback) {
         this.userReviewEmail = userReviewEmail;
-        this.userReviewCourse = userReviewCourse;
+        this.userReviewDepartment = userReviewDepartment;
+        this.userReviewCourseNumber = userReviewCourseNumber;
         this.userReviewGPA = userReviewGPA;
         this.userReviewDifficulty = userReviewDifficulty;
         this.userReviewLike = userReviewLike;

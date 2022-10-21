@@ -1,7 +1,10 @@
 package com.csc363.group2.poc_demo.UserReview;
 
+import com.csc363.group2.poc_demo.ClassEntity.ClassEntity;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 public class UserReviewService {
@@ -10,10 +13,11 @@ public class UserReviewService {
     UserReviewRepo userReviewRepo;
 
 
-    public void addUserReview(String email, String course, Double gpa, Integer difficulty, boolean like, boolean dislike, String feedback){
+    public void addUserReview(String email, String department,int courseNumber, Double gpa, Integer difficulty, boolean like, boolean dislike, String feedback){
         UserReviewEntity userReviewEntity = new UserReviewEntity();
         userReviewEntity.userReviewEmail = email;
-        userReviewEntity.userReviewCourse = course;
+        userReviewEntity.userReviewDepartment = department;
+        userReviewEntity.userReviewCourseNumber= courseNumber;
         userReviewEntity.userReviewGPA = gpa;
         userReviewEntity.userReviewDifficulty = difficulty;
         userReviewEntity.userReviewLike = like;
@@ -22,6 +26,14 @@ public class UserReviewService {
         userReviewRepo.save(userReviewEntity);
         System.out.println("New Review Has Been Added!");
 
+
+
+    }
+
+    public List<UserReviewEntity> getAllReviews(){
+        System.out.println("Getting All Reviews");
+        List<UserReviewEntity> userReviewList = userReviewRepo.findAll();
+        return userReviewList;
     }
 
 }
