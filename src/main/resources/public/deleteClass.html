@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
+    <link rel="stylesheet" href="resetUserPassword.css">
+	<meta charset="UTF-8">
+    <title>Remove Class</title>
+</head>
+    <body>
+		<div class="page-title">
+			<p style="font-size: 7rem;">Remove Class</p>
+		</div>
+		
+		<nav style=" display: flex; justify-content: space-evenly; margin-left: 50rem; margin-bottom: 5%; width: 50%;">
+			<a href="indexAdminPanel.html"><button>VIEW USERS</button></a>
+			<a href="deleteUser.html"><button>DELETE USER</button></a>
+			<a href="addUser.html"><button>ADD USER</button></a>
+			<a href="updateUser.html"><button>UPDATE USER</button></a>
+			<a href="resetUserPassword.html"><button>RESET USER PASSWORD</button></a>
+			<a href="adminAddClass.html"><button>ADD CLASS</button></a>
+			<a href="deleteClass.html"><button>DELETE CLASS</button></a>
+			<a href="deleteReview.html"><button>DELETE USER REVIEW</button></a>
+		</nav>
+		
+		<form id="the-delete-class-form">
+			<label for="className">Type the name of the class that you want to delete:</label><br>
+			<input type="text" id="className" name="className"><br>
+			<input type="submit"onclick="deletetheclass()" value="Submit">
+		</form>
+		
+		<script src="deleteClass.js"></script>
+    </body>
+</html>
+
+
+<!-- 'http://localhost:8080/removeclass?className= -->
