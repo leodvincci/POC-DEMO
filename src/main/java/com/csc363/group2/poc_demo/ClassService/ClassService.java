@@ -26,6 +26,15 @@ public class ClassService {
         return classEntity;
     }
 
+    public void updateGPAbyDepartmentAndClassNumber(String department, int classNumber, double gpa){
+        System.out.println("Searching for Class By Name and Number!");
+        ClassEntity classEntity = classRepository.findByDepartmentAndClassNumber(department,classNumber);
+        System.out.println("Found Class...Updating GPA");
+        classEntity.setCumGPA(gpa);
+        classRepository.save(classEntity);
+        System.out.println("GPA has be Updated to : " + gpa);
+    }
+
 
     public void searchAndDeleteClass(String department, int classNumber){
         ClassEntity theClass = getByDepartmentAndClassNumber(department,classNumber);

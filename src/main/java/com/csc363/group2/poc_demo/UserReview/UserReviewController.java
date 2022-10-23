@@ -20,11 +20,31 @@ public class UserReviewController {
     @CrossOrigin(origins ="*")
     @PostMapping("api/v1/addUserReview")
     @ResponseBody
-    public void addNewClass(@RequestBody UserReviewEntity userReviewEntity){
+    public void addNewReview(@RequestBody UserReviewEntity userReviewEntity){
         userReviewService.addUserReview(userReviewEntity.userReviewEmail,userReviewEntity.userReviewDepartment,userReviewEntity.userReviewCourseNumber,userReviewEntity.userReviewGPA,userReviewEntity.userReviewDifficulty,userReviewEntity.userReviewLike,userReviewEntity.userReviewDislike,userReviewEntity.userReviewFeedback);
         System.out.println("----New User Review Has Been Added----");
 //        ClassEntity theClass = classService.getByDepartmentAndClassNumber(userReviewEntity.getUserReviewDepartment(), userReviewEntity.getUserReviewCourseNumber());
-//        System.out.println("GPA: " + theClass.getCumGPA() + 42);
+        double theNewGPA = calGPA(userReviewEntity);
+        System.out.println("Updating GPA: " + theNewGPA);
+        classService.updateGPAbyDepartmentAndClassNumber(userReviewEntity.userReviewDepartment, userReviewEntity.userReviewCourseNumber,theNewGPA);
+    }
+
+    public double calGPA(UserReviewEntity review){
+        List<UserReviewEntity> allReviews = userReviewService.getAllReviewByCourseDepartment(review.userReviewDepartment,review.userReviewCourseNumber);
+        int totalReviews = allReviews.size();
+        double sumOfGPA = 0;
+
+        for (int i = 0; i < totalReviews; i++){
+            UserReviewEntity theReview = allReviews.get(i);
+            System.out.println(theReview.userReviewGPA);
+            sumOfGPA = theReview.userReviewGPA + sumOfGPA;
+        }
+        System.out.println("Course Number: " + review.userReviewCourseNumber);
+        System.out.println("GPA Sum: " + sumOfGPA);
+        System.out.println("Total Reviews: " + (totalReviews));
+        System.out.println("Cum GPA: " + sumOfGPA / (totalReviews));
+        return sumOfGPA / (totalReviews );
+
     }
 
 
