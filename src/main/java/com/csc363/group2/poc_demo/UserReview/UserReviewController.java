@@ -44,9 +44,10 @@ public class UserReviewController {
 
 
     @CrossOrigin(origins ="*")
+    @ResponseBody
     @GetMapping("api/v1/getCumGPA")
-    public double getCumGPA(){
-        List<UserReviewEntity> allReviews = userReviewService.getAllReviews();
+    public double getCumGPA(@RequestBody UserReviewEntity review){
+        List<UserReviewEntity> allReviews = userReviewService.getAllReviewByCourseDepartment(review.userReviewDepartment,review.userReviewCourseNumber);
         int totalReviews = allReviews.size();
         double sumOfGPA = 0;
 
@@ -54,6 +55,7 @@ public class UserReviewController {
             UserReviewEntity theReview = allReviews.get(i);
             sumOfGPA = theReview.userReviewGPA + sumOfGPA;
         }
+        System.out.println("Course Number: " + review.userReviewCourseNumber);
         System.out.println("GPA Sum: " + sumOfGPA);
         System.out.println("Total Reviews: " + totalReviews);
         return sumOfGPA / totalReviews;
