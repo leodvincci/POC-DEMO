@@ -2,7 +2,7 @@ let theUserSection = document.querySelector("section");
 let theUserTable = document.getElementById("tableBody");
 
 
-    axios.get('http://54.146.226.153:8080/api/v1/getAllClasses').then((res) => {
+    axios.get('http://localhost:8080/api/v1/getAllClasses').then((res) => {
     for (let i = 0; i < res.data.length; i++) {
 
         const id = document.createElement('h2');
@@ -17,7 +17,7 @@ let theUserTable = document.getElementById("tableBody");
 
 
         id.innerText = "Num: " + res.data[i].id;
-        className.innerHTML = "Class Name " + res.data[i].className;
+        className.innerHTML = "Class Name <a href=\"AdditionalClassInfo.html\">" + res.data[i].className + "</a>";
         classDescription.innerHTML = "Description " + res.data[i].classDescription;
         department.innerHTML = "Department " + res.data[i].department;
         classNumber.innerHTML = "Class Number " +res.data[i].classNumber;

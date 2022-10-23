@@ -26,6 +26,39 @@ public class ClassService {
         return classEntity;
     }
 
+    public void updateGPAbyDepartmentAndClassNumber(String department, int classNumber, double gpa,boolean likes, boolean dislikes){
+        System.out.println("Searching for Class By Name and Number!");
+        int likeCount;
+        int dislikeCount;
+        if(likes){
+            likeCount = 1;
+        }else {
+            likeCount = 0;
+        }
+
+        if(dislikes){
+            dislikeCount = 1;
+        }else {
+            dislikeCount = 0;
+        }
+        ClassEntity classEntity = classRepository.findByDepartmentAndClassNumber(department,classNumber);
+        System.out.println("Found Class...Updating GPA");
+        classEntity.setCumGPA(gpa);
+        classEntity.setLikes(classEntity.getLikes() + likeCount);
+        classEntity.setDislikes(classEntity.getDislikes() + dislikeCount);
+        classRepository.save(classEntity);
+        System.out.println("GPA has be Updated to : " + gpa);
+        System.out.println("Like Count " + likeCount);
+        System.out.println("Dislike Count " + dislikeCount);
+    }
+
+
+    public void searchAndDeleteClass(String department, int classNumber){
+        ClassEntity theClass = getByDepartmentAndClassNumber(department,classNumber);
+        System.out.println("The Course has been Found.");
+        classRepository.deleteById(theClass.getId());
+        System.out.println("The Course has been removed from database");
+    }
 
     public void addClass(String className, String classDes, String department, int classNumber, double cumGPA, double cumDif,int likes, int dislikes){
 
