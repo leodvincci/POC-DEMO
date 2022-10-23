@@ -36,4 +36,11 @@ public class UserReviewService {
         return userReviewList;
     }
 
+
+    public List<UserReviewEntity> getAllReviewByCourseDepartment(String department, int courseNumber){
+        System.out.println("Getting All Reviews By Course and Department");
+        List<UserReviewEntity> userReviewList = userReviewRepo.getUserReviewEntitiesByUserReviewDepartmentAndUserReviewCourseNumber(department,courseNumber);
+        return userReviewList;
+    }
+
 }
