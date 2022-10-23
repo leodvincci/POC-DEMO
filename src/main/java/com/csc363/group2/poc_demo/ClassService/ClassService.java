@@ -26,13 +26,30 @@ public class ClassService {
         return classEntity;
     }
 
-    public void updateGPAbyDepartmentAndClassNumber(String department, int classNumber, double gpa){
+    public void updateGPAbyDepartmentAndClassNumber(String department, int classNumber, double gpa,boolean likes, boolean dislikes){
         System.out.println("Searching for Class By Name and Number!");
+        int likeCount;
+        int dislikeCount;
+        if(likes){
+            likeCount = 1;
+        }else {
+            likeCount = 0;
+        }
+
+        if(dislikes){
+            dislikeCount = 1;
+        }else {
+            dislikeCount = 0;
+        }
         ClassEntity classEntity = classRepository.findByDepartmentAndClassNumber(department,classNumber);
         System.out.println("Found Class...Updating GPA");
         classEntity.setCumGPA(gpa);
+        classEntity.setLikes(classEntity.getLikes() + likeCount);
+        classEntity.setDislikes(classEntity.getDislikes() + dislikeCount);
         classRepository.save(classEntity);
         System.out.println("GPA has be Updated to : " + gpa);
+        System.out.println("Like Count " + likeCount);
+        System.out.println("Dislike Count " + dislikeCount);
     }
 
 

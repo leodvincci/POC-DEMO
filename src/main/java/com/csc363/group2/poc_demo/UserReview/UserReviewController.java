@@ -26,7 +26,7 @@ public class UserReviewController {
 //        ClassEntity theClass = classService.getByDepartmentAndClassNumber(userReviewEntity.getUserReviewDepartment(), userReviewEntity.getUserReviewCourseNumber());
         double theNewGPA = calGPA(userReviewEntity);
         System.out.println("Updating GPA: " + theNewGPA);
-        classService.updateGPAbyDepartmentAndClassNumber(userReviewEntity.userReviewDepartment, userReviewEntity.userReviewCourseNumber,theNewGPA);
+        classService.updateGPAbyDepartmentAndClassNumber(userReviewEntity.userReviewDepartment, userReviewEntity.userReviewCourseNumber,theNewGPA,userReviewEntity.userReviewLike,userReviewEntity.userReviewDislike);
     }
 
     public double calGPA(UserReviewEntity review){
