@@ -20,7 +20,7 @@ function fetchAndRenderDetails(department, classNumber){
         }
 
         fetch('http://localhost:8080/api/v1/getClassByNameAndNumber', {
-            method: "POST",
+            method: "GET",
             headers: {
                 "Content-Type":'application/json'
             },
@@ -29,7 +29,7 @@ function fetchAndRenderDetails(department, classNumber){
         }).then(r=>{
             alert("Retrieved class: " + department + " " + classNumber);
             alert(department+classNumber);
-            for (let i = 0; i < r.data.length; i++) {
+            for (let i = 0; i < length(r.data); i++) {
                     const id = document.createElement('h2');
                     const className =  document.createElement("h3");
                     const classDescription =  document.createElement("h3");
