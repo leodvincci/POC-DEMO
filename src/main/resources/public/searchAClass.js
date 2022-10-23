@@ -19,13 +19,13 @@ form.addEventListener('submit',function (e){
         classNumber: classNumber
     }
 
-    fetch('http://54.146.226.153:8080/api/v1/addClass', {
-        method: "POST",
-        headers: {
-            "Content-Type":'application/json'
-        },
-        body: JSON.stringify(data),
-
-    }).then(r=>(alert("Added New Class: " + className)))
+    // fetch('http://54.146.226.153:8080/api/v1/addClass', {
+    //     method: "POST",
+    //     headers: {
+    //         "Content-Type":'application/json'
+    //     },
+    //     body: JSON.stringify(data),
+    //
+    // }).then(r=>(alert("Added New Class: " + className)))
 
 })
