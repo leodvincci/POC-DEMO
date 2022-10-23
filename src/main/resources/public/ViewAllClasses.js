@@ -21,8 +21,8 @@ let theUserTable = document.getElementById("tableBody");
         classDescription.innerHTML = "Description " + res.data[i].classDescription;
         department.innerHTML = "Department " + res.data[i].department;
         classNumber.innerHTML = "Class Number " +res.data[i].classNumber;
-        cumGPA.innerHTML = "Cumulitive GPA " + res.data[i].cumGPA; 
-        cumDif.innerHTML = "Cumulitive Difference " + res.data[i].cumDif; 
+        cumGPA.innerHTML = "Cumulative GPA " + res.data[i].cumGPA;
+        cumDif.innerHTML = "Cumulative Difference " + res.data[i].cumDif;
         likes.innerHTML = "Likes " + res.data[i].likes; 
         dislikes.innerHTML = "Dislikes " + res.data[i].dislikes;
 
