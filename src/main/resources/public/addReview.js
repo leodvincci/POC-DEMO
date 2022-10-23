@@ -19,7 +19,7 @@ form.addEventListener('submit',function (e){
 
     let email = payload.get("email");
     let course = payload.get("course").split(" ");
-
+    console.log(course)
     let department = course[0];
     let number = course[1];
     let gpa = payload.get("gpa");
@@ -37,11 +37,18 @@ form.addEventListener('submit',function (e){
 
 
 //call the API
-     let data = {
+    let data = {
+        userReviewEmail:email,
+        userReviewDepartment:course[0],
+        userReviewCourseNumber: course[1],
+        userReviewGPA:gpa,
+        userReviewDifficulty:difficultyRating,
+        userReviewLike:likes,
+        userReviewDislike: dislikes,
+        userReviewFeedback:classDescription
+    }
 
-     }
-
-     fetch('http://localhost:8080/api/v1/addClass', { //idk where api is
+     fetch('http://localhost:8080/api/v1/addUserReview', { //idk where api is
          method: "POST",
          headers: {
              "Content-Type":'application/json'
