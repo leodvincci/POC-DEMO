@@ -15,9 +15,9 @@ form.addEventListener('submit',function (e){
 function fetchAndRenderDetails(department, classNumber){
     alert("sent in");
     let data = {
-            department:department,
-            classNumber: classNumber
-        }
+        department:department,
+        classNumber: classNumber
+    }
 
         fetch('http://localhost:8080/api/v1/getClassByNameAndNumber', {
             method: "GET",
