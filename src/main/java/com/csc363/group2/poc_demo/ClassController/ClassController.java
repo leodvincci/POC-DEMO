@@ -43,4 +43,13 @@ public class ClassController {
         return foundClass;
     }
 
+    @CrossOrigin(origins ="*")
+    @DeleteMapping("api/v1/searchandremoveclass")
+    @ResponseBody
+    public void DeleteClassByDepartAndNumber(@RequestBody ClassModelBody classModelBody){
+        ClassEntity foundClass = classService.getByDepartmentAndClassNumber(classModelBody.department,classModelBody.classNumber);
+        System.out.println("Searching!");
+        classService.searchAndDeleteClass(foundClass.getDepartment(), foundClass.getClassNumber());
+    }
+
 }

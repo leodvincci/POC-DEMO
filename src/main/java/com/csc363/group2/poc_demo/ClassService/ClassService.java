@@ -27,6 +27,13 @@ public class ClassService {
     }
 
 
+    public void searchAndDeleteClass(String department, int classNumber){
+        ClassEntity theClass = getByDepartmentAndClassNumber(department,classNumber);
+        System.out.println("The Course has been Found.");
+        classRepository.deleteById(theClass.getId());
+        System.out.println("The Course has been removed from database");
+    }
+
     public void addClass(String className, String classDes, String department, int classNumber, double cumGPA, double cumDif,int likes, int dislikes){
 
         ClassEntity classEntity = new ClassEntity();
