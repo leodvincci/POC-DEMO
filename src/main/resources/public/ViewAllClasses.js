@@ -2,6 +2,8 @@ let theUserSection = document.querySelector("section");
 let theUserTable = document.getElementById("tableBody");
 
 
+
+
     axios.get('http://localhost:8080/api/v1/getAllClasses').then((res) => {
     for (let i = 0; i < res.data.length; i++) {
 
@@ -17,7 +19,17 @@ let theUserTable = document.getElementById("tableBody");
 
 
         id.innerText = "Num: " + res.data[i].id;
-        className.innerHTML = "Class Name <a class=\"className\" href=\"AdditionalClassInfo.html\">" + res.data[i].className + "</a>";
+
+    //    className.innerHTML = "Class Name <button id=\"className\" href=\"AdditionalClassInfo.html\">" + res.data[i].className + "</button>";
+        className.innerHTML = "Class Name <button id=\""+ 
+                                res.data[i].department+
+                                "-"+
+                                res.data[i].classNumber+
+                                 "\" onclick=\"renderAdditionalDetails()\">"+
+//                                "\">"+
+                                res.data[i].className+
+                                "</button>";
+
         classDescription.innerHTML = "Description " + res.data[i].classDescription;
         department.innerHTML = "Department " + res.data[i].department;
         classNumber.innerHTML = "Class Number " +res.data[i].classNumber;
@@ -40,3 +52,23 @@ let theUserTable = document.getElementById("tableBody");
     }  
     
 })
+
+
+function renderAdditionalDetails(){
+    alert("hello");
+}
+//var buttons = document.getElementsByTagName("button");
+//var buttonsCount = buttons.length;
+//alert(buttonsCount);
+// for (var i = 0; i <= buttonsCount; i += 1) {
+//     alert("hello");
+//     // buttons[i].onclick = function(e) {
+//     //     alert("hello");
+//     //     // alert(this.id);
+//     // };
+// };​
+
+// $("button").click(function() {
+//     alert("hello!");
+//     //alert(this.id); // or alert($(this).attr('id'));
+// });
