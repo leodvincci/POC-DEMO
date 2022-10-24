@@ -44,6 +44,13 @@ public class ClassController {
     }
 
     @CrossOrigin(origins ="*")
+    @GetMapping("api/v1/getClassAndReviewByDeptAndNum")
+    @ResponseBody
+    public List getClassAndReviewByDeptAndNum(@RequestParam String department, int classNumber){
+        return classService.getClassAndReviewByDeptAndNum(department,classNumber);
+    }
+
+    @CrossOrigin(origins ="*")
     @DeleteMapping("api/v1/searchandremoveclass")
     @ResponseBody
     public void DeleteClassByDepartAndNumber(@RequestBody ClassModelBody classModelBody){
