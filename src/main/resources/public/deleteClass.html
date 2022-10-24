@@ -23,12 +23,21 @@
 			<a href="deleteReview.html"><button>DELETE USER REVIEW</button></a>
 		</nav>
 		
-		<form id="the-delete-class-form">
-			<label for="className">Type the name of the class that you want to delete:</label><br>
-			<input type="text" id="className" name="className"><br>
-			<input type="submit"onclick="deletetheclass()" value="Submit">
-		</form>
+		<div id="myForm" >
+			<form id="formElem" >
+				<div class="mb-3">
+					<label for="department">Type the department of the class that you want to delete (Ex. CSC):</label><br>
+					<input type="text" id="department" class="form-control" name="department"><br>
+				</div>
+			
+				<div class="mb-3">
+					<label for="classNumber">Type the number of the class that you want to delete (Ex. 394):</label><br>
+					<input type="text" id="classNumber" class="form-control" name="classNumber"><br>
+				</div>
+				<button style="margin-top: 2rem" type="submit" class="btn btn-primary">Submit</button>
+			</form>
+		</div>
 		
-		<script src=""></script> <!-- deleteClass.js -->
+		<script src="deleteClass.js"></script> <!-- deleteClass.js -->
     </body>
 </html>

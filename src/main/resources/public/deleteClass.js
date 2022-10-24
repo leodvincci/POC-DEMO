@@ -1,8 +1,29 @@
-function deletetheclass(){
-    console.log("Running")
-    let className = parseFloat(document.getElementById('className').value);
-    console.log(className + " Was Deleted")
-   fetch('http://3.88.60.54:8080/removeclass?className=' + className, {
-       method: 'DELETE'
-   }).then(r  =>(alert(className + " was deleted")))
-}
+const form = document.getElementById('formElem');
+
+form.addEventListener('submit',function (e){
+    e.preventDefault();
+    const prepayload = new FormData(form)
+
+    const payload = new URLSearchParams(prepayload);
+
+    let dpt = payload.get("department");
+    let cnm = payload.get("classNumber");
+
+    console.log(dpt)
+    console.log(cnm)
+
+    let data = {
+        department:dpt,
+        classNumber:cnm
+    }
+
+    fetch('http://3.88.60.54:8080/api/v1/searchandremoveclass', {
+        method: 'DELETE',
+        headers: {
+            "Content-Type":'application/json'
+        },
+        body: JSON.stringify(data),
+
+    }).then(r=>(alert(dpt + " " + cnm + " Was Deleted")))
+
+})
