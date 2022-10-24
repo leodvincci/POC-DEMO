@@ -10,4 +10,5 @@ public interface ClassRepository extends JpaRepository<ClassEntity,Long> {
     ClassEntity findByDepartmentAndClassNumber(String department, int classNumber);
 
 
+
 }
