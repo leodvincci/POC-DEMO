@@ -37,8 +37,8 @@ public class ClassController {
     @CrossOrigin(origins ="*")
     @GetMapping("api/v1/getClassByNameAndNumber")
     @ResponseBody
-    public ClassEntity findClassByNameAndNumber(@RequestBody ClassModelBody classModelBody){
-        ClassEntity foundClass = classService.getByDepartmentAndClassNumber(classModelBody.department,classModelBody.classNumber);
+    public ClassEntity findClassByNameAndNumber(@RequestParam String department, int classNumber){
+        ClassEntity foundClass = classService.getByDepartmentAndClassNumber(department,classNumber);
         System.out.println("Searching!");
         return foundClass;
     }
