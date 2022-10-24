@@ -3,6 +3,8 @@ package com.csc363.group2.poc_demo.ClassService;
 import com.csc363.group2.poc_demo.ClassEntity.ClassEntity;
 import com.csc363.group2.poc_demo.ClassRepo.ClassRepository;
 import com.csc363.group2.poc_demo.Repos.UserRepository;
+import com.csc363.group2.poc_demo.UserReview.UserReviewEntity;
+import com.csc363.group2.poc_demo.UserReview.UserReviewService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -14,6 +16,9 @@ public class ClassService {
     @Autowired
     private ClassRepository classRepository;
 
+    @Autowired
+    private UserReviewService userReviewService;
+
     public List<ClassEntity> getAllClasses(){
         System.out.println("Getting All Classes");
         List<ClassEntity> classList = classRepository.findAll();
@@ -24,6 +29,13 @@ public class ClassService {
         System.out.println("Searching for Class By Name and Number!");
         ClassEntity classEntity = classRepository.findByDepartmentAndClassNumber(department,classNumber);
         return classEntity;
+    }
+
+    public List getClassAndReviewByDeptAndNum(String department, int classNumber){
+        System.out.println("Searching for Class By Name and Number!");
+        ClassEntity classEntity = classRepository.findByDepartmentAndClassNumber(department,classNumber);
+        List allTheReviews = userReviewService.getAllReviewByCourseDepartment(department,classNumber);
+        return List.of(classEntity,allTheReviews);
     }
 
     public void updateGPAbyDepartmentAndClassNumber(String department, int classNumber, double gpa,boolean likes, boolean dislikes){
