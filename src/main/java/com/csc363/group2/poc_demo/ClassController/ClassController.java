@@ -53,8 +53,8 @@ public class ClassController {
     @CrossOrigin(origins ="*")
     @DeleteMapping("api/v1/searchandremoveclass")
     @ResponseBody
-    public void DeleteClassByDepartAndNumber(@RequestBody ClassModelBody classModelBody){
-        ClassEntity foundClass = classService.getByDepartmentAndClassNumber(classModelBody.department,classModelBody.classNumber);
+    public void DeleteClassByDepartAndNumber(@RequestParam String department, int classNumber){
+        ClassEntity foundClass = classService.getByDepartmentAndClassNumber(department,classNumber);
         System.out.println("Searching!");
         classService.searchAndDeleteClass(foundClass.getDepartment(), foundClass.getClassNumber());
     }
