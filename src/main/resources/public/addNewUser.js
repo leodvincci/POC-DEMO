@@ -22,7 +22,7 @@ form.addEventListener('submit',function (e){
         password: pswd
     }
 
-    fetch('http://3.88.60.54:8080/api/v1/registration', {
+    fetch('http://54.146.226.153:8080/api/v1/registration', {
         method: "POST",
         headers: {
             "Content-Type":'application/json'

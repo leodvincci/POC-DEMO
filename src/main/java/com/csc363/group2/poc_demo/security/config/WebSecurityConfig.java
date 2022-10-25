@@ -29,11 +29,11 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
             "/login",
             "/h2-console",
             "/api/v*/registration/**",
-            "/api/v*/resetpassword/**",
-            "/api/v*/updateuserinfo/**",
-            "/api/v*/**",
+//            "/api/v*/resetpassword/**",
+//            "/api/v*/updateuserinfo/**",
+//            "/api/v*/**",
 //            "/allusers",
-            "/removeuser",
+//            "/removeuser",
 
     };
 
