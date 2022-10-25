@@ -16,8 +16,9 @@ let theUserTable = document.getElementById("tableBody");
         const dislikes = document.createElement("h5"); 
 
 
-        id.innerText = "Num: " + res.data[i].id;
-        className.innerHTML = `Class Name <a href=\"AdditionalClassInfo.html?userReviewDepartment=${res.data[i].department}&userReviewCourseNumber=${res.data[i].classNumber}\">` + res.data[i].className + "</a>";
+        // id.innerText = "Num: " + res.data[i].id;
+        className.innerHTML = `<a href=\"AdditionalClassInfo.html?userReviewDepartment=${res.data[i].department}&userReviewCourseNumber=${res.data[i].classNumber}\">` + res.data[i].className + "</a>";
+        className.className = "theClassName"
         classDescription.innerHTML = "Description " + res.data[i].classDescription;
         department.innerHTML = "Department " + res.data[i].department;
         classNumber.innerHTML = "Class Number " +res.data[i].classNumber;

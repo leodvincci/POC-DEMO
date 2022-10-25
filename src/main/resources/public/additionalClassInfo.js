@@ -22,15 +22,17 @@ axios.get(`http://localhost:8080/api/v1/getClassAndReviewByDeptAndNum?department
     const dislikes = document.createElement("h5");
 
     console.log(res.data)
-    id.innerText = "Num: " + res.data[0].id;
-    className.innerHTML = `Class Name <a href=\"AdditionalClassInfo.html?userReviewDepartment=${res.data[0].department}&userReviewCourseNumber=${res.data[0].classNumber}\">` + res.data[0].className + "</a>";
+    // id.innerText = "Num: " + res.data[0].id;
+    className.innerHTML = `<a href=\"AdditionalClassInfo.html?userReviewDepartment=${res.data[0].department}&userReviewCourseNumber=${res.data[0].classNumber}\">` + res.data[0].className + "</a>";
+    className.className = "theClassName"
+
     classDescription.innerHTML = "Description " + res.data[0].classDescription;
     department.innerHTML = "Department " + res.data[0].department;
     classNumber.innerHTML = "Class Number " +res.data[0].classNumber;
-    cumGPA.innerHTML = "Cumulitive GPA " + res.data[0].cumGPA;
-    cumDif.innerHTML = "Cumulitive Difference " + res.data[0].cumDif;
-    likes.innerHTML = "Likes " + res.data[0].likes;
-    dislikes.innerHTML = "Dislikes " + res.data[0].dislikes;
+    cumGPA.innerHTML = "Cumulative GPA " + res.data[0].cumGPA;
+    cumDif.innerHTML = "Cumulative Difficulty " + res.data[0].cumDif;
+    likes.innerHTML = "Total Likes " + res.data[0].likes;
+    dislikes.innerHTML = "Total Dislikes " + res.data[0].dislikes;
 
     const title = document.createElement('h1');
     title.className ="title";
@@ -57,26 +59,31 @@ axios.get(`http://localhost:8080/api/v1/getClassAndReviewByDeptAndNum?department
         const userReviewLike =  document.createElement("h4");
         const userReviewDislike =  document.createElement("h4");
         const userReviewFeedback = document.createElement("h3");
+        userReviewFeedback.className ="feedBack"
 
 
 
-        userReviewId.innerText = "Review #: " + res.data[1][i].userReviewID;
-        userReviewEmail.innerHTML = "User:" + res.data[1][i].userReviewEmail;
-        userReviewGPA.innerHTML = "GPA:" + res.data[1][i].userReviewGPA;
-        userReviewDifficulty.innerHTML = "Difficulty Rating:" + res.data[1][i].userReviewDifficulty;
+        // userReviewId.innerText = "Review #: " + res.data[1][i].userReviewID;
+        userReviewId.innerHTML = "<br>";
+        userReviewEmail.innerHTML = res.data[1][i].userReviewEmail;
+        userReviewGPA.innerHTML = "GPA:  " + res.data[1][i].userReviewGPA;
+        userReviewDifficulty.innerHTML = "Difficulty Rating:  " + res.data[1][i].userReviewDifficulty;
         // classNumber.innerHTML = "Class Number " +res.data[i].classNumber;
         // cumGPA.innerHTML = "Cumulitive GPA " + res.data[i].cumGPA;
         // cumDif.innerHTML = "Cumulitive Difference " + res.data[i].cumDif;
-        userReviewLike.innerHTML = "Student Liked Class:" + res.data[1][i].userReviewLike;
-        userReviewDislike.innerHTML = "Student Disliked Class:" + res.data[1][i].userReviewDislike;
-        userReviewFeedback.innerHTML = "Student Feedback:" + res.data[1][i].userReviewFeedback;
+        userReviewLike.innerHTML = "Student Liked Class 👍";
+        userReviewDislike.innerHTML = "Student Disliked Class 👎 ";
+        userReviewFeedback.innerHTML = "Student Feedback: " + res.data[1][i].userReviewFeedback;
 
         theUserSection.append(userReviewId);
         theUserSection.append(userReviewEmail);
         theUserSection.append(userReviewGPA);
         theUserSection.append(userReviewDifficulty);
-        theUserSection.append(userReviewLike);
-        theUserSection.append(userReviewDislike);
+        if(res.data[1][i].userReviewLike){
+            theUserSection.append(userReviewLike);
+        }else{
+            theUserSection.append(userReviewDislike);
+        }
         theUserSection.append(userReviewFeedback);
 
 

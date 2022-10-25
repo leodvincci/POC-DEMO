@@ -13,8 +13,27 @@
   padding: 5px; 
   border-radius: 30px; 
   }
-  
-  .nav-links{
+
+
+
+.theClassName {
+  color: #4242d3;
+  font-family: 'Comfortaa', cursive;
+  font-size: 25px;
+  display:flex;
+  text-decoration: none;
+
+
+}
+
+.theClassName a {
+  color: #4242d3;
+  text-decoration: none;
+}
+
+
+
+.nav-links{
   font-family: 'Comfortaa', cursive;
   display: flex;
   flex-wrap: nowrap;
@@ -26,8 +45,8 @@
   font-size: 17px;  
   }
   
-  a { 
-  color: #3a86ff;
+  .nav-links a {
+  color: #ffffff;
   text-decoration: none; 
   } 
   
@@ -56,7 +75,17 @@
     justify-content: center;
     align-items: flex-start;
   }
-  
+
+  .feedBack{
+    color: #4242d3;
+    font-family: 'Comfortaa', cursive;
+    font-size: 15px;
+    margin-bottom: 50px;
+    display:flex;
+
+  }
+
+
   
 
   
