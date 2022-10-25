@@ -17,7 +17,7 @@ let theUserTable = document.getElementById("tableBody");
 
 
         id.innerText = "Num: " + res.data[i].id;
-        className.innerHTML = "Class Name <a href=\"AdditionalClassInfo.html\">" + res.data[i].className + "</a>";
+        className.innerHTML = `Class Name <a href=\"AdditionalClassInfo.html?userReviewDepartment=${res.data[i].department}&userReviewCourseNumber=${res.data[i].classNumber}\">` + res.data[i].className + "</a>";
         classDescription.innerHTML = "Description " + res.data[i].classDescription;
         department.innerHTML = "Department " + res.data[i].department;
         classNumber.innerHTML = "Class Number " +res.data[i].classNumber;
