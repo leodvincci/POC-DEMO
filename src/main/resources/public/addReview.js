@@ -25,15 +25,15 @@ form.addEventListener('submit',function (e){
     let gpa = payload.get("gpa");
     let difficultyRating = payload.get("difficultyRating");
     likeDislikeNone = 0;
-    alert("hello");
+    // alert("hello");
     if(likes){
         likeDislikeNone = 2;
     }else if(dislikes){
         likeDislikeNone = 1;
     }
     let classDescription = payload.get("classDescription");
-    alert(likeDislikeNone);
-    alert(email +" "+course +" "+department +" "+number +" "+gpa +" "+difficultyRating +" "+likeDislikeNone +" "+classDescription);
+    alert("Thanks For Leaving A Rating!");
+    // alert(email +" "+course +" "+department +" "+number +" "+gpa +" "+difficultyRating +" "+likeDislikeNone +" "+classDescription);
 
 
 //call the API
@@ -55,6 +55,6 @@ form.addEventListener('submit',function (e){
          },
          body: JSON.stringify(data),
 
-     }).then(r=>(alert("Added New Class: " + className)))
+     }).then(r=>(alert("Added New Review: " + className)))
 
 })
