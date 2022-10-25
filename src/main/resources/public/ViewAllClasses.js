@@ -18,6 +18,7 @@ let theUserTable = document.getElementById("tableBody");
         const dislikes = document.createElement("h5"); 
 
 
+<<<<<<< HEAD
         id.innerText = "Num: " + res.data[i].id;
 
     //    className.innerHTML = "Class Name <button id=\"className\" href=\"AdditionalClassInfo.html\">" + res.data[i].className + "</button>";
@@ -30,6 +31,11 @@ let theUserTable = document.getElementById("tableBody");
                                 res.data[i].className+
                                 "</button>";
 
+=======
+        // id.innerText = "Num: " + res.data[i].id;
+        className.innerHTML = `<a href=\"AdditionalClassInfo.html?userReviewDepartment=${res.data[i].department}&userReviewCourseNumber=${res.data[i].classNumber}\">` + res.data[i].className + "</a>";
+        className.className = "theClassName"
+>>>>>>> 377b0ea9ae5107a5ef40cd724c9f600423e6f903
         classDescription.innerHTML = "Description " + res.data[i].classDescription;
         department.innerHTML = "Department " + res.data[i].department;
         classNumber.innerHTML = "Class Number " +res.data[i].classNumber;

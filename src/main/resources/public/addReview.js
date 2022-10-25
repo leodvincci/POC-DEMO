@@ -24,15 +24,15 @@ form.addEventListener('submit',function (e){
     let gpa = payload.get("gpa");
     let difficultyRating = payload.get("difficultyRating");
     likeDislikeNone = 0;
-    alert("hello");
+    // alert("hello");
     if(likes){
         likeDislikeNone = 2;
     }else if(dislikes){
         likeDislikeNone = 1;
     }
     let classDescription = payload.get("classDescription");
-    alert(likeDislikeNone);
-    alert(email +" "+course +" "+department +" "+number +" "+gpa +" "+difficultyRating +" "+likeDislikeNone +" "+classDescription);
+    alert("Thanks For Leaving A Rating!");
+    // alert(email +" "+course +" "+department +" "+number +" "+gpa +" "+difficultyRating +" "+likeDislikeNone +" "+classDescription);
 
     //adding gpa functionality so someone can't add a review without putting a gpa first
     const parsed = parseInt(gpa);
@@ -61,5 +61,16 @@ form.addEventListener('submit',function (e){
          }).then(r=>(alert("Added New Class: " + className)))
     }
 
+<<<<<<< HEAD
+=======
+     fetch('http://localhost:8080/api/v1/addUserReview', { //idk where api is
+         method: "POST",
+         headers: {
+             "Content-Type":'application/json'
+         },
+         body: JSON.stringify(data),
+
+     }).then(r=>(alert("Added New Review: " + className)))
+>>>>>>> 377b0ea9ae5107a5ef40cd724c9f600423e6f903
 
 })
