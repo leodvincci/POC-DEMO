@@ -61,8 +61,6 @@ form.addEventListener('submit',function (e){
          }).then(r=>(alert("Added New Class: " + className)))
     }
 
-<<<<<<< HEAD
-=======
      fetch('http://localhost:8080/api/v1/addUserReview', { //idk where api is
          method: "POST",
          headers: {
@@ -71,6 +69,5 @@ form.addEventListener('submit',function (e){
          body: JSON.stringify(data),
 
      }).then(r=>(alert("Added New Review: " + className)))
->>>>>>> 377b0ea9ae5107a5ef40cd724c9f600423e6f903
 
 })
