@@ -6,7 +6,7 @@ const theDept = urlParams.get("userReviewDepartment");
 const theCourseNumber = urlParams.get("userReviewCourseNumber");
 
 let theUserSection = document.querySelector("section");
-
+let theTitRow = document.querySelector("#titleRow")
 
 axios.get(`http://localhost:8080/api/v1/getClassAndReviewByDeptAndNum?department=${theDept}&classNumber=${theCourseNumber}`).then((res) => {
 
@@ -31,6 +31,11 @@ axios.get(`http://localhost:8080/api/v1/getClassAndReviewByDeptAndNum?department
     cumDif.innerHTML = "Cumulitive Difference " + res.data[0].cumDif;
     likes.innerHTML = "Likes " + res.data[0].likes;
     dislikes.innerHTML = "Dislikes " + res.data[0].dislikes;
+
+    const title = document.createElement('h1');
+    title.className ="title";
+    title.innerText = "Additional Class Info: " + res.data[0].classNumber + " "  + res.data[0].className;
+    theTitRow.append(title);
 
     theUserSection.append(id);
     theUserSection.append(className);
