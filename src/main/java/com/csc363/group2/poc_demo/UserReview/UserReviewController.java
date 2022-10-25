@@ -62,6 +62,14 @@ public class UserReviewController {
         return userReviewService.getAllReviewByCourseDepartment(userReview.userReviewDepartment,userReview.userReviewCourseNumber);
     }
 
+    @CrossOrigin(origins ="*")
+    @DeleteMapping("api/v1/deleteReviewByEmailCourseDept")
+    @ResponseBody
+    public void deleteReviewByEmailCourseDept(@RequestParam String userEmail, int courseNumber, String department){
+        System.out.println("Deleting Review!");
+        userReviewService.deleteUserReviewByEmailCourseDept(userEmail,courseNumber,department);
+    }
+
 
     @CrossOrigin(origins ="*")
     @ResponseBody

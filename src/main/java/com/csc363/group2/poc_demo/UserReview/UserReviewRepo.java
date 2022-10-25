@@ -10,5 +10,6 @@ import java.util.List;
 public interface UserReviewRepo extends JpaRepository <UserReviewEntity,Long> {
 
     List<UserReviewEntity> getUserReviewEntitiesByUserReviewDepartmentAndUserReviewCourseNumber(String department, int courseNumber);
+    UserReviewEntity getUserReviewEntityByUserReviewEmailAndUserReviewCourseNumberAndUserReviewDepartment(String reviewEmail, int reviewCourseNumber, String reviewDepartment);
 
 }

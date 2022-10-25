@@ -43,4 +43,10 @@ public class UserReviewService {
         return userReviewList;
     }
 
+    public void deleteUserReviewByEmailCourseDept(String email, int courseNumber,String department){
+        System.out.println("Getting All Reviews By Course and Department");
+        UserReviewEntity userReview = userReviewRepo.getUserReviewEntityByUserReviewEmailAndUserReviewCourseNumberAndUserReviewDepartment(email,courseNumber,department);
+        userReviewRepo.delete(userReview);
+    }
+
 }
