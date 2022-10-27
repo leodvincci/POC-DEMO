@@ -61,8 +61,19 @@
   
   .titleRow {
     display: flex;
-    justify-content: space-evenly;
+    justify-content: center;
     align-items: baseline;
+  }
+
+  .titRowButs{
+    display: inline-flex;
+    align-items: center;
+    padding-left: 50px;
+    justify-content: space-between;
+  }
+
+  #logoutbtn{
+    margin-left: 25px;
   }
   
   .title {
