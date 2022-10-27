@@ -5,10 +5,15 @@ import com.csc363.group2.poc_demo.appuser.AppUserModelBody;
 import com.csc363.group2.poc_demo.appuser.AppUserService;
 import com.csc363.group2.poc_demo.security.UpdatePasswordBody;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import java.util.List;
+import java.util.Map;
+
 @CrossOrigin(origins = "*")
 @RestController
 public class UserController {
@@ -23,6 +28,14 @@ public class UserController {
     public List<AppUser> getAllUsers(){
         return userService.getListofUsers();
     }
+
+
+    @CrossOrigin(origins ="*")
+    @RequestMapping("/api/v1/whoAmI")
+    public String home(@AuthenticationPrincipal AppUser user) {
+        return user.getEmail();
+    }
+
 
     @CrossOrigin(origins ="*")
     @DeleteMapping("/removeuser")
