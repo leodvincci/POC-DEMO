@@ -2,7 +2,7 @@ let theUserSection = document.querySelector("section");
 let theUserTable = document.getElementById("tableBody");
 
 
-    axios.get('http://54.146.226.153:8080/api/v1/getAllClasses').then((res) => {
+    axios.get('http://localhost:8080/api/v1/getAllClasses').then((res) => {
     for (let i = 0; i < res.data.length; i++) {
 
         const id = document.createElement('h2');
@@ -13,7 +13,11 @@ let theUserTable = document.getElementById("tableBody");
         const cumGPA =  document.createElement("h5");
         const cumDif = document.createElement("h5");  
         const likes = document.createElement("h5");  
-        const dislikes = document.createElement("h5"); 
+        const dislikes = document.createElement("h5");
+
+        const addToPlannerBtn = document.createElement("button");
+        addToPlannerBtn.className = "btn btn-info";
+        addToPlannerBtn.id = "that-btn";
 
 
         // id.innerText = "Num: " + res.data[i].id;
@@ -26,6 +30,8 @@ let theUserTable = document.getElementById("tableBody");
         cumDif.innerHTML = "Cumulitive Difference " + res.data[i].cumDif; 
         likes.innerHTML = "Likes " + res.data[i].likes; 
         dislikes.innerHTML = "Dislikes " + res.data[i].dislikes;
+        addToPlannerBtn.innerText = "Add Course To Planner"
+
 
         theUserSection.append(id);
         theUserSection.append(className);
@@ -36,6 +42,7 @@ let theUserTable = document.getElementById("tableBody");
         theUserSection.append(cumDif);  
         theUserSection.append(likes); 
         theUserSection.append(dislikes);
+        theUserSection.append(addToPlannerBtn);
 
 
     }  
