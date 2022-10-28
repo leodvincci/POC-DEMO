@@ -8,6 +8,7 @@ import com.csc363.group2.poc_demo.UserReview.UserReviewService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -35,6 +36,15 @@ public class ClassService {
         System.out.println("Searching for Class By Name and Number!");
         ClassEntity classEntity = classRepository.findByDepartmentAndClassNumber(department,classNumber);
         List allTheReviews = userReviewService.getAllReviewByCourseDepartment(department,classNumber);
+        List emp = new ArrayList<>();
+//        System.out.println("LOOK" + emp);
+//        System.out.println("Look at this:" + classEntity);
+//        System.out.println("Look at this:" + allTheReviews);
+        if(classEntity == null){
+            System.out.println("LOOK I'm NULLLL!");
+
+            return List.of(emp,allTheReviews);
+        }
         return List.of(classEntity,allTheReviews);
     }
 

@@ -42,77 +42,82 @@ form.addEventListener('submit',function (e){
         const likes = document.createElement("h5");
         const dislikes = document.createElement("h5");
 
-        console.log(res.data)
-        // id.innerText = "Num: " + res.data[0].id;
-        className.innerHTML = `<a href=\"AdditionalClassInfo.html?userReviewDepartment=${res.data[0].department}&userReviewCourseNumber=${res.data[0].classNumber}\">` + res.data[0].className + "</a>";
-        className.className = "theClassName"
+        console.log(res.data , res.data[0].length,res.data[1].length)
+        if(res.data[0].length == 0 && res.data[1].length == 0 ){
 
-        classDescription.innerHTML = "Description " + res.data[0].classDescription;
-        department.innerHTML = "Department " + res.data[0].department;
-        classNumber.innerHTML = "Class Number " +res.data[0].classNumber;
-        cumGPA.innerHTML = "Cumulative GPA " + res.data[0].cumGPA;
-        cumDif.innerHTML = "Cumulative Difficulty " + res.data[0].cumDif;
-        likes.innerHTML = "Total Likes " + res.data[0].likes;
-        dislikes.innerHTML = "Total Dislikes " + res.data[0].dislikes;
+            window.location.href='AddClass.html'
 
-        const title = document.createElement('h1');
-        title.className ="title";
-        title.innerText = "Additional Class Info: " + res.data[0].classNumber + " "  + res.data[0].className;
-        // theTitRow.append(title);
-
-        theUserSection.append(id);
-        theUserSection.append(className);
-        theUserSection.append(classDescription);
-        theUserSection.append(department);
-        theUserSection.append(classNumber);
-        theUserSection.append(cumGPA);
-        theUserSection.append(cumDif);
-        theUserSection.append(likes);
-        theUserSection.append(dislikes);
-
-        for (let i = 0; i < res.data[1].length; i++) {
+        }else {
 
 
-            const userReviewId = document.createElement('h1');
-            const userReviewEmail =  document.createElement("h2");
-            const userReviewGPA =  document.createElement("h4");
-            const userReviewDifficulty =  document.createElement("h4");
-            const userReviewLike =  document.createElement("h4");
-            const userReviewDislike =  document.createElement("h4");
-            const userReviewFeedback = document.createElement("h3");
-            userReviewFeedback.className ="feedBack"
+            // id.innerText = "Num: " + res.data[0].id;
+            className.innerHTML = `<a href=\"AdditionalClassInfo.html?userReviewDepartment=${res.data[0].department}&userReviewCourseNumber=${res.data[0].classNumber}\">` + res.data[0].className + "</a>";
+            className.className = "theClassName"
+
+            classDescription.innerHTML = "Description " + res.data[0].classDescription;
+            department.innerHTML = "Department " + res.data[0].department;
+            classNumber.innerHTML = "Class Number " + res.data[0].classNumber;
+            cumGPA.innerHTML = "Cumulative GPA " + res.data[0].cumGPA;
+            cumDif.innerHTML = "Cumulative Difficulty " + res.data[0].cumDif;
+            likes.innerHTML = "Total Likes " + res.data[0].likes;
+            dislikes.innerHTML = "Total Dislikes " + res.data[0].dislikes;
+
+            const title = document.createElement('h1');
+            title.className = "title";
+            title.innerText = "Additional Class Info: " + res.data[0].classNumber + " " + res.data[0].className;
+            // theTitRow.append(title);
+
+            theUserSection.append(id);
+            theUserSection.append(className);
+            theUserSection.append(classDescription);
+            theUserSection.append(department);
+            theUserSection.append(classNumber);
+            theUserSection.append(cumGPA);
+            theUserSection.append(cumDif);
+            theUserSection.append(likes);
+            theUserSection.append(dislikes);
+
+            for (let i = 0; i < res.data[1].length; i++) {
 
 
+                const userReviewId = document.createElement('h1');
+                const userReviewEmail = document.createElement("h2");
+                const userReviewGPA = document.createElement("h4");
+                const userReviewDifficulty = document.createElement("h4");
+                const userReviewLike = document.createElement("h4");
+                const userReviewDislike = document.createElement("h4");
+                const userReviewFeedback = document.createElement("h3");
+                userReviewFeedback.className = "feedBack"
 
-            // userReviewId.innerText = "Review #: " + res.data[1][i].userReviewID;
-            userReviewId.innerHTML = "<br>";
-            userReviewEmail.innerHTML = res.data[1][i].userReviewEmail;
-            userReviewGPA.innerHTML = "GPA:  " + res.data[1][i].userReviewGPA;
-            userReviewDifficulty.innerHTML = "Difficulty Rating:  " + res.data[1][i].userReviewDifficulty;
-            // classNumber.innerHTML = "Class Number " +res.data[i].classNumber;
-            // cumGPA.innerHTML = "Cumulitive GPA " + res.data[i].cumGPA;
-            // cumDif.innerHTML = "Cumulitive Difference " + res.data[i].cumDif;
-            userReviewLike.innerHTML = "Student Liked Class 👍";
-            userReviewDislike.innerHTML = "Student Disliked Class 👎 ";
-            userReviewFeedback.innerHTML = "Student Feedback: " + res.data[1][i].userReviewFeedback;
 
-            theUserSection.append(userReviewId);
-            theUserSection.append(userReviewEmail);
-            theUserSection.append(userReviewGPA);
-            theUserSection.append(userReviewDifficulty);
-            if(res.data[1][i].userReviewLike){
-                theUserSection.append(userReviewLike);
-            }else{
-                theUserSection.append(userReviewDislike);
+                // userReviewId.innerText = "Review #: " + res.data[1][i].userReviewID;
+                userReviewId.innerHTML = "<br>";
+                userReviewEmail.innerHTML = res.data[1][i].userReviewEmail;
+                userReviewGPA.innerHTML = "GPA:  " + res.data[1][i].userReviewGPA;
+                userReviewDifficulty.innerHTML = "Difficulty Rating:  " + res.data[1][i].userReviewDifficulty;
+                // classNumber.innerHTML = "Class Number " +res.data[i].classNumber;
+                // cumGPA.innerHTML = "Cumulitive GPA " + res.data[i].cumGPA;
+                // cumDif.innerHTML = "Cumulitive Difference " + res.data[i].cumDif;
+                userReviewLike.innerHTML = "Student Liked Class 👍";
+                userReviewDislike.innerHTML = "Student Disliked Class 👎 ";
+                userReviewFeedback.innerHTML = "Student Feedback: " + res.data[1][i].userReviewFeedback;
+
+                theUserSection.append(userReviewId);
+                theUserSection.append(userReviewEmail);
+                theUserSection.append(userReviewGPA);
+                theUserSection.append(userReviewDifficulty);
+                if (res.data[1][i].userReviewLike) {
+                    theUserSection.append(userReviewLike);
+                } else {
+                    theUserSection.append(userReviewDislike);
+                }
+                theUserSection.append(userReviewFeedback);
+
+
             }
-            theUserSection.append(userReviewFeedback);
-
-
-
-
         }
-
     })
+
 
 })
 

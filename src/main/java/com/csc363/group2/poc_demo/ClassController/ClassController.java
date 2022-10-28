@@ -47,6 +47,8 @@ public class ClassController {
     @GetMapping("api/v1/getClassAndReviewByDeptAndNum")
     @ResponseBody
     public List getClassAndReviewByDeptAndNum(@RequestParam String department, int classNumber){
+        System.out.println("LOOK AT THIS SHIT!!!---->" + classService.getClassAndReviewByDeptAndNum(department,classNumber));
+        System.out.println("hello world");
         return classService.getClassAndReviewByDeptAndNum(department,classNumber);
     }
 
