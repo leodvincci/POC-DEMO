@@ -45,6 +45,9 @@ form.addEventListener('submit',function (e){
         console.log(res.data , res.data[0].length,res.data[1].length)
         if(res.data[0].length == 0 && res.data[1].length == 0 ){
 
+            alert("Sorry..We Do Not Have This Course On Our Site.")
+            alert("Please Add It So That Others May Find It.")
+
             window.location.href='AddClass.html'
 
         }else {
