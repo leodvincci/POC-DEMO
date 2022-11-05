@@ -108,4 +108,17 @@ class ClassEntityTest {
         classEntity.setDislikes(42);
         assertEquals(42, classEntity.getDislikes());
     }
+
+    @Test
+    void getId() {
+        assertEquals(42, classEntity.getId());
+    }
+
+    @Test
+    void setId() {
+        classEntity.setId(24L);
+        assertEquals(24, classEntity.getId());
+
+    }
+
 }
