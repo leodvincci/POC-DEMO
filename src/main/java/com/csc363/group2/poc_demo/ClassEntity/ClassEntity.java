@@ -113,6 +113,7 @@ public class ClassEntity {
         this.className = className;
         this.classDescription = classDescription;
         this.classNumber = classNumber;
+        this.department = department;
         this.cumGPA = cumGPA;
         this.cumDif = cumDif;
         this.likes = likes;
