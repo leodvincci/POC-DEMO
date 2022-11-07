@@ -11,7 +11,12 @@ let theTitRow = document.querySelector("#titleRow")
 
 const form = document.getElementById('formElem');
 
-
+function containsNumbers(str) {
+    return /\d/.test(str);
+  }
+  function containsOnlyNumbers(str) {
+    return /^\d+$/.test(str);
+  }
 form.addEventListener('submit',function (e){
     e.preventDefault();
     const prepayload = new FormData(form)
@@ -21,7 +26,19 @@ form.addEventListener('submit',function (e){
     let dpt = payload.get("department");
     let cnm = payload.get("classNumber");
 
-    console.log(dpt)
+    if(!((dpt.length >= 1) && (dpt.length <= 4))){
+        alert("Invalid Department!");
+    }else if(containsNumbers(dpt)){
+        alert("Invalid Department!");
+    }else if(cnm.length > 5){
+        alert("Invalid Course Number!");
+    }
+    else if(!containsOnlyNumbers(cnm)){
+        alert("Invalid Course Number!");
+    }else if((dpt.length == 0) || (cnm.length == 0)){
+        alert("Please fill in all fields.");
+    }else{
+        console.log(dpt)
     console.log(cnm)
 
     let data = {
@@ -120,7 +137,6 @@ form.addEventListener('submit',function (e){
             }
         }
     })
-
-
+    }
 })
 
