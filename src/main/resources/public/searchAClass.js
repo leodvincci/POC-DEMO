@@ -25,8 +25,9 @@ form.addEventListener('submit',function (e){
 
     let dpt = payload.get("department");
     let cnm = payload.get("classNumber");
-
-    if(!((dpt.length >= 1) && (dpt.length <= 4))){
+    if((dpt.length == 0) || (cnm.length == 0)){
+        alert("Please fill in all fields.");
+    }else if(!((dpt.length >= 1) && (dpt.length <= 4))){
         alert("Invalid Department!");
     }else if(containsNumbers(dpt)){
         alert("Invalid Department!");
@@ -35,8 +36,6 @@ form.addEventListener('submit',function (e){
     }
     else if(!containsOnlyNumbers(cnm)){
         alert("Invalid Course Number!");
-    }else if((dpt.length == 0) || (cnm.length == 0)){
-        alert("Please fill in all fields.");
     }else{
         console.log(dpt)
     console.log(cnm)
