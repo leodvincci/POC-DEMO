@@ -22,7 +22,7 @@ form.addEventListener('submit',function (e){
         role: role
     }
 
-    fetch('http://3.88.60.54:8080/api/v1/updateuserinfo', {
+    fetch('http://54.146.226.153:8080/api/v1/updateuserinfo', {
         method: "POST",
         headers: {
             "Content-Type":'application/json'

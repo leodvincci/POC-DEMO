@@ -27,13 +27,13 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     private static final String[] WHITE_LIST_URLS = {
             "/register",
             "/login",
-            "/h2-console",
+//            "/h2-console",
             "/api/v*/registration/**",
-            "/api/v*/resetpassword/**",
-            "/api/v*/updateuserinfo/**",
-            "/api/v*/**",
-            "/allusers",
-            "/removeuser",
+//            "/api/v*/resetpassword/**",
+//            "/api/v*/updateuserinfo/**",
+//            "/api/v*/**",
+//            "/allusers",
+//            "/removeuser",
 
     };
 
