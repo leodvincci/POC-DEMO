@@ -39,7 +39,7 @@ form.addEventListener('submit', function (e) {
             classNumber: cnm
         }
 
-        fetch('http://54.146.226.153:8080/api/v1/addClass', {
+        fetch('http://localhost:8080/api/v1/addClass', {
             method: "POST",
             headers: {
                 "Content-Type": 'application/json'

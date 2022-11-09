@@ -2,7 +2,7 @@ let theUserSection = document.querySelector("section");
 let theUserTable = document.getElementById("tableBody");
 
 
-    axios.get('http://54.146.226.153:8080/api/v1/getAllClasses').then((res) => {
+    axios.get('http://localhost:8080/api/v1/getAllClasses').then((res) => {
     for (let i = 0; i < res.data.length; i++) {
 
         const id = document.createElement('h2');

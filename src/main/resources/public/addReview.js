@@ -96,7 +96,7 @@ form.addEventListener('submit', function (e) {
             userReviewFeedback: classDescription
         }
 
-        fetch('http://54.146.226.153:8080/api/v1/addUserReview', { //idk where api is
+        fetch('http://localhost:8080/api/v1/addUserReview', { //idk where api is
             method: "POST",
             headers: {
                 "Content-Type": 'application/json'

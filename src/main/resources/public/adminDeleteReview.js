@@ -18,7 +18,7 @@ form.addEventListener('submit',function (e){
         className: clnm
     }
 
-    fetch(`http://54.146.226.153:8080/api/v1/deleteReviewByEmailCourseDept?userEmail=${eml}&courseNumber=${clnm}&department=${dpt}`, {
+    fetch(`http://localhost:8080/api/v1/deleteReviewByEmailCourseDept?userEmail=${eml}&courseNumber=${clnm}&department=${dpt}`, {
         method: "DELETE",
         headers: {
             "Content-Type":'application/json'
