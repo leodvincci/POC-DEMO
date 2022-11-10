@@ -1,11 +1,10 @@
-package com.csc363.group2.poc_demo.Controllers;
+package com.csc363.group2.poc_demo.Services;
 
 import com.csc363.group2.poc_demo.ClassController.ClassController;
 import com.csc363.group2.poc_demo.ClassService.ClassService;
+import com.csc363.group2.poc_demo.Controllers.UserController;
 import com.csc363.group2.poc_demo.Repos.UserRepository;
-import com.csc363.group2.poc_demo.Services.UserService;
 import com.csc363.group2.poc_demo.appuser.AppUser;
-import com.csc363.group2.poc_demo.appuser.AppUserRepository;
 import com.csc363.group2.poc_demo.appuser.AppUserRole;
 import com.csc363.group2.poc_demo.appuser.AppUserService;
 import org.junit.jupiter.api.Test;
@@ -18,12 +17,8 @@ import org.springframework.http.MediaType;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.springframework.test.web.servlet.MockMvc;
-import org.springframework.test.web.servlet.MvcResult;
-import org.springframework.test.web.servlet.RequestBuilder;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -31,7 +26,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 @ExtendWith(SpringExtension.class)
 @WebMvcTest(ClassController.class)
-class UserControllerTest {
+class UserServiceTest {
 
     @Autowired
     private MockMvc mockMvc;
@@ -46,8 +41,6 @@ class UserControllerTest {
     @MockBean
     AppUser user;
 
-
-
     @MockBean
     UserService userService;
 
@@ -56,7 +49,6 @@ class UserControllerTest {
 
     @MockBean
     BCryptPasswordEncoder bCryptPasswordEncoder;
-
 
     AppUser appUser = new AppUser(
             "Leo",
@@ -67,42 +59,15 @@ class UserControllerTest {
     );
 
     @Test
-    void whoAmItest() throws Exception {
-
-        String email = appUser.getEmail();
-
-//        String email = "leodpenrose@gmail.com";
-//        Mockito.when(appUser.getEmail()).thenReturn(email);
-
-        RequestBuilder request = MockMvcRequestBuilders.get("/api/v1/whoAmI")
-                .contentType(MediaType.APPLICATION_JSON);
-        MvcResult result = mockMvc
-                .perform(request)
-                .andExpect(status().isOk())
-                .andReturn();
-
-
-//        assertEquals("leodpenrose@gmail.com",appUser.getEmail());
-//        assertEquals("",result.getResponse().getContentAsString());
-    }
-
-    @Test
     void deleteUser() throws Exception {
-//        appUser.setId(1L);
-        Mockito.when(userRepository.findById(appUser.getId())).thenReturn(Optional.of(appUser));
+        appUser.setId(1L);
 
         mockMvc.perform(MockMvcRequestBuilders
-                .delete("/removeuser")
-                        .param("id","1")
-                .contentType(MediaType.APPLICATION_JSON))
+                        .delete("/removeuser")
+                        .param("id",appUser.getId().toString())
+                        .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk());
+        assertEquals(Optional.empty(),userRepository.findById(appUser.getId()));
 
-//        RequestBuilder request = MockMvcRequestBuilders.delete("/removeuser")
-//                .param("id","1")
-//                .contentType(MediaType.APPLICATION_JSON);
-//        MvcResult result = mockMvc
-//                .perform(request)
-//                .andExpect(status().isOk())
-//                .andReturn();
     }
 }

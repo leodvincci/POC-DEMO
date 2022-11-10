@@ -8,6 +8,7 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -18,32 +19,61 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
-@ExtendWith(SpringExtension.class)
-@WebMvcTest(ClassService.class)
+@DataJpaTest
 class ClassServiceTest {
-
-    @MockBean
-    private ClassRepository repository;
-
-
-    @MockBean
-    private ClassEntity entity;
+//
+//    @MockBean
+//    private ClassRepository repository;
+//
+//
+//    @MockBean
+//    private ClassEntity entity;
+//
+//    @Autowired
+//    private MockMvc mockMvc;
+//
+//    @MockBean
+//    ClassService classService;
+//    @MockBean
+//    AppUserService appUserService;
+//
+//    @MockBean
+//    BCryptPasswordEncoder bCryptPasswordEncoder;
 
     @Autowired
-    private MockMvc mockMvc;
+    ClassRepository classRepository;
 
-    @MockBean
-    ClassService classService;
-    @MockBean
-    AppUserService appUserService;
+    ClassService classService = new ClassService();
 
-    @MockBean
-    BCryptPasswordEncoder bCryptPasswordEncoder;
+    ClassEntity classEntity = new ClassEntity();
+
+//    ClassService classService = new ClassService();
 
     @Test
     void getAllClasses() {
-        List<ClassEntity> lst = new ArrayList<>();
-        List<ClassEntity> classList = repository.findAll();
-        assertEquals(lst,classList);
+//        List<ClassEntity> lst = new ArrayList<>();
+//        List<ClassEntity> classList = repository.findAll();
+//        assertEquals(lst,classList);
+
+        classEntity.setId(1L);
+        classEntity.setClassName("Software Projects");
+        classEntity.setClassDescription("Students will be provided with experience in team design, implementation and testing of a large software project.");
+        classEntity.setDepartment("CSC");
+        classEntity.setDislikes(0);
+        classEntity.setClassNumber(390);
+        classEntity.setLikes(0);
+        classEntity.setCumGPA(0.00);
+        classEntity.setCumDif(0.00);
+        classRepository.save(classEntity);
+        ArrayList<ClassEntity> res = new ArrayList<>();
+        res.add(classEntity);
+//        assertEquals(res,repository.findAll());
+
+        assertEquals(res,classRepository.findAll());
+
+    }
+
+    @Test
+    void getByDepartmentAndClassNumber() {
     }
 }
