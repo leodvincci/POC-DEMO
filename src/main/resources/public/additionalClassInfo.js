@@ -37,7 +37,7 @@ axios.get(`http://localhost:8080/api/v1/getClassAndReviewByDeptAndNum?department
 
     const title = document.createElement('h1');
     title.className ="title";
-    title.innerText = "Additional Class Info: " + res.data[0].classNumber + " "  + res.data[0].className;
+    title.innerText = "Additional Class Info: " + res.data[0].department + "-" + res.data[0].classNumber + " ("  + res.data[0].className + ")";
     theTitRow.append(title);
 
     theUserSection.append(id);
