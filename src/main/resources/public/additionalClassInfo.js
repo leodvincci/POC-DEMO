@@ -1,16 +1,14 @@
 const myKeysValues = window.location.search;
-
 const urlParams = new URLSearchParams(myKeysValues);
-
 const theDept = urlParams.get("userReviewDepartment");
 const theCourseNumber = urlParams.get("userReviewCourseNumber");
-
 let theUserSection = document.querySelector("section");
 let theTitRow = document.querySelector("#titleRow")
 
+console.log()
+
 //54.146.226
 axios.get(`http://localhost:8080/api/v1/getClassAndReviewByDeptAndNum?department=${theDept}&classNumber=${theCourseNumber}`).then((res) => {
-
 
     const id = document.createElement('h2');
     const className =  document.createElement("h2");
@@ -29,7 +27,6 @@ axios.get(`http://localhost:8080/api/v1/getClassAndReviewByDeptAndNum?department
     console.log(res.data)
     className.innerHTML = `<a id = "classNameStyle" href=\"AdditionalClassInfo.html?userReviewDepartment=${res.data[0].department}&userReviewCourseNumber=${res.data[0].classNumber}\">` + res.data[0].className + "</a>";
     className.className = "theClassName"
-
     classDescription.innerHTML = "Description: " + res.data[0].classDescription;
     department.innerHTML = "<br>Department: " + res.data[0].department;
     classNumber.innerHTML = "Class Number: " +res.data[0].classNumber;
@@ -37,45 +34,35 @@ axios.get(`http://localhost:8080/api/v1/getClassAndReviewByDeptAndNum?department
     cumDif.innerHTML = "Cumulative Difficulty: " + res.data[0].cumDif;
     likes.innerHTML = "Total Likes: " + res.data[0].likes;
     dislikes.innerHTML = "Total Dislikes: " + res.data[0].dislikes;
-    
-    // addToPlannerBtn.innerHTML = "<button id=\"addClassStyle\" class=\"btn btn-info\" onclick=\"saveClass()\">Save this class ❤️</button>";
 
+    // addToPlannerBtn.innerHTML = "<button id=\"addClassStyle\" class=\"btn btn-info\" onclick=\"saveClass()\">Save this class ❤️</button>";
     const addToPlannerBtn = document.createElement("button");
     addToPlannerBtn.innerText = "Save this class ❤️";
     addToPlannerBtn.id = "addClassStyle";
     addToPlannerBtn.className = "btn btn-info";
     addToPlannerBtn.onclick = saveClass;
-
     const title = document.createElement('h1');
     title.className ="title";
     title.style = "font-weight: bold;"
     title.innerText = "Additional Class Info: " + res.data[0].department + "-" + res.data[0].classNumber + " ("  + res.data[0].className + ")";
     theTitRow.append(title);
-
     const fullClass = document.createElement("div");
     fullClass.id = "getAllClassesContainerAdditionalClassInfo";
-
     fullClass.append(className);
     fullClass.append(classDescription);
     fullClass.append(department);
     fullClass.append(classNumber);
     fullClass.append(cumGPA);
-    fullClass.append(cumDif);  
-    fullClass.append(likes); 
+    fullClass.append(cumDif);
+    fullClass.append(likes);
     fullClass.append(dislikes);
     fullClass.append(lineBreakTwo);
     fullClass.append(addToPlannerBtn);
 
-    
     fullClass.append(lineBreak);
-
-
     let theReviewSection = document.createElement("section");
     theReviewSection.id = "reviewsStyles";
-
     for (let i = 0; i < res.data[1].length; i++) {
-
-
         const userReviewId = document.createElement('h5');
         const userReviewEmail =  document.createElement("h5");
         const userReviewGPA =  document.createElement("h6");
@@ -91,7 +78,6 @@ axios.get(`http://localhost:8080/api/v1/getClassAndReviewByDeptAndNum?department
         userReviewLike.innerHTML = "Student Liked Class 👍";
         userReviewDislike.innerHTML = "Student Disliked Class 👎 ";
         userReviewFeedback.innerHTML = "Student Feedback: " + res.data[1][i].userReviewFeedback;
-
         theReviewSection.append(userReviewId);
         theReviewSection.append(userReviewEmail);
         theReviewSection.append(userReviewGPA);
@@ -107,27 +93,27 @@ axios.get(`http://localhost:8080/api/v1/getClassAndReviewByDeptAndNum?department
         if(i != res.data[1].length-1){
             theReviewSection.append(lineBreak2);
         }
-
-
         fullClass.append(theReviewSection);
     }
     theUserSection.append(fullClass);
 
 })
 
-function saveClass(){
-    // axios.post(`http://localhost:8080/api/v1/saveStudentCourse?department=${theDept}&classNumber=${theCourseNumber}`).then((res) => {
 
-    // })
-    axios.post('http://localhost:8080/api/v1/saveStudentCourse', {
-        department: theDept,
-        classNumber: theCourseNumber
-      })
-      .then(function (response) {
-        console.log(response);
-      })
-      .catch(function (error) {
-        console.log(error);
-      });
+
+function saveClass(){
+    axios.post(`http://localhost:8080/api/v1/saveStudentCourse?department=${theDept}&classNumber=${theCourseNumber}`).then((res) => {
+
+    })
+    // axios.post('http://localhost:8080/api/v1/saveStudentCourse', {
+    //     department: theDept,
+    //     classNumber: theCourseNumber
+    //   })
+    //   .then(function (response) {
+    //     console.log(response);
+    //   })
+    //   .catch(function (error) {
+    //     console.log(error);
+    //   });
 
 }
