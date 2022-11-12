@@ -21,7 +21,6 @@ axios.get(`http://localhost:8080/api/v1/getClassAndReviewByDeptAndNum?department
     const cumDif = document.createElement("h6");
     const likes = document.createElement("h6");
     const dislikes = document.createElement("h6");
-    const addToPlannerBtn = document.createElement("div");
     let lineBreak = document.createElement("h6");
     lineBreak.innerHTML = "hello";
     lineBreak.style = "color:#ffffff";
@@ -39,10 +38,13 @@ axios.get(`http://localhost:8080/api/v1/getClassAndReviewByDeptAndNum?department
     likes.innerHTML = "Total Likes: " + res.data[0].likes;
     dislikes.innerHTML = "Total Dislikes: " + res.data[0].dislikes;
     
-    addToPlannerBtn.innerHTML = "<button id=\"addClassStyle\" class=\"btn btn-info\" onclick=\"saveClass()\">Save this class ❤️</button>";
-    // addToPlannerBtn.id = "addClassStyle";
-    // addToPlannerBtn.className = "btn btn-info";
-    // addToPlannerBtn.onclick = saveClass();
+    // addToPlannerBtn.innerHTML = "<button id=\"addClassStyle\" class=\"btn btn-info\" onclick=\"saveClass()\">Save this class ❤️</button>";
+
+    const addToPlannerBtn = document.createElement("button");
+    addToPlannerBtn.innerText = "Save this class ❤️";
+    addToPlannerBtn.id = "addClassStyle";
+    addToPlannerBtn.className = "btn btn-info";
+    addToPlannerBtn.onclick = saveClass;
 
     const title = document.createElement('h1');
     title.className ="title";
@@ -83,7 +85,6 @@ axios.get(`http://localhost:8080/api/v1/getClassAndReviewByDeptAndNum?department
         const userReviewFeedback = document.createElement("p");
         userReviewFeedback.id = "feedbackColor";
         userReviewFeedback.className ="feedBack";
-        // userReviewId.innerHTML = "<br>";
         userReviewEmail.innerHTML = res.data[1][i].userReviewEmail;
         userReviewGPA.innerHTML = "GPA:  " + res.data[1][i].userReviewGPA;
         userReviewDifficulty.innerHTML = "Difficulty Rating:  " + res.data[1][i].userReviewDifficulty;
