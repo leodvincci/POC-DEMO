@@ -8,6 +8,8 @@ const theCourseNumber = urlParams.get("userReviewCourseNumber");
 let theUserSection = document.querySelector("section");
 let theTitRow = document.querySelector("#titleRow")
 
+console.log()
+
 //54.146.226
 axios.get(`http://localhost:8080/api/v1/getClassAndReviewByDeptAndNum?department=${theDept}&classNumber=${theCourseNumber}`).then((res) => {
 
@@ -115,19 +117,21 @@ axios.get(`http://localhost:8080/api/v1/getClassAndReviewByDeptAndNum?department
 
 })
 
-function saveClass(){
-    // axios.post(`http://localhost:8080/api/v1/saveStudentCourse?department=${theDept}&classNumber=${theCourseNumber}`).then((res) => {
 
-    // })
-    axios.post('http://localhost:8080/api/v1/saveStudentCourse', {
-        department: theDept,
-        classNumber: theCourseNumber
-      })
-      .then(function (response) {
-        console.log(response);
-      })
-      .catch(function (error) {
-        console.log(error);
-      });
+
+function saveClass(){
+    axios.post(`http://localhost:8080/api/v1/saveStudentCourse?department=${theDept}&classNumber=${theCourseNumber}`).then((res) => {
+
+    })
+    // axios.post('http://localhost:8080/api/v1/saveStudentCourse', {
+    //     department: theDept,
+    //     classNumber: theCourseNumber
+    //   })
+    //   .then(function (response) {
+    //     console.log(response);
+    //   })
+    //   .catch(function (error) {
+    //     console.log(error);
+    //   });
 
 }
