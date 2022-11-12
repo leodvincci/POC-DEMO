@@ -5,7 +5,9 @@ import com.csc363.group2.poc_demo.ClassRepo.ClassRepository;
 import com.csc363.group2.poc_demo.Repos.UserRepository;
 import com.csc363.group2.poc_demo.UserReview.UserReviewEntity;
 import com.csc363.group2.poc_demo.UserReview.UserReviewService;
+import com.csc363.group2.poc_demo.appuser.AppUser;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -96,6 +98,20 @@ public class ClassService {
 
         classRepository.save(classEntity);
         System.out.println("Class Was Saved");
+
+    }
+
+    public void saveCourseWithStudent(String classDept, int classNumber, AppUser appUser){
+            ClassEntity course = getByDepartmentAndClassNumber(classDept,classNumber);
+            course.addStudents(appUser);
+            classRepository.save(course);
+
+
+    }
+
+    public List<ClassEntity> getSavedStudentCourses(AppUser user){
+        List classList = classRepository.findAllByUsers(user);
+        return classList;
 
     }
 

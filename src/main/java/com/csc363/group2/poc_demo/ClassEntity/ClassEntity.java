@@ -1,10 +1,13 @@
 package com.csc363.group2.poc_demo.ClassEntity;
 
+import com.csc363.group2.poc_demo.appuser.AppUser;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Getter
 @Setter
@@ -32,6 +35,26 @@ public class ClassEntity {
     double cumDif;
     int likes;
     int dislikes;
+
+
+    @ManyToMany(
+            cascade = CascadeType.ALL
+    )
+    @JoinTable(
+            name = "student_course_map",
+            joinColumns = @JoinColumn(name = "course_id",referencedColumnName = "id" ),
+            inverseJoinColumns = @JoinColumn(name ="appuser_id" ,referencedColumnName = "id")
+    )
+    List<AppUser> users;
+
+    public void addStudents(AppUser appUser){
+        if(users == null) users = new ArrayList<>();
+        users.add(appUser);
+        System.out.println(users.toArray());
+
+    }
+
+
 
     public ClassEntity() {
     }
