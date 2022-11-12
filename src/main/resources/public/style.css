@@ -90,6 +90,17 @@
   
 
 }
+#likedIt:active{
+  background-color: #4242d3;
+  transition-duration:1s;
+
+}
+#dislikedIt:active{
+  margin: 1px 1px 0;
+  box-shadow: -1px -1px 1px #000;
+}#dislikedIt:active::after{
+  background-color: #4242d3;
+overflow:visible}
 #reviewsStyles{
   padding-left: 2%;
   margin-top: 2%;
