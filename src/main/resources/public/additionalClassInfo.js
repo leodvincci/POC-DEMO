@@ -22,11 +22,13 @@ axios.get(`http://localhost:8080/api/v1/getClassAndReviewByDeptAndNum?department
     const likes = document.createElement("h6");
     const dislikes = document.createElement("h6");
     const addToPlannerBtn = document.createElement("button");
+    let lineBreak = document.createElement("h1");
+    lineBreak.innerHTML = "hello";
+    lineBreak.style = "color:#ffffff";
     addToPlannerBtn.className = "btn btn-info";
     addToPlannerBtn.id = "that-btn";
 
     console.log(res.data)
-    // id.innerText = "Num: " + res.data[0].id;
     className.innerHTML = `<a id = "classNameStyle" href=\"AdditionalClassInfo.html?userReviewDepartment=${res.data[0].department}&userReviewCourseNumber=${res.data[0].classNumber}\">` + res.data[0].className + "</a>";
     className.className = "theClassName"
 
@@ -47,7 +49,9 @@ axios.get(`http://localhost:8080/api/v1/getClassAndReviewByDeptAndNum?department
     theTitRow.append(title);
 
     const fullClass = document.createElement("div");
-    fullClass.id = "getAllClassesContainer";
+    fullClass.id = "getAllClassesContainerAdditionalClassInfo";
+    // fullClass.append(lineBreak);
+    // fullClass.append(lineBreak);
     fullClass.append(className);
     fullClass.append(classDescription);
     fullClass.append(department);
@@ -58,33 +62,28 @@ axios.get(`http://localhost:8080/api/v1/getClassAndReviewByDeptAndNum?department
     fullClass.append(dislikes);
     fullClass.append(addToPlannerBtn);
 
+    
+    fullClass.append(lineBreak);
 
-    // theUserSection.append(fullClass);
 
     let theReviewSection = document.createElement("section");
+    theReviewSection.id = "reviewsStyles";
 
     for (let i = 0; i < res.data[1].length; i++) {
 
 
-        const userReviewId = document.createElement('h1');
-        const userReviewEmail =  document.createElement("h2");
-        const userReviewGPA =  document.createElement("h4");
-        const userReviewDifficulty =  document.createElement("h4");
-        const userReviewLike =  document.createElement("h4");
-        const userReviewDislike =  document.createElement("h4");
-        const userReviewFeedback = document.createElement("h3");
-        userReviewFeedback.className ="feedBack"
-
-
-
-        // userReviewId.innerText = "Review #: " + res.data[1][i].userReviewID;
-        userReviewId.innerHTML = "<br>";
+        const userReviewId = document.createElement('h5');
+        const userReviewEmail =  document.createElement("h5");
+        const userReviewGPA =  document.createElement("h6");
+        const userReviewDifficulty =  document.createElement("h6");
+        const userReviewLike =  document.createElement("h6");
+        const userReviewDislike =  document.createElement("h6");
+        const userReviewFeedback = document.createElement("p");
+        userReviewFeedback.className ="feedBack";
+        // userReviewId.innerHTML = "<br>";
         userReviewEmail.innerHTML = res.data[1][i].userReviewEmail;
         userReviewGPA.innerHTML = "GPA:  " + res.data[1][i].userReviewGPA;
         userReviewDifficulty.innerHTML = "Difficulty Rating:  " + res.data[1][i].userReviewDifficulty;
-        // classNumber.innerHTML = "Class Number " +res.data[i].classNumber;
-        // cumGPA.innerHTML = "Cumulitive GPA " + res.data[i].cumGPA;
-        // cumDif.innerHTML = "Cumulitive Difference " + res.data[i].cumDif;
         userReviewLike.innerHTML = "Student Liked Class 👍";
         userReviewDislike.innerHTML = "Student Disliked Class 👎 ";
         userReviewFeedback.innerHTML = "Student Feedback: " + res.data[1][i].userReviewFeedback;

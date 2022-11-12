@@ -63,6 +63,32 @@
 
   transition-duration:1s;
 }
+#getAllClassesContainerAdditionalClassInfo{
+   /* padding: 0.5%; */
+  /* margin-left:0%;
+  padding:0%; */
+  margin-left:0px;
+  padding-top: 0%;
+  margin-top:5%;
+  padding-left: 2.5%;
+  /* padding-bottom: 2.5%; */
+  /* padding-left: 2%;
+  margin-top: 2%;
+  margin-left: 1%;
+  margin-bottom: 1%; */
+  border-left: 4px solid;
+  border-color: #8f50aa;
+  
+
+}
+#reviewsStyles{
+  padding-left: 2%;
+  margin-top: 2%;
+  margin-left: 1%;
+  margin-bottom: 1%;
+  border-left: 4px solid;
+  border-color: #8f50aa;
+}
 
 #classNameStyle{
   color:#8f50aa;
