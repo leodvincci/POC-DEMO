@@ -13,42 +13,55 @@ axios.get(`http://localhost:8080/api/v1/getClassAndReviewByDeptAndNum?department
 
 
     const id = document.createElement('h2');
-    const className =  document.createElement("h3");
-    const classDescription =  document.createElement("h3");
-    const department =  document.createElement("h4");
-    const classNumber =  document.createElement("h5");
-    const cumGPA =  document.createElement("h5");
-    const cumDif = document.createElement("h5");
-    const likes = document.createElement("h5");
-    const dislikes = document.createElement("h5");
+    const className =  document.createElement("h2");
+    const classDescription =  document.createElement("h5");
+    const department =  document.createElement("h6");
+    const classNumber =  document.createElement("h6");
+    const cumGPA =  document.createElement("h6");
+    const cumDif = document.createElement("h6");
+    const likes = document.createElement("h6");
+    const dislikes = document.createElement("h6");
+    const addToPlannerBtn = document.createElement("button");
+    addToPlannerBtn.className = "btn btn-info";
+    addToPlannerBtn.id = "that-btn";
 
     console.log(res.data)
     // id.innerText = "Num: " + res.data[0].id;
-    className.innerHTML = `<a href=\"AdditionalClassInfo.html?userReviewDepartment=${res.data[0].department}&userReviewCourseNumber=${res.data[0].classNumber}\">` + res.data[0].className + "</a>";
+    className.innerHTML = `<a id = "classNameStyle" href=\"AdditionalClassInfo.html?userReviewDepartment=${res.data[0].department}&userReviewCourseNumber=${res.data[0].classNumber}\">` + res.data[0].className + "</a>";
     className.className = "theClassName"
 
     classDescription.innerHTML = "Description " + res.data[0].classDescription;
-    department.innerHTML = "Department " + res.data[0].department;
+    department.innerHTML = "<br>Department " + res.data[0].department;
     classNumber.innerHTML = "Class Number " +res.data[0].classNumber;
     cumGPA.innerHTML = "Cumulative GPA " + res.data[0].cumGPA;
     cumDif.innerHTML = "Cumulative Difficulty " + res.data[0].cumDif;
     likes.innerHTML = "Total Likes " + res.data[0].likes;
     dislikes.innerHTML = "Total Dislikes " + res.data[0].dislikes;
+    addToPlannerBtn.innerText = "Save this class ❤️";
+    addToPlannerBtn.id = "addClassStyle";
 
     const title = document.createElement('h1');
     title.className ="title";
+    title.style = "font-weight: bold;"
     title.innerText = "Additional Class Info: " + res.data[0].department + "-" + res.data[0].classNumber + " ("  + res.data[0].className + ")";
     theTitRow.append(title);
 
-    theUserSection.append(id);
-    theUserSection.append(className);
-    theUserSection.append(classDescription);
-    theUserSection.append(department);
-    theUserSection.append(classNumber);
-    theUserSection.append(cumGPA);
-    theUserSection.append(cumDif);
-    theUserSection.append(likes);
-    theUserSection.append(dislikes);
+    const fullClass = document.createElement("div");
+    fullClass.id = "getAllClassesContainer";
+    fullClass.append(className);
+    fullClass.append(classDescription);
+    fullClass.append(department);
+    fullClass.append(classNumber);
+    fullClass.append(cumGPA);
+    fullClass.append(cumDif);  
+    fullClass.append(likes); 
+    fullClass.append(dislikes);
+    fullClass.append(addToPlannerBtn);
+
+
+    // theUserSection.append(fullClass);
+
+    let theReviewSection = document.createElement("section");
 
     for (let i = 0; i < res.data[1].length; i++) {
 
@@ -76,20 +89,21 @@ axios.get(`http://localhost:8080/api/v1/getClassAndReviewByDeptAndNum?department
         userReviewDislike.innerHTML = "Student Disliked Class 👎 ";
         userReviewFeedback.innerHTML = "Student Feedback: " + res.data[1][i].userReviewFeedback;
 
-        theUserSection.append(userReviewId);
-        theUserSection.append(userReviewEmail);
-        theUserSection.append(userReviewGPA);
-        theUserSection.append(userReviewDifficulty);
+        theReviewSection.append(userReviewId);
+        theReviewSection.append(userReviewEmail);
+        theReviewSection.append(userReviewGPA);
+        theReviewSection.append(userReviewDifficulty);
         if(res.data[1][i].userReviewLike){
-            theUserSection.append(userReviewLike);
+            theReviewSection.append(userReviewLike);
         }else{
-            theUserSection.append(userReviewDislike);
+            theReviewSection.append(userReviewDislike);
         }
-        theUserSection.append(userReviewFeedback);
+        theReviewSection.append(userReviewFeedback);
 
 
 
-
+        fullClass.append(theReviewSection);
     }
+    theUserSection.append(fullClass);
 
 })
