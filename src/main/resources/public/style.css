@@ -45,8 +45,8 @@
   transition-duration:2s;
   cursor:pointer;
   -webkit-transition-duration:1.5s;
-  margin-left:2.5%;
-  margin-right:2.5%;
+  /* margin-left:2.5%;
+  margin-right:2.5%; */
   padding-top: 2.5%;
   padding-left: 2.5%;
   padding-right: 5%;
@@ -67,6 +67,12 @@
 
   transition-duration:1s;
 }
+#feedbackColor{
+  color:#6250aa;
+}
+#hr-length{
+  width:50%;
+}
 #getAllClassesContainerAdditionalClassInfo{
    /* padding: 0.5%; */
   /* margin-left:0%;
@@ -80,8 +86,9 @@
   margin-top: 2%;
   margin-left: 1%;
   margin-bottom: 1%; */
-  border-left: 4px solid;
+  border-left: 8px solid;
   border-color: #8f50aa;
+  border-radius: 10px;
   
 
 }
@@ -90,8 +97,9 @@
   margin-top: 2%;
   margin-left: 1%;
   margin-bottom: 1%;
-  border-left: 4px solid;
+  border-left: 8px solid;
   border-color: #8f50aa;
+  border-radius: 15px;
 }
 
 #classNameStyle{
@@ -103,6 +111,7 @@
 #addClassStyle{
   background-color:#d19dc7;
   border-color:#d19dc7;
+  margin-bottom: 45px;
 }
 /* #getAllClassesContainer:hover{
   background-color: aqua;
@@ -245,9 +254,7 @@ h2{
 
   }
 
-  #that-btn{
-    margin-bottom: 45px;
-  }
+
 
   #getAllClasses{
     margin-top: 25px;

@@ -21,13 +21,12 @@ axios.get(`http://localhost:8080/api/v1/getClassAndReviewByDeptAndNum?department
     const cumDif = document.createElement("h6");
     const likes = document.createElement("h6");
     const dislikes = document.createElement("h6");
-    const addToPlannerBtn = document.createElement("button");
-    let lineBreak = document.createElement("h1");
+    const addToPlannerBtn = document.createElement("div");
+    let lineBreak = document.createElement("h6");
     lineBreak.innerHTML = "hello";
     lineBreak.style = "color:#ffffff";
-    addToPlannerBtn.className = "btn btn-info";
-    addToPlannerBtn.id = "that-btn";
-
+    let lineBreakTwo = document.createElement("p");
+    lineBreakTwo.innerHTML = "";
     console.log(res.data)
     className.innerHTML = `<a id = "classNameStyle" href=\"AdditionalClassInfo.html?userReviewDepartment=${res.data[0].department}&userReviewCourseNumber=${res.data[0].classNumber}\">` + res.data[0].className + "</a>";
     className.className = "theClassName"
@@ -39,8 +38,11 @@ axios.get(`http://localhost:8080/api/v1/getClassAndReviewByDeptAndNum?department
     cumDif.innerHTML = "Cumulative Difficulty " + res.data[0].cumDif;
     likes.innerHTML = "Total Likes " + res.data[0].likes;
     dislikes.innerHTML = "Total Dislikes " + res.data[0].dislikes;
-    addToPlannerBtn.innerText = "Save this class ❤️";
-    addToPlannerBtn.id = "addClassStyle";
+    
+    addToPlannerBtn.innerHTML = "<button id=\"addClassStyle\" class=\"btn btn-info\" onclick=\"saveClass()\">Save this class ❤️</button>";
+    // addToPlannerBtn.id = "addClassStyle";
+    // addToPlannerBtn.className = "btn btn-info";
+    // addToPlannerBtn.onclick = saveClass();
 
     const title = document.createElement('h1');
     title.className ="title";
@@ -50,8 +52,7 @@ axios.get(`http://localhost:8080/api/v1/getClassAndReviewByDeptAndNum?department
 
     const fullClass = document.createElement("div");
     fullClass.id = "getAllClassesContainerAdditionalClassInfo";
-    // fullClass.append(lineBreak);
-    // fullClass.append(lineBreak);
+
     fullClass.append(className);
     fullClass.append(classDescription);
     fullClass.append(department);
@@ -60,6 +61,7 @@ axios.get(`http://localhost:8080/api/v1/getClassAndReviewByDeptAndNum?department
     fullClass.append(cumDif);  
     fullClass.append(likes); 
     fullClass.append(dislikes);
+    fullClass.append(lineBreakTwo);
     fullClass.append(addToPlannerBtn);
 
     
@@ -79,6 +81,7 @@ axios.get(`http://localhost:8080/api/v1/getClassAndReviewByDeptAndNum?department
         const userReviewLike =  document.createElement("h6");
         const userReviewDislike =  document.createElement("h6");
         const userReviewFeedback = document.createElement("p");
+        userReviewFeedback.id = "feedbackColor";
         userReviewFeedback.className ="feedBack";
         // userReviewId.innerHTML = "<br>";
         userReviewEmail.innerHTML = res.data[1][i].userReviewEmail;
@@ -98,7 +101,11 @@ axios.get(`http://localhost:8080/api/v1/getClassAndReviewByDeptAndNum?department
             theReviewSection.append(userReviewDislike);
         }
         theReviewSection.append(userReviewFeedback);
-
+        let lineBreak2 = document.createElement("hr");
+        lineBreak2.id = "hr-length";
+        if(i != res.data[1].length-1){
+            theReviewSection.append(lineBreak2);
+        }
 
 
         fullClass.append(theReviewSection);
@@ -106,3 +113,7 @@ axios.get(`http://localhost:8080/api/v1/getClassAndReviewByDeptAndNum?department
     theUserSection.append(fullClass);
 
 })
+
+function saveClass(){
+    alert("hello");
+}
