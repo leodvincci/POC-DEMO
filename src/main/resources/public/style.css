@@ -50,20 +50,18 @@
   padding-top: 2.5%;
   padding-left: 2.5%;
   padding-right: 5%;
-  padding-bottom: 2.5%;
+  padding-bottom: 0.5%;
 
 
 }
 #getAllClassesContainer{
-  /* padding: 0.5%; */
-  /* margin-left:0%;
-  padding:0%; */
-  margin-left:0px;
-  margin-right:0px;
+
+  /* margin-left:0px;
+  margin-right:0px; */
   padding-top: 2.5%;
   padding-left: 2.5%;
   padding-right: 2.5%;
-  padding-bottom: 2.5%;
+  padding-bottom: 0.5%;
 
   transition-duration:1s;
 }
@@ -98,8 +96,8 @@
   margin-left: 1%;
   margin-bottom: 1%;
   border-left: 8px solid;
-  border-color: #8f50aa;
-  border-radius: 15px;
+  border-color: #eadeef;
+  border-radius: 10px;
 }
 
 #classNameStyle{

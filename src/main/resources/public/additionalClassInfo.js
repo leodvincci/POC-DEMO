@@ -31,13 +31,13 @@ axios.get(`http://localhost:8080/api/v1/getClassAndReviewByDeptAndNum?department
     className.innerHTML = `<a id = "classNameStyle" href=\"AdditionalClassInfo.html?userReviewDepartment=${res.data[0].department}&userReviewCourseNumber=${res.data[0].classNumber}\">` + res.data[0].className + "</a>";
     className.className = "theClassName"
 
-    classDescription.innerHTML = "Description " + res.data[0].classDescription;
-    department.innerHTML = "<br>Department " + res.data[0].department;
-    classNumber.innerHTML = "Class Number " +res.data[0].classNumber;
-    cumGPA.innerHTML = "Cumulative GPA " + res.data[0].cumGPA;
-    cumDif.innerHTML = "Cumulative Difficulty " + res.data[0].cumDif;
-    likes.innerHTML = "Total Likes " + res.data[0].likes;
-    dislikes.innerHTML = "Total Dislikes " + res.data[0].dislikes;
+    classDescription.innerHTML = "Description: " + res.data[0].classDescription;
+    department.innerHTML = "<br>Department: " + res.data[0].department;
+    classNumber.innerHTML = "Class Number: " +res.data[0].classNumber;
+    cumGPA.innerHTML = "Cumulative GPA: " + res.data[0].cumGPA;
+    cumDif.innerHTML = "Cumulative Difficulty: " + res.data[0].cumDif;
+    likes.innerHTML = "Total Likes: " + res.data[0].likes;
+    dislikes.innerHTML = "Total Dislikes: " + res.data[0].dislikes;
     
     addToPlannerBtn.innerHTML = "<button id=\"addClassStyle\" class=\"btn btn-info\" onclick=\"saveClass()\">Save this class ❤️</button>";
     // addToPlannerBtn.id = "addClassStyle";
