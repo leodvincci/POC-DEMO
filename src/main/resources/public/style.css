@@ -1,7 +1,129 @@
+/* #class-border-style{
+  border-left: 1px solid;
+  padding: 0.7%;
+} */
 
+.titRowButs{
+  display: inline-flex;
+  align-items: center;
+  padding-left: 50px;
+  justify-content: space-between;
+  background-color: #8f50aa;
+  font-family: 'Comfortaa', cursive;
+}
+#admin{
+  background-color: #6250aa;
+  border-color:#6250aa;
+  color:white;
+  width:150%;
+  transition: 0.5s;
+}
+#admin:hover{
+    color:white;
+    filter: brightness(60%);
+    width:150%;
+
+    transition: 0.5s;
+}
+#logoutbtn{
+  background-color: #dc3545;
+  border-color:#dc3545;
+  color:white;
+  transition: 0.5s;
+}
+#logoutbtn:hover{
+    color:white;
+    filter: brightness(60%);
+    transition: 0.5s;
+}
+
+#getAllClassesContainer:hover{
+  background-color: #eadeef;
+  /* padding: 0.5%; */
+  /* margin-left:0%;
+  padding:0%; */
+  transition-duration:2s;
+  cursor:pointer;
+  -webkit-transition-duration:1.5s;
+  /* margin-left:2.5%;
+  margin-right:2.5%; */
+  padding-top: 2.5%;
+  padding-left: 2.5%;
+  padding-right: 5%;
+  padding-bottom: 0.5%;
+
+
+}
+#getAllClassesContainer{
+
+  /* margin-left:0px;
+  margin-right:0px; */
+  padding-top: 2.5%;
+  padding-left: 2.5%;
+  padding-right: 2.5%;
+  padding-bottom: 0.5%;
+
+  transition-duration:1s;
+}
+#feedbackColor{
+  color:#6250aa;
+}
+#hr-length{
+  width:50%;
+}
+#getAllClassesContainerAdditionalClassInfo{
+   /* padding: 0.5%; */
+  /* margin-left:0%;
+  padding:0%; */
+  margin-left:0px;
+  padding-top: 0%;
+  margin-top:5%;
+  padding-left: 2.5%;
+  /* padding-bottom: 2.5%; */
+  /* padding-left: 2%;
+  margin-top: 2%;
+  margin-left: 1%;
+  margin-bottom: 1%; */
+  border-left: 8px solid;
+  border-color: #8f50aa;
+  border-radius: 10px;
+  
+
+}
+#reviewsStyles{
+  padding-left: 2%;
+  margin-top: 2%;
+  margin-left: 1%;
+  margin-bottom: 1%;
+  border-left: 8px solid;
+  border-color: #eadeef;
+  border-radius: 10px;
+}
+
+#classNameStyle{
+  color:#8f50aa;
+}
+#classNameStyle:hover{
+  color: #e9b526;
+}
+#addClassStyle{
+  background-color:#d19dc7;
+  border-color:#d19dc7;
+  margin-bottom: 45px;
+}
+/* #getAllClassesContainer:hover{
+  background-color: aqua;
+  padding: 0.5%;
+  transition-duration:1.5s;
+  cursor:pointer;
+  -webkit-transition-duration:1.5s;
+} */
+#myForm, #formElem, .mb-3{
+  background-color: #eadeef;
+}
 .html {
     background-color: #FCF5E2;
-          @import url('https://fonts.googleapis.com/css2?family=Comfortaa&family=Montserrat&display=swap');
+          /* @import url('https://fonts.googleapis.com/css2?family=Comfortaa&family=Montserrat&display=swap'); */
   }
   html{
   font-family: 'Comfortaa', cursive;
@@ -14,7 +136,9 @@
   border-radius: 30px; 
   }
 
-
+h2{
+  font-family: 'Comfortaa', cursive;
+}
 
 .theClassName {
   color: #4242d3;
@@ -25,10 +149,17 @@
 
 
 }
-
+.mb-3{
+  font-family: 'Comfortaa', cursive;
+}
 .theClassName a {
   color: #4242d3;
   text-decoration: none;
+}
+
+.h2-styles{
+  text-align: center;
+  font-style: italic;
 }
 
 
@@ -45,13 +176,43 @@
   font-size: 17px;  
   }
   
+
   .nav-links a {
-  color: #ffffff;
+    position: relative;
+    color: #ffffff;
   text-decoration: none; 
-  } 
+  }
   
-  a:hover { color: #e9b526; border-radius: 5px; 
-  cursor: pointer;}
+  .nav-links a::before {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 4px;
+      border-radius: 4px;
+      background-color: #d19dc7;
+      bottom: 0;
+      left: 0;
+      transform-origin: right;
+      transform: scaleX(0);
+      transition: transform .3s ease-in-out;
+      color: #ffffff;
+  text-decoration: none; 
+    }
+  
+    .nav-links a:hover::before {
+    transform-origin: left;
+    transform: scaleX(1);
+    color: #ffffff;
+  text-decoration: none; 
+  }
+  .nav-links :hover::after {
+
+    color: #ffffff;
+  text-decoration: none; 
+  }
+  
+  /* a:hover { color: #e9b526; border-radius: 5px; 
+  cursor: pointer;} */
   
   .titleRow img{
     height: 50px;
@@ -65,12 +226,7 @@
     align-items: baseline;
   }
 
-  .titRowButs{
-    display: inline-flex;
-    align-items: center;
-    padding-left: 50px;
-    justify-content: space-between;
-  }
+
 
   #logoutbtn{
     margin-left: 25px;
@@ -96,9 +252,7 @@
 
   }
 
-  #that-btn{
-    margin-bottom: 45px;
-  }
+
 
   #getAllClasses{
     margin-top: 25px;
