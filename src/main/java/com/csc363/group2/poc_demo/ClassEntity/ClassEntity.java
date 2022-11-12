@@ -43,13 +43,14 @@ public class ClassEntity {
     @JoinTable(
             name = "student_course_map",
             joinColumns = @JoinColumn(name = "course_id",referencedColumnName = "id" ),
-            inverseJoinColumns = @JoinColumn(name ="appuser_email" ,referencedColumnName = "email")
+            inverseJoinColumns = @JoinColumn(name ="appuser_id" ,referencedColumnName = "id")
     )
     List<AppUser> users;
 
     public void addStudents(AppUser appUser){
         if(users == null) users = new ArrayList<>();
         users.add(appUser);
+        System.out.println(users.toArray());
 
     }
 

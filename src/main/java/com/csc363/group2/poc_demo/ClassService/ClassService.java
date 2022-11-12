@@ -109,4 +109,10 @@ public class ClassService {
 
     }
 
+    public List<ClassEntity> getSavedStudentCourses(AppUser user){
+        List classList = classRepository.findAllByUsers(user);
+        return classList;
+
+    }
+
 }

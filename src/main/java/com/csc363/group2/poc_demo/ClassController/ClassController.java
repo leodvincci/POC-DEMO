@@ -59,6 +59,13 @@ public class ClassController {
     }
 
     @CrossOrigin(origins ="*")
+    @GetMapping("api/v1/getSavedStudentCourses")
+    public List getClassAndReviewByDeptAndNum(@AuthenticationPrincipal AppUser appUser){
+        System.out.println("Getting saved classes for: " + appUser.getUsername());
+        return classService.getSavedStudentCourses(appUser);
+    }
+
+    @CrossOrigin(origins ="*")
     @DeleteMapping("api/v1/searchandremoveclass")
     @ResponseBody
     public void DeleteClassByDepartAndNumber(@RequestParam String department, int classNumber){
