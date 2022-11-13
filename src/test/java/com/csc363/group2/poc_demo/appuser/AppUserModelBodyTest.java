@@ -20,6 +20,11 @@ class AppUserModelBodyTest {
     }
 
     @Test
+    void getUserName() {
+        assertEquals("Leo",user.getFirstName());
+    }
+
+    @Test
     void getLastName() {
         assertEquals("Penrose",user.getLastName());
     }

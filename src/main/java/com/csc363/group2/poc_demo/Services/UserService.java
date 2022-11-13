@@ -29,6 +29,10 @@ public class UserService {
     @Autowired
     private ConfirmationTokenRepository confirmationTokenRepository;
 
+    public UserService(UserRepository userRepository) {
+        this.userRepository = userRepository;
+    }
+
     public List<AppUser> getListofUsers(){
         return userRepository.findAll();
     }

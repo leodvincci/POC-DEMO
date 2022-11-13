@@ -4,6 +4,7 @@ import com.csc363.group2.poc_demo.ClassEntity.ClassEntity;
 import com.csc363.group2.poc_demo.ClassRepo.ClassRepository;
 import com.csc363.group2.poc_demo.Repos.UserRepository;
 import com.csc363.group2.poc_demo.UserReview.UserReviewEntity;
+import com.csc363.group2.poc_demo.UserReview.UserReviewRepo;
 import com.csc363.group2.poc_demo.UserReview.UserReviewService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -19,6 +20,13 @@ public class ClassService {
 
     @Autowired
     private UserReviewService userReviewService;
+
+    public ClassService(ClassRepository classRepository) {
+        this.classRepository = classRepository;
+    }
+
+
+
 
     public List<ClassEntity> getAllClasses(){
         System.out.println("Getting All Classes");

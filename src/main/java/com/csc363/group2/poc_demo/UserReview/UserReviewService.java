@@ -9,8 +9,14 @@ import java.util.List;
 @Service
 public class UserReviewService {
 
+
+
     @Autowired
     UserReviewRepo userReviewRepo;
+
+    public UserReviewService(UserReviewRepo userReviewRepo) {
+        this.userReviewRepo = userReviewRepo;
+    }
 
 
     public void addUserReview(String email, String department,int courseNumber, Double gpa, Integer difficulty, boolean like, boolean dislike, String feedback){

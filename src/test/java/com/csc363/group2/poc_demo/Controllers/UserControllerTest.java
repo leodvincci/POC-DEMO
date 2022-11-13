@@ -105,4 +105,22 @@ class UserControllerTest {
 //                .andExpect(status().isOk())
 //                .andReturn();
     }
+    void deleteAllUsers() throws Exception {
+//        appUser.setId(1L);
+        Mockito.when(userRepository.findById(appUser.getId())).thenReturn(Optional.of(appUser));
+
+        mockMvc.perform(MockMvcRequestBuilders
+                        .delete("api/v1/resetpassword")
+                        .contentType(MediaType.APPLICATION_JSON))
+                .andExpect(status().isOk());
+
+//        RequestBuilder request = MockMvcRequestBuilders.delete("/removeuser")
+//                .param("id","1")
+//                .contentType(MediaType.APPLICATION_JSON);
+//        MvcResult result = mockMvc
+//                .perform(request)
+//                .andExpect(status().isOk())
+//                .andReturn();
+    }
+
 }

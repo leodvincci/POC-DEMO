@@ -100,6 +100,13 @@ class UserReviewEntityTest {
     }
 
     @Test
+    void getUserReviewId() {
+        assertEquals(null, userReview.getUserReviewID());
+    }
+
+
+
+    @Test
     void getUserReviewFeedback() {
         assertEquals("Loved it!", userReview.getUserReviewFeedback());
     }
