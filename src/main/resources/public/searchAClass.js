@@ -89,6 +89,28 @@ form.addEventListener('submit',function (e){
             title.className = "title";
             title.innerText = "Additional Class Info: " + res.data[0].classNumber + " " + res.data[0].className;
             // theTitRow.append(title);
+            addToPlannerBtn.onclick = saveClass;
+
+
+            function saveClass(){
+                console.log("Clicked")
+                alert(`${res.data[0].department} ${res.data[0].classNumber} Class Has Been Saved!`)
+
+                axios.post(`http://localhost:8080/api/v1/saveStudentCourse?department=${res.data[0].department}&classNumber=${res.data[0].classNumber}`).then((res) => {
+
+                })
+                // axios.post('http://localhost:8080/api/v1/saveStudentCourse', {
+                //     department: theDept,
+                //     classNumber: theCourseNumber
+                //   })
+                //   .then(function (response) {
+                //     console.log(response);
+                //   })
+                //   .catch(function (error) {
+                //     console.log(error);
+                //   });
+
+            }
 
         theUserSection.append(id);
         theUserSection.append(className);

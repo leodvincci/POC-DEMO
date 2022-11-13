@@ -103,7 +103,7 @@ axios.get(`http://localhost:8080/api/v1/getClassAndReviewByDeptAndNum?department
 
 function saveClass(){
     axios.post(`http://localhost:8080/api/v1/saveStudentCourse?department=${theDept}&classNumber=${theCourseNumber}`).then((res) => {
-
+    alert(`${theDept} ${theCourseNumber} Class Has Been Saved!`)
     })
     // axios.post('http://localhost:8080/api/v1/saveStudentCourse', {
     //     department: theDept,
