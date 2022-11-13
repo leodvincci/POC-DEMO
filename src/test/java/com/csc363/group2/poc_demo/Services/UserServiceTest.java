@@ -5,6 +5,7 @@ import com.csc363.group2.poc_demo.ClassService.ClassService;
 import com.csc363.group2.poc_demo.Controllers.UserController;
 import com.csc363.group2.poc_demo.Repos.UserRepository;
 import com.csc363.group2.poc_demo.appuser.AppUser;
+import com.csc363.group2.poc_demo.appuser.AppUserRepository;
 import com.csc363.group2.poc_demo.appuser.AppUserRole;
 import com.csc363.group2.poc_demo.appuser.AppUserService;
 import org.junit.jupiter.api.Test;
@@ -37,6 +38,9 @@ class UserServiceTest {
 
     @MockBean
     UserRepository userRepository;
+
+    @MockBean
+    AppUserRepository appUserRepository;
 
     @MockBean
     AppUser user;
