@@ -1,95 +1,119 @@
 const myKeysValues = window.location.search;
-
 const urlParams = new URLSearchParams(myKeysValues);
-
 const theDept = urlParams.get("userReviewDepartment");
 const theCourseNumber = urlParams.get("userReviewCourseNumber");
-
 let theUserSection = document.querySelector("section");
 let theTitRow = document.querySelector("#titleRow")
+
+console.log()
 
 //54.146.226
 axios.get(`http://localhost:8080/api/v1/getClassAndReviewByDeptAndNum?department=${theDept}&classNumber=${theCourseNumber}`).then((res) => {
 
-
     const id = document.createElement('h2');
-    const className =  document.createElement("h3");
-    const classDescription =  document.createElement("h3");
-    const department =  document.createElement("h4");
-    const classNumber =  document.createElement("h5");
-    const cumGPA =  document.createElement("h5");
-    const cumDif = document.createElement("h5");
-    const likes = document.createElement("h5");
-    const dislikes = document.createElement("h5");
-
+    const className =  document.createElement("h2");
+    const classDescription =  document.createElement("h5");
+    const department =  document.createElement("h6");
+    const classNumber =  document.createElement("h6");
+    const cumGPA =  document.createElement("h6");
+    const cumDif = document.createElement("h6");
+    const likes = document.createElement("h6");
+    const dislikes = document.createElement("h6");
+    let lineBreak = document.createElement("h6");
+    lineBreak.innerHTML = "hello";
+    lineBreak.style = "color:#ffffff";
+    let lineBreakTwo = document.createElement("p");
+    lineBreakTwo.innerHTML = "";
     console.log(res.data)
-    // id.innerText = "Num: " + res.data[0].id;
-    className.innerHTML = `<a href=\"AdditionalClassInfo.html?userReviewDepartment=${res.data[0].department}&userReviewCourseNumber=${res.data[0].classNumber}\">` + res.data[0].className + "</a>";
+    className.innerHTML = `<a id = "classNameStyle" href=\"AdditionalClassInfo.html?userReviewDepartment=${res.data[0].department}&userReviewCourseNumber=${res.data[0].classNumber}\">` + res.data[0].className + "</a>";
     className.className = "theClassName"
+    classDescription.innerHTML = "Description: " + res.data[0].classDescription;
+    department.innerHTML = "<br>Department: " + res.data[0].department;
+    classNumber.innerHTML = "Class Number: " +res.data[0].classNumber;
+    cumGPA.innerHTML = "Cumulative GPA: " + res.data[0].cumGPA;
+    cumDif.innerHTML = "Cumulative Difficulty: " + res.data[0].cumDif;
+    likes.innerHTML = "Total Likes: " + res.data[0].likes;
+    dislikes.innerHTML = "Total Dislikes: " + res.data[0].dislikes;
 
-    classDescription.innerHTML = "Description " + res.data[0].classDescription;
-    department.innerHTML = "Department " + res.data[0].department;
-    classNumber.innerHTML = "Class Number " +res.data[0].classNumber;
-    cumGPA.innerHTML = "Cumulative GPA " + res.data[0].cumGPA;
-    cumDif.innerHTML = "Cumulative Difficulty " + res.data[0].cumDif;
-    likes.innerHTML = "Total Likes " + res.data[0].likes;
-    dislikes.innerHTML = "Total Dislikes " + res.data[0].dislikes;
-
+    // addToPlannerBtn.innerHTML = "<button id=\"addClassStyle\" class=\"btn btn-info\" onclick=\"saveClass()\">Save this class ❤️</button>";
+    const addToPlannerBtn = document.createElement("button");
+    addToPlannerBtn.innerText = "Save this class ❤️";
+    addToPlannerBtn.id = "addClassStyle";
+    addToPlannerBtn.className = "btn btn-info";
+    addToPlannerBtn.onclick = saveClass;
     const title = document.createElement('h1');
     title.className ="title";
-    title.innerText = "Additional Class Info: " + res.data[0].classNumber + " "  + res.data[0].className;
+    title.style = "font-weight: bold;"
+    title.innerText = "Additional Class Info: " + res.data[0].department + "-" + res.data[0].classNumber + " ("  + res.data[0].className + ")";
     theTitRow.append(title);
+    const fullClass = document.createElement("div");
+    fullClass.id = "getAllClassesContainerAdditionalClassInfo";
+    fullClass.append(className);
+    fullClass.append(classDescription);
+    fullClass.append(department);
+    fullClass.append(classNumber);
+    fullClass.append(cumGPA);
+    fullClass.append(cumDif);
+    fullClass.append(likes);
+    fullClass.append(dislikes);
+    fullClass.append(lineBreakTwo);
+    fullClass.append(addToPlannerBtn);
 
-    theUserSection.append(id);
-    theUserSection.append(className);
-    theUserSection.append(classDescription);
-    theUserSection.append(department);
-    theUserSection.append(classNumber);
-    theUserSection.append(cumGPA);
-    theUserSection.append(cumDif);
-    theUserSection.append(likes);
-    theUserSection.append(dislikes);
-
+    fullClass.append(lineBreak);
+    let theReviewSection = document.createElement("section");
+    theReviewSection.id = "reviewsStyles";
     for (let i = 0; i < res.data[1].length; i++) {
-
-
-        const userReviewId = document.createElement('h1');
-        const userReviewEmail =  document.createElement("h2");
-        const userReviewGPA =  document.createElement("h4");
-        const userReviewDifficulty =  document.createElement("h4");
-        const userReviewLike =  document.createElement("h4");
-        const userReviewDislike =  document.createElement("h4");
-        const userReviewFeedback = document.createElement("h3");
-        userReviewFeedback.className ="feedBack"
-
-
-
-        // userReviewId.innerText = "Review #: " + res.data[1][i].userReviewID;
-        userReviewId.innerHTML = "<br>";
+        const userReviewId = document.createElement('h5');
+        const userReviewEmail =  document.createElement("h5");
+        const userReviewGPA =  document.createElement("h6");
+        const userReviewDifficulty =  document.createElement("h6");
+        const userReviewLike =  document.createElement("h6");
+        const userReviewDislike =  document.createElement("h6");
+        const userReviewFeedback = document.createElement("p");
+        userReviewFeedback.id = "feedbackColor";
+        userReviewFeedback.className ="feedBack";
         userReviewEmail.innerHTML = res.data[1][i].userReviewEmail;
         userReviewGPA.innerHTML = "GPA:  " + res.data[1][i].userReviewGPA;
         userReviewDifficulty.innerHTML = "Difficulty Rating:  " + res.data[1][i].userReviewDifficulty;
-        // classNumber.innerHTML = "Class Number " +res.data[i].classNumber;
-        // cumGPA.innerHTML = "Cumulitive GPA " + res.data[i].cumGPA;
-        // cumDif.innerHTML = "Cumulitive Difference " + res.data[i].cumDif;
         userReviewLike.innerHTML = "Student Liked Class 👍";
         userReviewDislike.innerHTML = "Student Disliked Class 👎 ";
         userReviewFeedback.innerHTML = "Student Feedback: " + res.data[1][i].userReviewFeedback;
-
-        theUserSection.append(userReviewId);
-        theUserSection.append(userReviewEmail);
-        theUserSection.append(userReviewGPA);
-        theUserSection.append(userReviewDifficulty);
+        theReviewSection.append(userReviewId);
+        theReviewSection.append(userReviewEmail);
+        theReviewSection.append(userReviewGPA);
+        theReviewSection.append(userReviewDifficulty);
         if(res.data[1][i].userReviewLike){
-            theUserSection.append(userReviewLike);
+            theReviewSection.append(userReviewLike);
         }else{
-            theUserSection.append(userReviewDislike);
+            theReviewSection.append(userReviewDislike);
         }
-        theUserSection.append(userReviewFeedback);
-
-
-
-
+        theReviewSection.append(userReviewFeedback);
+        let lineBreak2 = document.createElement("hr");
+        lineBreak2.id = "hr-length";
+        if(i != res.data[1].length-1){
+            theReviewSection.append(lineBreak2);
+        }
+        fullClass.append(theReviewSection);
     }
+    theUserSection.append(fullClass);
 
 })
+
+
+
+function saveClass(){
+    axios.post(`http://localhost:8080/api/v1/saveStudentCourse?department=${theDept}&classNumber=${theCourseNumber}`).then((res) => {
+
+    })
+    // axios.post('http://localhost:8080/api/v1/saveStudentCourse', {
+    //     department: theDept,
+    //     classNumber: theCourseNumber
+    //   })
+    //   .then(function (response) {
+    //     console.log(response);
+    //   })
+    //   .catch(function (error) {
+    //     console.log(error);
+    //   });
+
+}

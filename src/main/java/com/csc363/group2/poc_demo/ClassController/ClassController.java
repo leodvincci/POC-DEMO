@@ -2,7 +2,10 @@ package com.csc363.group2.poc_demo.ClassController;
 
 import com.csc363.group2.poc_demo.ClassEntity.ClassEntity;
 import com.csc363.group2.poc_demo.ClassService.ClassService;
+import com.csc363.group2.poc_demo.appuser.AppUser;
+import com.csc363.group2.poc_demo.appuser.AppUserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
@@ -13,6 +16,9 @@ public class ClassController {
 
     @Autowired
     public ClassService classService;
+
+    @Autowired
+    AppUserRepository appUserRepository;
 
 
 
@@ -56,6 +62,13 @@ public class ClassController {
     }
 
     @CrossOrigin(origins ="*")
+    @GetMapping("api/v1/getSavedStudentCourses")
+    public List getClassAndReviewByDeptAndNum(@AuthenticationPrincipal AppUser appUser){
+        System.out.println("Getting saved classes for: " + appUser.getUsername());
+        return classService.getSavedStudentCourses(appUser);
+    }
+
+    @CrossOrigin(origins ="*")
     @DeleteMapping("api/v1/searchandremoveclass")
     @ResponseBody
     public void DeleteClassByDepartAndNumber(@RequestParam String department, int classNumber){
@@ -63,5 +76,14 @@ public class ClassController {
         System.out.println("Searching!");
         classService.searchAndDeleteClass(foundClass.getDepartment(), foundClass.getClassNumber());
     }
+
+
+    @CrossOrigin(origins ="*")
+    @PostMapping("api/v1/saveStudentCourse")
+    @ResponseBody
+    public void saveStudentCourse(@RequestParam String department, int classNumber,@AuthenticationPrincipal AppUser appUser){
+        classService.saveCourseWithStudent(department,classNumber,appUserRepository.getAppUserByEmail(appUser.getUsername()));
+    }
+
 
 }

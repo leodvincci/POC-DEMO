@@ -1,5 +1,6 @@
 package com.csc363.group2.poc_demo.appuser;
 
+import com.csc363.group2.poc_demo.ClassEntity.ClassEntity;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -9,8 +10,10 @@ import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
+import java.util.List;
 
 @Getter
 @Setter
@@ -34,6 +37,18 @@ public class AppUser implements UserDetails {
     private String firstName;
     private String lastName;
     private String email;
+
+    @OneToMany
+    private List<ClassEntity> savedClassList;
+
+    public List<ClassEntity> getSavedClassList() {
+        return savedClassList;
+    }
+
+    public void setSavedClassList(List<ClassEntity> savedClassList) {
+        this.savedClassList = savedClassList;
+    }
+
     private String password;
     @Enumerated(EnumType.STRING)
     private AppUserRole appUserRole;

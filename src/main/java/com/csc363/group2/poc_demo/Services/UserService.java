@@ -1,5 +1,6 @@
 package com.csc363.group2.poc_demo.Services;
 
+import com.csc363.group2.poc_demo.ClassEntity.ClassEntity;
 import com.csc363.group2.poc_demo.Repos.UserRepository;
 import com.csc363.group2.poc_demo.appuser.AppUser;
 import com.csc363.group2.poc_demo.appuser.AppUserRepository;
@@ -41,6 +42,13 @@ public class UserService {
         confirmationTokenRepository.deleteById(id);
         userRepository.deleteById(id);
     }
+
+    public AppUser getUsersSavedCourses(String userEmailAddress){
+
+        return userRepository.getAppUserByEmail(userEmailAddress);
+
+    }
+
 
     public void setNewPassword(String email, String password){
        Optional<AppUser> user = appUserRepository.findByEmail(email);

@@ -1,4 +1,5 @@
 package com.csc363.group2.poc_demo.Controllers;
+import com.csc363.group2.poc_demo.ClassEntity.ClassEntity;
 import com.csc363.group2.poc_demo.Services.UserService;
 import com.csc363.group2.poc_demo.appuser.AppUser;
 import com.csc363.group2.poc_demo.appuser.AppUserModelBody;
@@ -8,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -30,10 +32,19 @@ public class UserController {
     }
 
 
+
     @CrossOrigin(origins ="*")
-    @RequestMapping("/api/v1/whoAmI")
+    @GetMapping("/api/v1/whoAmI")
     public String home(@AuthenticationPrincipal AppUser user) {
-        return user.getEmail();
+        return user.getUsername();
+    }
+
+    @CrossOrigin(origins ="*")
+    @GetMapping("/api/v1/getSavedClasses")
+    public List<ClassEntity> getSavedClasses(@AuthenticationPrincipal AppUser appUser) {
+        System.out.println("Getting saved classes for user: " + appUser.getUsername());
+        AppUser user = userService.getUsersSavedCourses(appUser.getUsername());
+        return user.getSavedClassList();
     }
 
 
