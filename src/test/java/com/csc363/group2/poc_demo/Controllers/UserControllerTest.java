@@ -44,6 +44,9 @@ class UserControllerTest {
     UserRepository userRepository;
 
     @MockBean
+    AppUserRepository appUserRepository;
+
+    @MockBean
     AppUser user;
 
 
