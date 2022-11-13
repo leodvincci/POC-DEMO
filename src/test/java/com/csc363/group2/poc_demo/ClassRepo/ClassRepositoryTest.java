@@ -3,6 +3,7 @@ package com.csc363.group2.poc_demo.ClassRepo;
 import com.csc363.group2.poc_demo.ClassEntity.ClassEntity;
 import com.csc363.group2.poc_demo.ClassService.ClassService;
 import com.csc363.group2.poc_demo.PocDemoApplication;
+import com.csc363.group2.poc_demo.appuser.AppUser;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.junit.runner.RunWith;
@@ -14,6 +15,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 //import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.springframework.test.context.junit4.SpringRunner;
 //import org.springframework.test.context.junit4.SpringRunner;
@@ -35,6 +37,7 @@ class ClassRepositoryTest {
 //    @Mock
     @Autowired
     ClassRepository repository;
+
     ClassEntity classEntity = new ClassEntity();
 
     @Test
