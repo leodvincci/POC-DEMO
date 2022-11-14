@@ -16,6 +16,7 @@ axios.get('http://localhost:8080/api/v1/getSavedStudentCourses').then((res) => {
         const dislikes = document.createElement("h6");
         const addToPlannerBtn = document.createElement("button");
         addToPlannerBtn.className = "btn btn-info";
+        addToPlannerBtn.onclick = removeClass;
 
 
         className.innerHTML = `<a id = "classNameStyle" href=\"AdditionalClassInfo.html?userReviewDepartment=${res.data[i].department}&userReviewCourseNumber=${res.data[i].classNumber}\">` + res.data[i].className + "</a>";
@@ -27,8 +28,11 @@ axios.get('http://localhost:8080/api/v1/getSavedStudentCourses').then((res) => {
         cumGPA.innerHTML = "Average GPA: " + res.data[i].cumGPA;
         likes.innerHTML = "Total Likes: " + res.data[i].likes;
         dislikes.innerHTML = "Total Dislikes: " + res.data[i].dislikes;
-        // addToPlannerBtn.innerText = "Save this class ❤️";
+        addToPlannerBtn.innerText = "Remove Saved Class ❤️";
         addToPlannerBtn.id = "addClassStyle";
+
+
+
 
 
         const fullClass = document.createElement("div");
@@ -44,7 +48,30 @@ axios.get('http://localhost:8080/api/v1/getSavedStudentCourses').then((res) => {
         fullClass.append(addToPlannerBtn);
 
 
+
         theUserSection.append(fullClass);
+
+
+
+        function removeClass(){
+            console.log("Course Removed")
+            alert(`${res.data[0].department} ${res.data[0].classNumber} Class Has Been Removed!`)
+
+            axios.delete(`http://localhost:8080/api/v1/removeSavedCourse?department=${res.data[0].department}&classNumber=${res.data[0].classNumber}`).then((res) => {
+
+            })
+            // axios.post('http://localhost:8080/api/v1/saveStudentCourse', {
+            //     department: theDept,
+            //     classNumber: theCourseNumber
+            //   })
+            //   .then(function (response) {
+            //     console.log(response);
+            //   })
+            //   .catch(function (error) {
+            //     console.log(error);
+            //   });
+
+        }
 
 
 

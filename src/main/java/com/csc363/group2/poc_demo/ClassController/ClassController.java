@@ -50,6 +50,15 @@ public class ClassController {
     }
 
     @CrossOrigin(origins ="*")
+    @DeleteMapping("api/v1/removeSavedCourse")
+    @ResponseBody
+    public void removeSavedCourse(@RequestParam int classNumber, @AuthenticationPrincipal AppUser user){
+        System.out.println("Searching!");
+        classService.removedSavedCourse(classNumber,user);
+        System.out.println("Saved Course Removed!");
+    }
+
+    @CrossOrigin(origins ="*")
     @GetMapping("api/v1/getClassAndReviewByDeptAndNum")
     @ResponseBody
     public List getClassAndReviewByDeptAndNum(@RequestParam String department, int classNumber){
