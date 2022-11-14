@@ -1,3 +1,15 @@
+const modal = document.querySelector(".modal");
+function triggerPopUp(){
+    alert("in1");
+    toggleModal();
+}
+function toggleModal() {
+    alert("in2");
+    modal.classList.toggle("show-modal");
+}
+
+//----@ Leo: POPUP IS CODE ABOVE..it is first being called by line 43 because i want to customize the alert--------
+
 const myKeysValues = window.location.search;
 
 const urlParams = new URLSearchParams(myKeysValues);
@@ -17,16 +29,18 @@ function containsNumbers(str) {
   function containsOnlyNumbers(str) {
     return /^\d+$/.test(str);
   }
+
+
 form.addEventListener('submit',function (e){
     e.preventDefault();
     const prepayload = new FormData(form)
 
     const payload = new URLSearchParams(prepayload);
-
     let dpt = payload.get("department");
     let cnm = payload.get("classNumber");
     if((dpt.length == 0) || (cnm.length == 0)){
         alert("Please fill in all fields.");
+        triggerPopUp();
     }else if(!((dpt.length >= 1) && (dpt.length <= 4))){
         alert("Invalid Department!");
     }else if(containsNumbers(dpt)){

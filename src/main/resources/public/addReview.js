@@ -4,6 +4,7 @@ var dislikes = false;
 function updateLikes() {
     likes = true;
     dislikes = false;
+
 }
 function updateDislikes() {
     dislikes = true;
