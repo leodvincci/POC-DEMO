@@ -118,7 +118,7 @@ form.addEventListener('submit',function (e){
         theUserSection.append(department);
         theUserSection.append(classNumber);
         theUserSection.append(cumGPA);
-        theUserSection.append(cumDif);  
+        // theUserSection.append(cumDif);
         theUserSection.append(likes); 
         theUserSection.append(dislikes);
         theUserSection.append(addToPlannerBtn);
