@@ -2,6 +2,7 @@ package com.csc363.group2.poc_demo.UserReview;
 
 import com.csc363.group2.poc_demo.ClassController.ClassController;
 import com.csc363.group2.poc_demo.ClassService.ClassService;
+import com.csc363.group2.poc_demo.appuser.AppUserRepository;
 import com.csc363.group2.poc_demo.appuser.AppUserService;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -27,6 +28,9 @@ class UserReviewRepoTest {
 
     @MockBean
     ClassService classService;
+
+    @MockBean
+    AppUserRepository appUserRepository;
 
     @MockBean
     AppUserService appUserService;

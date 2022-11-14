@@ -29,6 +29,28 @@ let theUserTable = document.getElementById("tableBody");
         dislikes.innerHTML = "Total Dislikes: " + res.data[i].dislikes;
         addToPlannerBtn.innerText = "Save this class ❤️";
         addToPlannerBtn.id = "addClassStyle";
+        addToPlannerBtn.onclick = saveClass;
+
+        function saveClass(){
+            console.log("Clicked")
+            alert(`${res.data[i].department} ${res.data[i].classNumber} Class Has Been Saved!`)
+
+            axios.post(`http://localhost:8080/api/v1/saveStudentCourse?department=${res.data[i].department}&classNumber=${res.data[i].classNumber}`).then((res) => {
+
+            })
+            // axios.post('http://localhost:8080/api/v1/saveStudentCourse', {
+            //     department: theDept,
+            //     classNumber: theCourseNumber
+            //   })
+            //   .then(function (response) {
+            //     console.log(response);
+            //   })
+            //   .catch(function (error) {
+            //     console.log(error);
+            //   });
+
+        }
+
 
 
         const fullClass = document.createElement("div");
@@ -48,6 +70,8 @@ let theUserTable = document.getElementById("tableBody");
 
 
 
-    }  
+    }
+
+
     
 })

@@ -3,6 +3,7 @@ package com.csc363.group2.poc_demo.ClassController;
 import com.csc363.group2.poc_demo.ClassEntity.ClassEntity;
 import com.csc363.group2.poc_demo.ClassRepo.ClassRepository;
 import com.csc363.group2.poc_demo.ClassService.ClassService;
+import com.csc363.group2.poc_demo.appuser.AppUserRepository;
 import com.csc363.group2.poc_demo.appuser.AppUserService;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.Test;
@@ -44,6 +45,8 @@ class ClassControllerTest {
     @MockBean
     ClassRepository classRepository;
 
+    @MockBean
+    AppUserRepository appUserRepository;
     @MockBean
     ClassEntity classEntity;
 
