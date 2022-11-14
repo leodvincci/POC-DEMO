@@ -1,5 +1,6 @@
 package com.csc363.group2.poc_demo.security.config;
 
+import com.csc363.group2.poc_demo.appuser.AppUserRole;
 import com.csc363.group2.poc_demo.appuser.AppUserService;
 import lombok.AllArgsConstructor;
 import org.springframework.context.annotation.Bean;
@@ -45,6 +46,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .authorizeRequests()
                     .antMatchers(WHITE_LIST_URLS).permitAll()
                     .antMatchers("/login*").permitAll()
+                    .antMatchers("/indexAdminPanel.html").hasAuthority("ADMIN")
                     .anyRequest().authenticated()
                     .and()
                 .formLogin().and()
