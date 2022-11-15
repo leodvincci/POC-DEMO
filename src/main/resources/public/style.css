@@ -76,7 +76,6 @@ color:#8f50aa;
   padding: 0.7%;
 } */
 
-<<<<<<< HEAD
 #mainSubmitButton{
   margin-top: 2rem; background-color: #8f50aa; color: white;
                 padding: 14px 20px;
@@ -93,7 +92,6 @@ color:#8f50aa;
   color: #e9b526;
   font-family: 'Comfortaa', cursive;
 }
-=======
 #sad-face{
   cursor: pointer;
   height:3%;
@@ -131,7 +129,6 @@ color:#8f50aa;
   height: 2.8%;
 }
 
->>>>>>> 5ba1a122a5a3cdf689f85d1ccb28bda31a7230a1
 .titRowButs{
   display: inline-flex;
   align-items: center;
