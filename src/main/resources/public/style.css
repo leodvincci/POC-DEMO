@@ -76,6 +76,23 @@ color:#8f50aa;
   padding: 0.7%;
 } */
 
+#mainSubmitButton{
+  margin-top: 2rem; background-color: #8f50aa; color: white;
+                padding: 14px 20px;
+                margin: 8px 0;
+                border: none;
+                border-radius: 4px;
+                cursor: pointer;
+                font-family: 'Comfortaa', cursive;
+                width: 100%;
+
+}
+
+#mainSubmitButton:hover{
+  color: #e9b526;
+  font-family: 'Comfortaa', cursive;
+
+}
 .titRowButs{
   display: inline-flex;
   align-items: center;

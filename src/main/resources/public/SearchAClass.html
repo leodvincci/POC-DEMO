@@ -24,7 +24,7 @@
             font-family: 'Comfortaa', cursive;
         }
 
-        input[type=submit] {
+        /* input[type=submit] {
             width: 100%;
             background-color: #8f50aa;
             color: white;
@@ -40,7 +40,7 @@
             color: #e9b526;
             font-family: 'Comfortaa', cursive;
 
-        }
+        } */
 
         div {
             border-radius: 5px;
@@ -137,18 +137,18 @@
                     <label for="classNumber" class="form-label">Class Number (ex. 301):</label>
                     <input type="text" name="classNumber" class="form-control" id="classNumber">
                 </div>
-                <input type="submit" value="Submit">
+                <input id="mainSubmitButton" type="submit" value="Submit">
             </form>
         </div>
         <section style="font-family: 'Comfortaa', cursive;" id="getAllClasses">
         </section>
         <br>
-        <div id="modal">
+        <!-- <div id="modal">
             <div class="modal-content">
                 <span onclick="toggleModal()" class="close-button">&#10005;</span>
                 <h1>Hello, I am a modal!</h1>
             </div>
-        </div>
+        </div> -->
     </main>
     <script type="module" src="searchAClass.js"></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
