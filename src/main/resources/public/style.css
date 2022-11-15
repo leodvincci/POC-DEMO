@@ -1,4 +1,32 @@
-#modal {
+/* 
+#containerAnimationWelcome {
+  position: sticky;
+  top: 20px;
+    margin: auto;
+    width: 100vw;
+    height: 80pt;
+    top: 0;
+    bottom: 0;
+color:#8f50aa;
+    filter: url(#threshold) blur(0.6px);
+}
+
+#text1,
+#text2 {
+  color:#8f50aa;
+    position: absolute;
+    width: 100%;
+    display: inline-block;
+
+    font-family: 'Comfortaa', cursive;
+    font-size: 80pt;
+
+    text-align: center;
+
+    user-select: none;
+} */
+
+/* #modal {
     position: fixed;
     left: 0;
     top: 0;
@@ -41,7 +69,7 @@
     visibility: visible;
     transform: scale(1.0);
     transition: visibility 0s linear 0s, opacity 0.25s 0s, transform 0.25s;
-}
+} */
 
 /* #class-border-style{
   border-left: 1px solid;
@@ -99,6 +127,7 @@
 
 
 }
+
 #getAllClassesContainer{
 
   /* margin-left:0px;

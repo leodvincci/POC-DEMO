@@ -1,49 +1,327 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <title>Welcome</title>
   <meta charset="utf-8">
   <!-- CSS only -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
   <link href="style.css" rel="stylesheet" type="text/css" />
+
 
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Comfortaa&family=Montserrat&display=swap');
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Comfortaa', cursive;
+      scroll-behavior: smooth;
+    }
+
+    a {
+      text-decoration: none;
+    }
+
+    ul {
+      list-style: none;
+    }
+
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+      background: #d19dc7;
+      padding: 20px;
+      text-align: center;
+      border-bottom: 1px solid #d19dc7;
+    }
+
+    header nav a {
+      padding: 10px 20px;
+      font-size: 2rem;
+      color: #e0ffff;
+      border-radius: 5px;
+      letter-spacing: 0.5px;
+    }
+
+    header nav a:hover,
+    header nav a.active {
+      background: #d19dc7;
+      color: #eadeef;
+      transition: 0.5s ease-out;
+      letter-spacing: 2px;
+    }
+
+    body {
+      background: #d19dc7;
+    }
+
+    section {
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    section:nth-child(1) {
+      color: #d19dc7;
+    }
+
+    section:nth-child(2) {
+      color: #eadeef;
+      background: #d19dc7;
+    }
+
+    section:nth-child(3) {
+      color: #eadeef;
+    }
+
+    section:nth-child(4) {
+      color: #eadeef;
+      background: #d19dc7;
+    }
+
+    section:nth-child(5) {
+      color: #eadeef;
+    }
+
+    section .container {
+      margin: 100px;
+    }
+
+    section h1 {
+      font-size: 3rem;
+      margin: 20px;
+    }
+
+    section h2 {
+      font-size: 40px;
+      text-align: center;
+      text-transform: uppercase;
+    }
+
+    section .text-container {
+      display: flex;
+    }
+
+    section .text-container .text-box {
+      margin: 20px;
+      padding: 20px;
+      background: #8f50aa;
+    }
+
+    section .text-container .text-box h3 {
+      font-size: 30px;
+      text-align: center;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+
+    @media (max-width: 900px) {
+      section h1 {
+        font-size: 2rem;
+        text-align: center;
+      }
+
+      section .text-container {
+        flex-direction: column;
+      }
+    }
+
+    .reveal {
+      position: relative;
+      transform: translateY(150px);
+      opacity: 0;
+      transition: 2s all ease;
+    }
+
+    .reveal.active {
+      transform: translateY(0);
+      opacity: 1;
+    }
   </style>
 </head>
+
 <body>
-<container class = "titleRow">
-  <h1 style="font-weight: bold;" class = "title">Welcome to RateMyClass!</h1>
-</container>
-<nav class="nav bar">
-  <li class="nav-links">
-    <a href="index.html">Home</a>
-  </li>
-  <li class="nav-links">
-    <a href="SearchAClass.html">Search a Class</a>
-  </li>
-  <li class="nav-links">
-    <a href="AddClass.html">Add a Class</a>
-  </li>
-  <li class="nav-links">
-    <a href="AddReview.html">Add a Review</a>
-  </li>
-  <li class="nav-links">
-    <a href="SavedClasses.html">Saved Classes</a>
-  </li>
-  <li class="nav-links">
-    <a href="ViewAllClasses.html">View All Classes @ DePaul</a>
-  </li>
+  <container class="titleRow">
+    <h1 style="font-weight: bold;" class="title">Home</h1>
+  </container>
 
+  <header>
+    <nav>
+      <a href="#home" class="active">Home</a>
+      <a href="#about">About</a>
+      <a href="#resources">DePaul Resources</a>
+      <a style="font-weight: bold;" href="#contact">Getting Started</a>
+    </nav>
+  </header>
+  <section id="home">
+    <div class="container reveal">
+      <h1>Welcome to RateMyClass ☺ &#8595;</h1>
+    </div>
+  </section>
+  <section id="about">
+    <div class="container reveal">
+      <h2>About</h2>
+      <div class="text-container">
+        <div class="text-box">
+          <!-- <h3>Our Purpose</h3> -->
+          <p>
+            Our App is a tool that students can use to help them be a success with their academic goals.
+            Students plan for future courses by saving it, with the help of a course feedback and rating system. This
+            rating system allows other users who have already taken the class to “rate” the class through likes and
+            dislikes. This allows the student to navigate which class they may want to take, and which not to take.
+          </p>
+          <p>
+            Our purpose is to create an interactive site for DePaul Students. The goal is to allow students to leave
+            reviews on classes, so that the whole DePaul community has more guidance
+            on classes.
+          </p>
 
-  <div class="titRowButs">
-    <button onclick="window.location.href='indexAdminPanel.html'" id="admin" type="button" class="btn btn-warning">Admin Panel</button>
-    <button  onclick="window.location.href='http://localhost:8080/logout'" id="logoutbtn" type="button" class="btn btn-danger">Logout</button>
-  </div>
+          <p>
+            We would be happy to have your <a href="https://www.youtube.com/" target="_blank">feedback</a> on this site. Thanks!
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-</nav>
-<script>
+  <section id="resources">
+    <div class="container reveal">
+      <h2 style="color:#eadeef;">DePaul Resources (<a href="https://www.depaul.edu/Pages/default.aspx">website</a>)</h2>
+      <div class="text-container">
+        <!-- <div class="text-box">
+          <h3>Important Links</h3>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore
+            eius molestiae perferendis eos provident vitae iste.
+          </p>
+        </div> -->
+        <div class="text-box">
+          <h3>Helpful Videos</h3>
+          
+          <p>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/dlEufNp6mwA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          </p>
+          <p>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/-sGfgGQMnr8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          </p>
+          <p>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/d0ccpBXC900" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          </p><p style="text-align:center">
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/QHTxhDNAr2A" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          </p>
+        </div>
+        <div class="text-box">
+          <h3>Cool Podcasts</h3>
+          <p>
+            <iframe style="border-radius:12px" src="https://open.spotify.com/embed/show/0LOC3DH2INVXyLMISJa6C2?utm_source=generator" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>          </p>
+          <p>
+<iframe style="border-radius:12px" src="https://open.spotify.com/embed/show/1g4Ns3RJvIQDEs8yJPufKz?utm_source=generator" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>          </p>
+          <p>
+            <iframe style="border-radius:12px" src="https://open.spotify.com/embed/show/0KO9NgZDHYuCjAuvHz6nj0?utm_source=generator" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+          </p>
+          <p>
+            <iframe style="border-radius:12px" src="https://open.spotify.com/embed/show/2FsK2wIwzhaZeiVpgywLnt?utm_source=generator" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>          </p>
+          <p>
+            <iframe style="border-radius:12px" src="https://open.spotify.com/embed/show/6b5tVbhsLIeiLGdANRFLAw/video?utm_source=generator" width="496" height="279" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>      </div>
+    </div>
+  </section>
 
-</script>
+  <section id="contact">
+    <div class="container reveal">
+      <h2 style="color:white; justify-content: center;">So...what are you waiting for? Let's get started!</h2>
+      <nav class="nav bar">
+        <li class="nav-links">
+          <a href="index.html">Home</a>
+        </li>
+        <li class="nav-links">
+          <a href="SearchAClass.html">Search a Class</a>
+        </li>
+        <li class="nav-links">
+          <a href="AddClass.html">Add a Class</a>
+        </li>
+        <li class="nav-links">
+          <a href="AddReview.html">Add a Review</a>
+        </li>
+        <li class="nav-links">
+          <a href="SavedClasses.html">Saved Classes</a>
+        </li>
+        <li class="nav-links">
+          <a href="ViewAllClasses.html">View All Classes @ DePaul</a>
+        </li>
+      </nav>
+      <!-- <div class="text-container">
+      <div class="text-box">
+        <h3>Section Text</h3>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+      </div>
+      <div class="text-box">
+        <h3>Section Text</h3>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+      </div>
+    </div> -->
+    </div>
+  </section>
+  <main>
+
+  </main>
+  <script>
+    let section = document.querySelectorAll("section");
+    let menu = document.querySelectorAll("header nav a");
+
+    window.onscroll = () => {
+      section.forEach((i) => {
+        let top = window.scrollY;
+        let offset = i.offsetTop - 150;
+        let height = i.offsetHeight;
+        let id = i.getAttribute("id");
+
+        if (top >= offset && top < offset + height) {
+          menu.forEach((link) => {
+            link.classList.remove("active");
+            document
+              .querySelector("header nav a[href*=" + id + "]")
+              .classList.add("active");
+          });
+        }
+      });
+    };
+
+    function reveal() {
+      var reveals = document.querySelectorAll(".reveal");
+
+      for (var i = 0; i < reveals.length; i++) {
+        var windowHeight = window.innerHeight;
+        var elementTop = reveals[i].getBoundingClientRect().top;
+        var elementVisible = 150;
+
+        if (elementTop < windowHeight - elementVisible) {
+          reveals[i].classList.add("active");
+        } else {
+          reveals[i].classList.remove("active");
+        }
+      }
+    }
+
+    window.addEventListener("scroll", reveal);
+
+    // To check the scroll position on page load
+    reveal();
+
+  </script>
+  <!-- <script src="index.js"></script> -->
 </body>
+
 </html>
