@@ -1,12 +1,12 @@
-const modal = document.querySelector(".modal");
-function triggerPopUp(){
-    alert("in1");
-    toggleModal();
-}
-function toggleModal() {
-    alert("in2");
-    modal.classList.toggle("show-modal");
-}
+// const modal = document.querySelector(".modal");
+// function triggerPopUp(){
+//     alert("in1");
+//     toggleModal();
+// }
+// function toggleModal() {
+//     alert("in2");
+//     modal.classList.toggle("show-modal");
+// }
 
 //----@ Leo: POPUP IS CODE ABOVE..it is first being called by line 43 because i want to customize the alert--------
 
@@ -40,7 +40,7 @@ form.addEventListener('submit',function (e){
     let cnm = payload.get("classNumber");
     if((dpt.length == 0) || (cnm.length == 0)){
         alert("Please fill in all fields.");
-        triggerPopUp();
+        // triggerPopUp();
     }else if(!((dpt.length >= 1) && (dpt.length <= 4))){
         alert("Invalid Department!");
     }else if(containsNumbers(dpt)){
