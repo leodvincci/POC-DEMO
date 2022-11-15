@@ -8,7 +8,7 @@ function containsOnlyNumbers(str) {
 }
 form.addEventListener('submit', function (e) {
     e.preventDefault();
-    alert("hello!");
+    // alert("hello!");
     const prepayload = new FormData(form)
 
     const payload = new URLSearchParams(prepayload);
