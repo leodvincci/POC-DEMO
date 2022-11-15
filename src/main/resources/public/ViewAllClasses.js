@@ -2,7 +2,7 @@ let theUserSection = document.querySelector("section");
 let theUserTable = document.getElementById("tableBody");
 
 
-    axios.get('http://localhost:8080/api/v1/getAllClasses').then((res) => {
+    axios.get('http://54.146.226.153:8080/api/v1/getAllClasses').then((res) => {
     for (let i = 0; i < res.data.length; i++) {
 
         const id = document.createElement('h2');
@@ -35,7 +35,7 @@ let theUserTable = document.getElementById("tableBody");
             console.log("Clicked")
             alert(`${res.data[i].department} ${res.data[i].classNumber} Class Has Been Saved!`)
 
-            axios.post(`http://localhost:8080/api/v1/saveStudentCourse?department=${res.data[i].department}&classNumber=${res.data[i].classNumber}`).then((res) => {
+            axios.post(`http://54.146.226.153:8080/api/v1/saveStudentCourse?department=${res.data[i].department}&classNumber=${res.data[i].classNumber}`).then((res) => {
 
             })
             // axios.post('http://localhost:8080/api/v1/saveStudentCourse', {

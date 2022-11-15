@@ -8,7 +8,7 @@ let theTitRow = document.querySelector("#titleRow")
 console.log()
 
 //54.146.226
-axios.get(`http://localhost:8080/api/v1/getClassAndReviewByDeptAndNum?department=${theDept}&classNumber=${theCourseNumber}`).then((res) => {
+axios.get(`http://54.146.226.153:8080/api/v1/getClassAndReviewByDeptAndNum?department=${theDept}&classNumber=${theCourseNumber}`).then((res) => {
 
     const id = document.createElement('h2');
     const className =  document.createElement("h2");
@@ -102,7 +102,7 @@ axios.get(`http://localhost:8080/api/v1/getClassAndReviewByDeptAndNum?department
 
 
 function saveClass(){
-    axios.post(`http://localhost:8080/api/v1/saveStudentCourse?department=${theDept}&classNumber=${theCourseNumber}`).then((res) => {
+    axios.post(`http://54.146.226.153:8080/api/v1/saveStudentCourse?department=${theDept}&classNumber=${theCourseNumber}`).then((res) => {
     alert(`${theDept} ${theCourseNumber} Class Has Been Saved!`)
     })
     // axios.post('http://localhost:8080/api/v1/saveStudentCourse', {

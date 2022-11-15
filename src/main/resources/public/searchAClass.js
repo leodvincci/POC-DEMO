@@ -59,7 +59,7 @@ form.addEventListener('submit',function (e){
         classNumber:cnm
     }
 
-    axios.get(`http://localhost:8080/api/v1/getClassAndReviewByDeptAndNum?department=${dpt.toUpperCase()}&classNumber=${cnm}`).then((res) => {
+    axios.get(`http://54.146.226.153:8080/api/v1/getClassAndReviewByDeptAndNum?department=${dpt.toUpperCase()}&classNumber=${cnm}`).then((res) => {
 
 
         const id = document.createElement('h2');
@@ -110,7 +110,7 @@ form.addEventListener('submit',function (e){
                 console.log("Clicked")
                 alert(`${res.data[0].department} ${res.data[0].classNumber} Class Has Been Saved!`)
 
-                axios.post(`http://localhost:8080/api/v1/saveStudentCourse?department=${res.data[0].department}&classNumber=${res.data[0].classNumber}`).then((res) => {
+                axios.post(`http://54.146.226.153:8080/api/v1/saveStudentCourse?department=${res.data[0].department}&classNumber=${res.data[0].classNumber}`).then((res) => {
 
                 })
                 // axios.post('http://localhost:8080/api/v1/saveStudentCourse', {

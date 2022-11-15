@@ -22,7 +22,7 @@
             password: pswd
         }
     
-        fetch('http://localhost:8080/api/v1/registration', {
+        fetch('http://54.146.226.153:8080/api/v1/registration', {
             method: "POST",
             headers: {
                 "Content-Type":'application/json'
@@ -31,7 +31,7 @@
     
         }).then(r=>{
             alert("Added you (" + eml + ")! You will be redirected to our login page.");
-            window.location.href='http://localhost:8080/login';
+            window.location.href='http://54.146.226.153:8080/login';
         })
 
     

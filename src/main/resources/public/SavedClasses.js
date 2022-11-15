@@ -2,7 +2,7 @@ let theUserSection = document.querySelector("section");
 let theUserTable = document.getElementById("tableBody");
 
 
-axios.get('http://localhost:8080/api/v1/getSavedStudentCourses').then((res) => {
+axios.get('http://54.146.226.153:8080/api/v1/getSavedStudentCourses').then((res) => {
     for (let i = 0; i < res.data.length; i++) {
 
         const id = document.createElement('h2');
@@ -57,7 +57,7 @@ axios.get('http://localhost:8080/api/v1/getSavedStudentCourses').then((res) => {
             console.log("Course Removed")
             alert(`${res.data[0].department} ${res.data[0].classNumber} Class Has Been Removed!`)
 
-            axios.delete(`http://localhost:8080/api/v1/removeSavedCourse?department=${res.data[0].department}&classNumber=${res.data[0].classNumber}`).then((res) => {
+            axios.delete(`http://54.146.226.153:8080/api/v1/removeSavedCourse?department=${res.data[0].department}&classNumber=${res.data[0].classNumber}`).then((res) => {
 
             })
             // axios.post('http://localhost:8080/api/v1/saveStudentCourse', {
