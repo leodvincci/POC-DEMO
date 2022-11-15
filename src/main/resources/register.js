@@ -31,7 +31,7 @@
     
         }).then(r=>{
             alert("Added you (" + eml + ")! You will be redirected to our login page.");
-            window.location.href='http://localhost:8080/logout';
+            window.location.href='http://localhost:8080/login';
         })
 
     
