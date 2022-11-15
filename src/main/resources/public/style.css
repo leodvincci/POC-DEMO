@@ -76,7 +76,7 @@ color:#8f50aa;
   padding: 0.7%;
 } */
 
-#mainSubmitButton{
+.mainSubmitButton{
   margin-top: 2rem; background-color: #8f50aa; color: white;
                 padding: 14px 20px;
                 margin: 8px 0;
@@ -88,7 +88,7 @@ color:#8f50aa;
 
 }
 
-#mainSubmitButton:hover{
+.mainSubmitButton:hover{
   color: #e9b526;
   font-family: 'Comfortaa', cursive;
 }
