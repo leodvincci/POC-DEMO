@@ -45,7 +45,7 @@ form.addEventListener('submit',function (e){
         classNumber:cnm
     }
 
-    axios.get(`http://localhost:8080/api/v1/getClassAndReviewByDeptAndNum?department=${dpt}&classNumber=${cnm}`).then((res) => {
+    axios.get(`http://localhost:8080/api/v1/getClassAndReviewByDeptAndNum?department=${dpt.toUpperCase()}&classNumber=${cnm}`).then((res) => {
 
 
         const id = document.createElement('h2');
