@@ -88,12 +88,12 @@ color:#8f50aa;
 #admin{
   background-color: #6250aa;
   border-color:#6250aa;
-  color:white;
+  color:#ffffff;
   width:150%;
   transition: 0.5s;
 }
 #admin:hover{
-    color:white;
+    color:#ffffff;
     filter: brightness(60%);
     width:150%;
 
