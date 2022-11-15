@@ -17,7 +17,7 @@ form.addEventListener('submit',function (e){
         classNumber:cnm
     }
 
-    fetch(`http://localhost:8080/api/v1/searchandremoveclass?department=${dpt}&classNumber=${cnm}`, {
+    fetch(`http://localhost:8080/api/v1/searchandremoveclass?department=${dpt.toUpperCase()}&classNumber=${cnm}`, {
         method: 'DELETE',
         headers: {
             "Content-Type":'application/json'

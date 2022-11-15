@@ -59,7 +59,7 @@ form.addEventListener('submit',function (e){
         classNumber:cnm
     }
 
-    axios.get(`http://localhost:8080/api/v1/getClassAndReviewByDeptAndNum?department=${dpt}&classNumber=${cnm}`).then((res) => {
+    axios.get(`http://localhost:8080/api/v1/getClassAndReviewByDeptAndNum?department=${dpt.toUpperCase()}&classNumber=${cnm}`).then((res) => {
 
 
         const id = document.createElement('h2');
@@ -132,7 +132,7 @@ form.addEventListener('submit',function (e){
         theUserSection.append(department);
         theUserSection.append(classNumber);
         theUserSection.append(cumGPA);
-        theUserSection.append(cumDif);  
+        // theUserSection.append(cumDif);
         theUserSection.append(likes); 
         theUserSection.append(dislikes);
         theUserSection.append(addToPlannerBtn);

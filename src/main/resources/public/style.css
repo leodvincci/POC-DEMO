@@ -76,6 +76,7 @@ color:#8f50aa;
   padding: 0.7%;
 } */
 
+<<<<<<< HEAD
 #mainSubmitButton{
   margin-top: 2rem; background-color: #8f50aa; color: white;
                 padding: 14px 20px;
@@ -91,8 +92,46 @@ color:#8f50aa;
 #mainSubmitButton:hover{
   color: #e9b526;
   font-family: 'Comfortaa', cursive;
+}
+=======
+#sad-face{
+  cursor: pointer;
+  height:3%;
+  width:3%;
+}
+
+#sad-face:hover{
+  width: 3.2%;
+  height: 3.2%;
 
 }
+
+#sad-face:active{
+  width: 2.8%;
+  height: 2.8%;
+}
+
+
+.happy-face{
+  cursor: pointer;
+  width: 3%;
+  height: 3%;
+
+}
+
+.happy-face:hover{
+  cursor: pointer;
+  width: 3.2%;
+  height: 3.2%;
+}
+
+
+.happy-face:active{
+  width: 2.8%;
+  height: 2.8%;
+}
+
+>>>>>>> 5ba1a122a5a3cdf689f85d1ccb28bda31a7230a1
 .titRowButs{
   display: inline-flex;
   align-items: center;

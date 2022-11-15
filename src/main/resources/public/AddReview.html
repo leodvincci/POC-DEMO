@@ -21,6 +21,7 @@
   font-family: 'Comfortaa', cursive;
 }
 
+
 .anInput[type=text], select {
   width: 100%;
   padding: 12px 20px;
@@ -138,11 +139,12 @@
                 <p >Did you like or dislike this course?
                     <br>
                     <br>
-                    <a id="likedIt" onclick="updateLikes()">
-                        <img style="height:3%; width:3%" src="https://emojipedia-us.s3.amazonaws.com/source/microsoft-teams/337/smiling-face-with-smiling-eyes_1f60a.png" alt="Option 1">
+
+                    <a onclick="updateLikes()">
+                        <img id="hello" class="happy-face" style="" src="https://emojipedia-us.s3.amazonaws.com/source/microsoft-teams/337/smiling-face-with-smiling-eyes_1f60a.png" alt="Option 1">
                     </a> 
-                    <a id="dislikedIt" onclick="updateDislikes()">
-                        <img style="height:3%; width:3%" src="https://emojipedia-us.s3.amazonaws.com/source/microsoft-teams/337/pensive-face_1f614.png" alt="Option 2">
+                    <a onclick="updateDislikes()">
+                        <img id="sad-face" style="" src="https://emojipedia-us.s3.amazonaws.com/source/microsoft-teams/337/pensive-face_1f614.png" alt="Option 2">
                     </a>
 
                 </p>

@@ -6,6 +6,8 @@ import com.csc363.group2.poc_demo.Repos.UserRepository;
 import com.csc363.group2.poc_demo.UserReview.UserReviewEntity;
 import com.csc363.group2.poc_demo.UserReview.UserReviewService;
 import com.csc363.group2.poc_demo.appuser.AppUser;
+import com.csc363.group2.poc_demo.appuser.AppUserRepository;
+import com.csc363.group2.poc_demo.appuser.AppUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Service;
@@ -18,6 +20,12 @@ public class ClassService {
 
     @Autowired
     private ClassRepository classRepository;
+
+    @Autowired
+    private AppUserRepository appUserRepository;
+
+    @Autowired
+    private AppUserService appUserService;
 
     @Autowired
     private UserReviewService userReviewService;
@@ -33,6 +41,15 @@ public class ClassService {
         ClassEntity classEntity = classRepository.findByDepartmentAndClassNumber(department,classNumber);
         return classEntity;
     }
+
+    public void removedSavedCourse(int courseNumber, @AuthenticationPrincipal AppUser user){
+
+        classRepository.deleteByClassNumberAndUserId(courseNumber,user.getId());
+
+        System.out.println("Saved Course Removed");
+
+    }
+
 
     public List getClassAndReviewByDeptAndNum(String department, int classNumber){
         System.out.println("Searching for Class By Name and Number!");

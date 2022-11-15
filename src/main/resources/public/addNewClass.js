@@ -15,7 +15,7 @@ form.addEventListener('submit', function (e) {
 
     let classDescription = payload.get("classDescription");
     let className = payload.get("className");
-    let dpt = payload.get("department");
+    let dpt = payload.get("department").toUpperCase();
     let cnm = payload.get("classNumber")
     if(containsNumbers(className)){
         alert("Your class name contains numbers. Please stick to Roman Numerals!");
@@ -35,7 +35,7 @@ form.addEventListener('submit', function (e) {
         let data = {
             classDescription: classDescription,
             className: className,
-            department: dpt,
+            department: dpt.toUpperCase(),
             classNumber: cnm
         }
 
