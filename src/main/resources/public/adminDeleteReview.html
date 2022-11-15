@@ -6,40 +6,55 @@
   <link rel="stylesheet" href="resetUserPassword.css">
   <meta charset="UTF-8">
   <title>Remove Class</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Comfortaa&family=Montserrat&display=swap');
+
+    body{
+        font-family: 'Comfortaa', cursive;
+        justify-content: center;
+        text-align: center;
+        background-color: #8f50aa;
+    }
+</style>
 </head>
-<body>
-<div class="page-title">
-  <p style="font-size: 7rem;">Remove Class</p>
+<body style="font-family: 'Comfortaa', cursive;
+text-align: center;
+background-color: #8f50aa;">
+
+    <h1 style="width: 100%; color: #ffffff; font-size: 8rem;">Delete User Review</h1>
+<div style="text-align: center;">
+    <nav style="  text-align: center; ">
+        <a href="indexAdminPanel.html"><button>VIEW USERS</button></a>
+        <a href="deleteUser.html"><button>DELETE USER</button></a>
+        <a href="addUser.html"><button>ADD USER</button></a>
+        <a href="updateUser.html"><button>UPDATE USER</button></a>
+        <a href="resetUserPassword.html"><button>RESET USER PASSWORD</button></a>
+
+        <a href="adminAddClass.html"><button>ADD CLASS</button></a>
+        <a href="adminDeleteClass.html"><button>DELETE CLASS</button></a>
+        <a href="adminDeleteReview.html"><button>DELETE USER REVIEW</button></a>
+
+
+        <a href="index.html"><button>USER PANEL</button></a>
+    </nav>
 </div>
-
-<nav style=" display: flex; justify-content: space-evenly; margin-left: 50rem; margin-bottom: 5%; width: 50%;">
-  <a href="indexAdminPanel.html"><button>VIEW USERS</button></a>
-  <a href="deleteUser.html"><button>DELETE USER</button></a>
-  <a href="addUser.html"><button>ADD USER</button></a>
-  <a href="updateUser.html"><button>UPDATE USER</button></a>
-  <a href="resetUserPassword.html"><button>RESET USER PASSWORD</button></a>
-  <a href="adminAddClass.html"><button>ADD CLASS</button></a>
-  <a href="adminDeleteClass.html"><button>DELETE CLASS</button></a>
-  <a href="adminDeleteReview.html"><button>DELETE USER REVIEW</button></a>
-  <a href="index.html"><button>USER PANEL</button></a>
-
-</nav>
+<br><br>
 
 <div id="myForm" >
   <form id="formElem" >
     <div class="mb-3">
-      <label for="InputEmail1" class="form-label">user's login</label>
+      <label for="InputEmail1" class="form-label">User's Login:</label>
       <input type="email" name="email" class="form-control" id="InputEmail1" aria-describedby="emailHelp">
       <div id="emailHelp" class="form-text"></div>
     </div>
 
     <div class="mb-3">
-      <label for="className" class="form-label">course number</label>
+      <label for="className" class="form-label">Course Number:</label>
       <input type="text" name="className" class="form-control" id="className">
     </div>
 
     <div class="mb-3">
-      <label for="dptName" class="form-label">Department</label>
+      <label for="dptName" class="form-label">Department:</label>
       <input type="text" name="dptName" class="form-control" id="dptName">
     </div>
 

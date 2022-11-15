@@ -33,10 +33,10 @@
   font-family: 'Comfortaa', cursive;
 }
 
-            input[type=submit]:hover {
+            /* input[type=submit]:hover {
               color: #e9b526;
 
-            }
+            } */
 
             div {
               border-radius: 5px;
@@ -136,9 +136,10 @@
                 <input  class="anInput" type="text" name="difficultyRating" class="form-control" id="difficultyRating" aria-describedby="difficultyRating">
             </div>
             <div class="mb-3">
-                <p>Did you like or dislike this course?
+                <p >Did you like or dislike this course?
                     <br>
                     <br>
+
                     <a onclick="updateLikes()">
                         <img id="hello" class="happy-face" style="" src="https://emojipedia-us.s3.amazonaws.com/source/microsoft-teams/337/smiling-face-with-smiling-eyes_1f60a.png" alt="Option 1">
                     </a> 
@@ -152,7 +153,7 @@
                 <label for="classDescription" class="form-label">Please Describe Your Experience: </label>
                 <input type="text" name="classDescription" class="form-control" id="classDescription">
             </div>
-            <input class="submitBtns" type="submit" value="Submit">
+            <input id="mainSubmitButton" class="submitBtns" type="submit" value="Submit">
         </form>
     </div>
 </main>

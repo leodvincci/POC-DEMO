@@ -7,18 +7,26 @@ margin-left: 60px;
 }
 
 h3{
-    color: #2f57a6;
+    color: white;
+    font-family: 'Comfortaa', cursive;
+
 }
 
 h4{
-    color: #e83952;
+    color: white;
     font-weight: bold;
+    font-family: 'Comfortaa', cursive;
+
 }
 
 h6{
-    color: #dc6177;
+    color: white;
+    font-family: 'Comfortaa', cursive;
+
 }
 
 h2{
-    color: #7a7a7a;
+    color: white;
+    font-family: 'Comfortaa', cursive;
+
 }

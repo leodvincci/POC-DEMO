@@ -1,143 +1,158 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <title>Search a Class</title>
     <meta charset="utf-8">
-    <link href="style.css" rel="stylesheet" type="text/css"/>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <link href="style.css" rel="stylesheet" type="text/css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
 
     <style>
-            @import url('https://fonts.googleapis.com/css2?family=Comfortaa&family=Montserrat&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Comfortaa&family=Montserrat&display=swap');
 
 
-            input[type=text], select {
-              width: 100%;
-              padding: 12px 20px;
-              margin: 8px 0;
-              display: inline-block;
-              border: 1px solid #ccc;
-              border-radius: 4px;
-              box-sizing: border-box;
-              font-family: 'Comfortaa', cursive;
-            }
+        input[type=text],
+        select {
+            width: 100%;
+            padding: 12px 20px;
+            margin: 8px 0;
+            display: inline-block;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            font-family: 'Comfortaa', cursive;
+        }
 
-            input[type=submit] {
-              width: 100%;
-              background-color: #8f50aa;
-              color: white;
-              padding: 14px 20px;
-              margin: 8px 0;
-              border: none;
-              border-radius: 4px;
-              cursor: pointer;
-              font-family: 'Comfortaa', cursive;
-            }
+        /* input[type=submit] {
+            width: 100%;
+            background-color: #8f50aa;
+            color: white;
+            padding: 14px 20px;
+            margin: 8px 0;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-family: 'Comfortaa', cursive;
+        }
 
-            input[type=submit]:hover {
-              color: #e9b526;
-              font-family: 'Comfortaa', cursive;
+        input[type=submit]:hover {
+            color: #e9b526;
+            font-family: 'Comfortaa', cursive;
 
-            }
+        } */
 
-            div {
-              border-radius: 5px;
-              background-color: #f2f2f2;
-              padding: 20px;
-              font-family: 'Comfortaa', cursive;
-            }
-            a:hover{
-                color: #e9b526;
-                font-family: 'Comfortaa', cursive;
-            }
-            .nav-links a {
-    position: relative;
-    color: #ffffff;
-  text-decoration: none; 
-  }
-  
-  .nav-links a::before {
-      content: '';
-      position: absolute;
-      width: 100%;
-      height: 4px;
-      border-radius: 4px;
-      background-color: #d19dc7;
-      bottom: 0;
-      left: 0;
-      transform-origin: right;
-      transform: scaleX(0);
-      transition: transform .3s ease-in-out;
-      color: #ffffff;
-  text-decoration: none; 
-    }
-  
-    .nav-links a:hover::before {
-    transform-origin: left;
-    transform: scaleX(1);
-    color: #ffffff;
-  text-decoration: none; 
-  }
-  .nav-links :hover::after {
+        div {
+            border-radius: 5px;
+            background-color: #f2f2f2;
+            padding: 20px;
+            font-family: 'Comfortaa', cursive;
+        }
 
-    color: #ffffff;
-  text-decoration: none; 
-  }
-        </style>
+        a:hover {
+            color: #e9b526;
+            font-family: 'Comfortaa', cursive;
+        }
+
+        .nav-links a {
+            position: relative;
+            color: #ffffff;
+            text-decoration: none;
+        }
+
+        .nav-links a::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 4px;
+            border-radius: 4px;
+            background-color: #d19dc7;
+            bottom: 0;
+            left: 0;
+            transform-origin: right;
+            transform: scaleX(0);
+            transition: transform .3s ease-in-out;
+            color: #ffffff;
+            text-decoration: none;
+        }
+
+        .nav-links a:hover::before {
+            transform-origin: left;
+            transform: scaleX(1);
+            color: #ffffff;
+            text-decoration: none;
+        }
+
+        .nav-links :hover::after {
+
+            color: #ffffff;
+            text-decoration: none;
+        }
+    </style>
 </head>
+
 <body>
-<container class="titleRow">
-    <h1 style="font-weight: bold;" class="title">Search a Class!</h1>
-</container>
-<nav class="nav bar">
-    <li class="nav-links">
-        <a href="index.html">Home</a>
-    </li>
-    <li class="nav-links">
-        <a href="SearchAClass.html">Search a Class</a>
-    </li>
-    <li class="nav-links">
-        <a href="AddClass.html">Add a Class</a>
-    </li>
-    <li class="nav-links">
-        <a href="AddReview.html">Add a Review</a>
-    </li>
-    <li class="nav-links">
-        <a href="SavedClasses.html">Saved Classes</a>
-    </li>
-    <li class="nav-links">
-        <a href="ViewAllClasses.html">View All Classes @ DePaul</a>
-    </li>
-    
-    <div class="titRowButs">
-        <button onclick="window.location.href='indexAdminPanel.html'" id="admin" type="button" class="btn btn-warning">Admin Panel</button>
-        <button  onclick="window.location.href='http://localhost:8080/logout'" id="logoutbtn" type="button" class="btn btn-danger">Logout</button>
-    </div>
-</nav>
-<main class="main-section">
-    <br>
-    <br>
-    <h2 class="h2-styles">Enter Class Details</h2>
-    <div id="myForm">
-        <form id="formElem">
-            <div class="mb-3">
-                <label for="department" class="form-label">Department (ex. CSC):</label>
-                <input type="text" name="department" class="form-control" id="department" aria-describedby="department">
-            </div>
-            <div class="mb-3">
-                <label for="classNumber" class="form-label">Class Number (ex. 301):</label>
-                <input type="text" name="classNumber" class="form-control" id="classNumber">
-            </div>
-            <input type="submit" value="Submit">
-        </form>
-    </div>
+    <container class="titleRow">
+        <h1 style="font-weight: bold;" class="title">Search a Class!</h1>
+    </container>
+    <nav class="nav bar">
+        <li class="nav-links">
+            <a href="index.html">Home</a>
+        </li>
+        <li class="nav-links">
+            <a href="SearchAClass.html">Search a Class</a>
+        </li>
+        <li class="nav-links">
+            <a href="AddClass.html">Add a Class</a>
+        </li>
+        <li class="nav-links">
+            <a href="AddReview.html">Add a Review</a>
+        </li>
+        <li class="nav-links">
+            <a href="SavedClasses.html">Saved Classes</a>
+        </li>
+        <li class="nav-links">
+            <a href="ViewAllClasses.html">View All Classes @ DePaul</a>
+        </li>
 
-    <section style= "font-family: 'Comfortaa', cursive;" id="getAllClasses">
-
-    </section>
-    <br>
-</main>
-<script type= "module" src="searchAClass.js"></script>
-<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+        <div class="titRowButs">
+            <button onclick="window.location.href='indexAdminPanel.html'" id="admin" type="button"
+                class="btn btn-warning">Admin Panel</button>
+            <button onclick="window.location.href='http://localhost:8080/logout'" id="logoutbtn" type="button"
+                class="btn btn-danger">Logout</button>
+        </div>
+    </nav>
+    <main class="main-section">
+        <br>
+        <br>
+        <h2 class="h2-styles">Enter Class Details</h2>
+        <div id="myForm">
+            <form id="formElem">
+                <div class="mb-3">
+                    <label for="department" class="form-label">Department (ex. CSC):</label>
+                    <input type="text" name="department" class="form-control" id="department"
+                        aria-describedby="department">
+                </div>
+                <div class="mb-3">
+                    <label for="classNumber" class="form-label">Class Number (ex. 301):</label>
+                    <input type="text" name="classNumber" class="form-control" id="classNumber">
+                </div>
+                <input id="mainSubmitButton" type="submit" value="Submit">
+            </form>
+        </div>
+        <section style="font-family: 'Comfortaa', cursive;" id="getAllClasses">
+        </section>
+        <br>
+        <!-- <div id="modal">
+            <div class="modal-content">
+                <span onclick="toggleModal()" class="close-button">&#10005;</span>
+                <h1>Hello, I am a modal!</h1>
+            </div>
+        </div> -->
+    </main>
+    <script type="module" src="searchAClass.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 
 </body>
+
 </html>
