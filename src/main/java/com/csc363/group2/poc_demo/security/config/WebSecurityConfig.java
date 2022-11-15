@@ -22,6 +22,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     private static final String[] WHITE_LIST_URLS = {
             "/register",
             "/style.css",
+            "/register.js",
+            "/welcome.html",
             "/registration.html",
             "/login",
             "/public/register.js",
