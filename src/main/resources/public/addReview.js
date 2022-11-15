@@ -87,7 +87,7 @@ form.addEventListener('submit', function (e) {
         //call the API
         let data = {
             userReviewEmail: email,
-            userReviewDepartment: course[0],
+            userReviewDepartment: course[0].toUpperCase(),
             userReviewCourseNumber: course[1],
             userReviewGPA: gpa,
             userReviewDifficulty: difficultyRating,
@@ -103,7 +103,7 @@ form.addEventListener('submit', function (e) {
             },
             body: JSON.stringify(data),
 
-        }).then(r => (alert("Added New Review: " + className)))
+        }).then(r => (alert("Added New Review: " + course[0].toUpperCase()) + course[1]))
     }
 
 
