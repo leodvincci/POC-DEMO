@@ -6,45 +6,58 @@
   <link rel="stylesheet" href="resetUserPassword.css">
   <meta charset="UTF-8">
   <title>Add New Class</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Comfortaa&family=Montserrat&display=swap');
+
+    body{
+        font-family: 'Comfortaa', cursive;
+
+        text-align: center;
+        background-color: #8f50aa;
+    }
+</style>
 </head>
-<body>
-<div class="page-title">
-  <p style="font-size: 7rem;">Add New Class</p>
+<body style="font-family: 'Comfortaa', cursive;
+text-align: center;
+background-color: #8f50aa;">
+
+    <h1 style="width: 100%; color: #ffffff; font-size: 8rem;">Add Class</h1>
+<div style="text-align: center;">
+    <nav style="  text-align: center; ">
+        <a href="indexAdminPanel.html"><button>VIEW USERS</button></a>
+        <a href="deleteUser.html"><button>DELETE USER</button></a>
+        <a href="addUser.html"><button>ADD USER</button></a>
+        <a href="updateUser.html"><button>UPDATE USER</button></a>
+        <a href="resetUserPassword.html"><button>RESET USER PASSWORD</button></a>
+
+        <a href="adminAddClass.html"><button>ADD CLASS</button></a>
+        <a href="adminDeleteClass.html"><button>DELETE CLASS</button></a>
+        <a href="adminDeleteReview.html"><button>DELETE USER REVIEW</button></a>
+
+
+        <a href="index.html"><button>USER PANEL</button></a>
+    </nav>
 </div>
-
-<nav style=" display: flex; justify-content: space-evenly; margin-left: 50rem; margin-bottom: 5%; width: 50%;">
-  <a href="indexAdminPanel.html"><button>VIEW USERS</button></a>
-  <a href="deleteUser.html"><button>DELETE USER</button></a>
-  <a href="addUser.html"><button>ADD USER</button></a>
-  <a href="updateUser.html"><button>UPDATE USER</button></a>
-  <a href="resetUserPassword.html"><button>RESET USER PASSWORD</button></a>
-
-  <a href="adminAddClass.html"><button>ADD CLASS</button></a>
-  <a href="adminDeleteClass.html"><button>DELETE CLASS</button></a>
-  <a href="adminDeleteReview.html"><button>DELETE USER REVIEW</button></a>
-  <a href="index.html"><button>USER PANEL</button></a>
-
-</nav>
-
+<br><br>
 <div id="myForm" >
   <form id="formElem" >
     <div class="mb-3">
-      <label for="className" class="form-label">Class Name</label>
+      <label for="className" class="form-label">Class Name:</label>
       <input type="text" name="className" class="form-control" id="className">
     </div>
 
     <div class="mb-3">
-      <label for="department" class="form-label">Department</label>
+      <label for="department" class="form-label">Department:</label>
       <input type="text" name="department" class="form-control" id="department">
     </div>
 
     <div class="mb-3">
-      <label for="classNumber" class="form-label">Class Number</label>
+      <label for="classNumber" class="form-label">Class Number:</label>
       <input type="text" name="classNumber" class="form-control" id="classNumber">
     </div>
 
     <div class="mb-3">
-      <label for="classDescription" class="form-label">Class Description</label>
+      <label for="classDescription" class="form-label">Class Description:</label>
       <input type="text" name="classDescription" class="form-control" id="classDescription">
     </div>
 
