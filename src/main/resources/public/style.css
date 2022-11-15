@@ -3,6 +3,43 @@
   padding: 0.7%;
 } */
 
+#sad-face{
+  cursor: pointer;
+  height:3%;
+  width:3%;
+}
+
+#sad-face:hover{
+  width: 3.2%;
+  height: 3.2%;
+
+}
+
+#sad-face:active{
+  width: 2.8%;
+  height: 2.8%;
+}
+
+
+.happy-face{
+  cursor: pointer;
+  width: 3%;
+  height: 3%;
+
+}
+
+.happy-face:hover{
+  cursor: pointer;
+  width: 3.2%;
+  height: 3.2%;
+}
+
+
+.happy-face:active{
+  width: 2.8%;
+  height: 2.8%;
+}
+
 .titRowButs{
   display: inline-flex;
   align-items: center;
